@@ -7,8 +7,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
     <style>
-        body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height: 100vh; font-family: sans-serif; overflow: hidden; }
-        #sidebar { width: 350px; background: #181818; display: flex; flex-direction: column; }
+body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height: 100vh; font-family: sans-serif; overflow: hidden; }
+        
+        #sidebar { width: 350px; background: #181818; display: flex; flex-direction: column; z-index: 10; }
         #search-input { padding: 15px; background: #222; border: none; color: #fff; outline: none; font-size: 1rem; border-bottom: 1px solid #333; }
         #channel-list { overflow-y: auto; flex: 1; padding: 10px; }
         
@@ -32,7 +33,6 @@
         }
         .category-header:hover { background: #353535; }
         
-        /* Contenedor de canales (oculto por defecto) */
         .category-channels {
             display: none;
             padding-left: 5px;
@@ -41,7 +41,6 @@
             display: block;
         }
 
-        /* Estilos de los canales */
         .channel-item { 
             display: flex; 
             align-items: center; 
@@ -69,17 +68,21 @@
             flex: 1;
         }
 
-#player-container { 
+        /* Contenedor principal del reproductor (ocupa el espacio restante) */
+        #player-container { 
             flex: 1; 
             background: #000; 
             position: relative; 
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
         }
 
-        /* Forzamos al contenedor interno que crea Shaka UI a ocupar el 100% */
+        /* Forzamos a que el wrapper de Shaka UI ocupe todo el espacio y mande sobre el fullscreen */
         .shaka-video-container {
             width: 100% !important;
             height: 100% !important;
+            flex: 1 !important;
             position: absolute !important;
             top: 0;
             left: 0;
@@ -88,7 +91,7 @@
         video { 
             width: 100% !important; 
             height: 100% !important; 
-            object-fit: contain; /* Ajusta el video al espacio manteniendo su proporción */
+            object-fit: contain; 
         }
     </style>
 </head>
