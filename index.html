@@ -69,8 +69,27 @@
             flex: 1;
         }
 
-        #player-container { flex: 1; background: #000; position: relative; }
-        video { width: 100%; height: 100%; }
+       #player-container { 
+            flex: 1; 
+            background: #000; 
+            position: relative; 
+            display: flex; /* Nuevo: Centra y expande el overlay */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        /* Forzamos a que el contenedor de Shaka UI y el video ocupen todo el espacio */
+        .shaka-video-container {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        video { 
+            width: 100% !important; 
+            height: 100% !important; 
+            object-fit: contain; /* Mantiene la proporción del canal sin deformarlo */
+        }
     </style>
 </head>
 <body>
