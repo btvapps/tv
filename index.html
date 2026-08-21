@@ -2,33 +2,35 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.4</title>
+    <title>TV Player v1.5</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
     <style>/* Estructura general de la pantalla en dos columnas fijas */
+       /* Estructura general de la pantalla */
         body { 
             margin: 0; 
             background-color: #0f0f0f; 
             color: #fff; 
             display: flex; 
-            flex-direction: row; /* Asegura que se pongan uno al lado del otro */
             height: 100vh; 
             width: 100vw;
             font-family: sans-serif; 
             overflow: hidden; 
         }
         
-        /* Menú lateral con ancho fijo y rígido */
+        /* Menú lateral fijo */
         #sidebar { 
             width: 350px; 
             min-width: 350px;
-            max-width: 350px;
             background: #181818; 
             display: flex; 
             flex-direction: column; 
             height: 100vh;
-            z-index: 20; 
+            position: fixed; /* Lo fijamos a la izquierda para que no se mueva */
+            left: 0;
+            top: 0;
+            z-index: 100; 
         }
 
         #search-input { 
@@ -103,26 +105,29 @@
             flex: 1;
         }
 
-        /* Contenedor del reproductor: Ocupa exactamente el resto de la pantalla */
+        /* 
+          CONTENEDOR DEL REPRODUCTOR: 
+          Lo desplazamos exactamente 350px a la derecha para que empiece 
+          donde termina el menú, ocupando solo el recuadro negro restante.
+        */
         #player-container { 
-            flex: 1; 
+            margin-left: 350px;
+            width: calc(100vw - 350px);
             height: 100vh;
             background: #000; 
             position: relative; 
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        /* Contenedor interno de Shaka UI */
+        /* Forzamos a Shaka UI a vivir estrictamente dentro de este espacio */
         .shaka-video-container {
             width: 100% !important;
             height: 100% !important;
             position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
         }
 
-        /* El video se acomoda perfecto sin meterse debajo del menú */
         video { 
             width: 100% !important; 
             height: 100% !important; 
