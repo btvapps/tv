@@ -85,7 +85,6 @@
 async function init() {
             const videoElement = document.getElementById('video');
             
-            // API Moderna: Crear el reproductor vacío y luego adjuntarlo
             player = new shaka.Player();
             await player.attach(videoElement);
             
@@ -99,7 +98,39 @@ async function init() {
                 const res = await fetch('/canales.json');
                 const data = await res.json();
                 categoriesData = data.categories; 
-                render(categoriesData, false);
+                render(categoriesData, false); 
+
+                // ==========================================
+                // NUEVO: AUTOREPRODUCCIÓN DEL CANAL INICIAL
+                // ==========================================
+                
+                // 1. Escribe aquí el nombre exacto del canal que quieres que arranque
+                const canalDeseado = "TN"; 
+                let canalEncontrado = null;
+
+                // 2. Buscamos el canal en todas las categorías
+                for (const cat of categoriesData) {
+                    canalEncontrado = cat.samples.find(ch => ch.name === canalDeseado);
+                    if (canalEncontrado) break; // Si lo encuentra, deja de buscar
+                }
+
+                // 3. (Plan B) Si por algún motivo escribiste mal el nombre o no existe, 
+                // agarra el primer canal de la primera categoría para no dejar la pantalla negra.
+                if (!canalEncontrado && categoriesData.length > 0 && categoriesData[0].samples.length > 0) {
+                    canalEncontrado = categoriesData[0].samples[0];
+                }
+
+                // 4. Si tenemos un canal, mandamos a llamar a la función play() automáticamente
+                if (canalEncontrado) {
+                    const url = canalEncontrado.original_url || canalEncontrado.url;
+                    const type = canalEncontrado.type;
+                    const drm = canalEncontrado.drm_license_uri || '';
+                    
+                    console.log(`Auto-iniciando el canal: ${canalEncontrado.name}`);
+                    play(url, type, drm);
+                }
+                // ==========================================
+
             } catch (error) {
                 console.error("Error cargando canales.json:", error);
                 document.getElementById('channel-list').innerHTML = '<div style="padding: 15px; color: #ff4d4d;">Error al cargar la lista de canales.</div>';
