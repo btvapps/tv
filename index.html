@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.8</title>
+    <title>TV Player v1.9</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
@@ -107,6 +107,7 @@
         }
 
         /* Contenedor del reproductor: Ocupa exactamente el espacio restante */
+       /* Aseguramos que el contenedor general del reproductor ocupe el espacio correcto */
         #player-container { 
             flex: 1; 
             height: 100vh;
@@ -115,15 +116,18 @@
             overflow: hidden;
         }
 
+        /* 
+          ESTA ES LA CLAVE: Forzamos a Shaka UI a correrse 350px a la derecha 
+          para que no tape el menú lateral y las categorías vuelvan a verse.
+        */
         .shaka-video-container {
-            width: 100% !important;
+            width: calc(100% - 350px) !important;
             height: 100% !important;
             position: absolute !important;
             top: 0;
-            left: 0;
+            left: 350px !important;
         }
 
-        /* Video completo sin zoom y sin recortes */
         video { 
             width: 100% !important; 
             height: 100% !important; 
