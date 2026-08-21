@@ -2,16 +2,50 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.3</title>
+    <title>TV Player v1.4</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
-    <style>
-body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height: 100vh; font-family: sans-serif; overflow: hidden; }
+    <style>/* Estructura general de la pantalla en dos columnas fijas */
+        body { 
+            margin: 0; 
+            background-color: #0f0f0f; 
+            color: #fff; 
+            display: flex; 
+            flex-direction: row; /* Asegura que se pongan uno al lado del otro */
+            height: 100vh; 
+            width: 100vw;
+            font-family: sans-serif; 
+            overflow: hidden; 
+        }
         
-        #sidebar { width: 350px; background: #181818; display: flex; flex-direction: column; z-index: 10; }
-        #search-input { padding: 15px; background: #222; border: none; color: #fff; outline: none; font-size: 1rem; border-bottom: 1px solid #333; }
-        #channel-list { overflow-y: auto; flex: 1; padding: 10px; }
+        /* Menú lateral con ancho fijo y rígido */
+        #sidebar { 
+            width: 350px; 
+            min-width: 350px;
+            max-width: 350px;
+            background: #181818; 
+            display: flex; 
+            flex-direction: column; 
+            height: 100vh;
+            z-index: 20; 
+        }
+
+        #search-input { 
+            padding: 15px; 
+            background: #222; 
+            border: none; 
+            color: #fff; 
+            outline: none; 
+            font-size: 1rem; 
+            border-bottom: 1px solid #333; 
+        }
+
+        #channel-list { 
+            overflow-y: auto; 
+            flex: 1; 
+            padding: 10px; 
+        }
         
         .category-header {
             background: #2a2a2a;
@@ -51,6 +85,7 @@ body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height:
             transition: background 0.2s;
         }
         .channel-item:hover { background: #333; }
+        
         .channel-icon {
             width: 36px;
             height: 36px;
@@ -59,6 +94,7 @@ body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height:
             border-radius: 4px;
             background: transparent;
         }
+        
         .channel-name {
             font-size: 0.95rem;
             white-space: nowrap;
@@ -67,23 +103,26 @@ body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height:
             flex: 1;
         }
 
-        /* Contenedor principal */
-/* Contenedor del reproductor */
+        /* Contenedor del reproductor: Ocupa exactamente el resto de la pantalla */
         #player-container { 
             flex: 1; 
+            height: 100vh;
             background: #000; 
             position: relative; 
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Forzamos al contenedor interno de Shaka UI a respetar el tamaño exacto */
+        /* Contenedor interno de Shaka UI */
         .shaka-video-container {
             width: 100% !important;
             height: 100% !important;
             position: absolute !important;
         }
 
-        /* La clave está aquí: 'contain' muestra el video entero sin recortar nada */
+        /* El video se acomoda perfecto sin meterse debajo del menú */
         video { 
             width: 100% !important; 
             height: 100% !important; 
