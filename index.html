@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.0</title>
+    <title>TV Player v1.1</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
@@ -13,7 +13,6 @@ body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height:
         #search-input { padding: 15px; background: #222; border: none; color: #fff; outline: none; font-size: 1rem; border-bottom: 1px solid #333; }
         #channel-list { overflow-y: auto; flex: 1; padding: 10px; }
         
-        /* Estilos de las Categorías (Acordeón) */
         .category-header {
             background: #2a2a2a;
             color: #d1d1d1;
@@ -68,30 +67,30 @@ body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height:
             flex: 1;
         }
 
-        /* Contenedor principal del reproductor (ocupa el espacio restante) */
+        /* Contenedor principal */
         #player-container { 
             flex: 1; 
             background: #000; 
             position: relative; 
             display: flex;
-            flex-direction: column;
             overflow: hidden;
         }
 
-        /* Forzamos a que el wrapper de Shaka UI ocupe todo el espacio y mande sobre el fullscreen */
+        /* FUERZA TOTAL A SHAKA UI PARA LLENAR LA PANTALLA */
         .shaka-video-container {
             width: 100% !important;
             height: 100% !important;
-            flex: 1 !important;
             position: absolute !important;
-            top: 0;
-            left: 0;
+            top: 0 !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            right: 0 !important;
         }
 
         video { 
             width: 100% !important; 
             height: 100% !important; 
-            object-fit: contain; 
+            object-fit: contain !important; 
         }
     </style>
 </head>
