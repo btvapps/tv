@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.2</title>
+    <title>TV Player v1.3</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
@@ -68,24 +68,22 @@ body { margin: 0; background-color: #0f0f0f; color: #fff; display: flex; height:
         }
 
         /* Contenedor principal */
-#player-container { 
+/* Contenedor del reproductor */
+        #player-container { 
             flex: 1; 
             background: #000; 
             position: relative; 
             overflow: hidden;
         }
 
-        /* FUERZA TOTAL A SHAKA UI PARA LLENAR LA PANTALLA */
+        /* Forzamos al contenedor interno de Shaka UI a respetar el tamaño exacto */
         .shaka-video-container {
             width: 100% !important;
             height: 100% !important;
             position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            bottom: 0 !important;
-            right: 0 !important;
         }
 
+        /* La clave está aquí: 'contain' muestra el video entero sin recortar nada */
         video { 
             width: 100% !important; 
             height: 100% !important; 
