@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- Meta tag vital para móviles: desactiva zoom táctil y ajusta al ancho -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TV Player Mobile v1.10</title>
+    <title>TV Player Mobile v1.11</title>
     
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
@@ -136,7 +136,7 @@
     <!-- Reproductor Arriba -->
     <!-- Se agrega 'playsinline' para evitar el fullscreen forzado en celulares -->
     <div id="player-container" data-shaka-player-container>
-        <video id="video" autoplay muted playsinline data-shaka-player></video>
+        <video id="video" autoplay muted playsinline></video>
     </div>
 
     <!-- Buscador y Lista Abajo -->
@@ -259,22 +259,26 @@
 
         // Función de reproducción blindada con UI e Idioma Español
        // Función de reproducción blindada con UI, Idioma Español y Fullscreen
+       // Función de reproducción con limpieza de UI y Fullscreen
         async function play(url, type, drm) {
             try {
                 const videoElement = document.getElementById('video');
                 const videoContainer = document.getElementById('player-container');
 
+                // 1. DESTRUIR PLAYER Y CONTROLES ANTERIORES PARA EVITAR CLONES
+                if (window.ui) { await window.ui.destroy(); window.ui = null; }
                 if (window.player) { await window.player.destroy(); window.player = null; }
+                
                 videoElement.src = '';
 
-                // Inicialización limpia estándar
+                // 2. Inicialización limpia
                 window.player = new shaka.Player();
                 await window.player.attach(videoElement);
                 
-                // Conectamos la interfaz UI
-                const ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
+                // Usamos window.ui para poder destruirlo en el futuro
+                window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
                 
-                // === CONFIGURACIÓN DE CONTROLES (FULLSCREEN) ===
+                // === CONFIGURACIÓN DE CONTROLES ===
                 const config = {
                     controlPanelElements: [
                         'play_pause',
@@ -282,12 +286,11 @@
                         'spacer',
                         'mute',
                         'volume',
-                        'fullscreen', // ¡Aquí forzamos el botón de pantalla completa!
+                        'fullscreen', 
                         'overflow_menu'
                     ]
                 };
-                ui.configure(config);
-                // ===============================================
+                window.ui.configure(config);
 
                 window.player.configure({
                     streaming: { retryParameters: { maxAttempts: 3 } },
