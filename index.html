@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- Meta tag vital para móviles: desactiva zoom táctil y ajusta al ancho -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TV Player Mobile v1.9</title>
+    <title>TV Player Mobile v1.10</title>
     
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
@@ -258,6 +258,7 @@
         }
 
         // Función de reproducción blindada con UI e Idioma Español
+       // Función de reproducción blindada con UI, Idioma Español y Fullscreen
         async function play(url, type, drm) {
             try {
                 const videoElement = document.getElementById('video');
@@ -270,9 +271,23 @@
                 window.player = new shaka.Player();
                 await window.player.attach(videoElement);
                 
-                // Conectamos la interfaz UI directamente a los elementos existentes
+                // Conectamos la interfaz UI
                 const ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
-                const controls = ui.getControls();
+                
+                // === CONFIGURACIÓN DE CONTROLES (FULLSCREEN) ===
+                const config = {
+                    controlPanelElements: [
+                        'play_pause',
+                        'time_and_duration',
+                        'spacer',
+                        'mute',
+                        'volume',
+                        'fullscreen', // ¡Aquí forzamos el botón de pantalla completa!
+                        'overflow_menu'
+                    ]
+                };
+                ui.configure(config);
+                // ===============================================
 
                 window.player.configure({
                     streaming: { retryParameters: { maxAttempts: 3 } },
