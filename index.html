@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flow TV Mobile</title>
+    
+    <!-- Librerías de Shaka Player para reproducir .mpd -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/controls.min.css">
+    
+    <style>
+        /* Estilos base y Tema Oscuro */
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #0f1115; 
+            color: #ffffff; 
+            overscroll-behavior-y: none; /* Evita el "rebote" molesto en Android al hacer scroll */
+        }
+        
+        /* Reproductor fijado arriba */
+        #player-container { 
+            position: sticky; 
+            top: 0; 
+            width: 100%; 
+            aspect-ratio: 16/9; 
+            background: #000; 
+            z-index: 100; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6); 
+        }
+        video { width: 100%; height: 100%; object-fit: contain; }
+        
+        /* Controles y Grilla */
+        .container { padding: 15px; padding-bottom: 30px; }
+        .section-title { margin-bottom: 15px; font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        
+        .channel-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+            gap: 12px; 
+        }
+        
+        /* Tarjetas de Canales */
+        .channel-card { 
+            background: #1c202a; 
+            border-radius: 12px; 
+            padding: 12px 8px; 
+            text-align: center; 
+            cursor: pointer; 
+            transition: transform 0.1s, background 0.2s; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            aspect-ratio: 1; 
+            border: 1px solid #2a2f3d;
+        }
+        .channel-card:active { transform: scale(0.92); background: #2a2f3d; }
+        
+        .channel-card img { 
+            max-width: 90%; 
+            max-height: 50px; 
+            margin-bottom: 10px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); 
+        }
+        .channel-name { 
+            font-size: 0.8rem; 
+            font-weight: 500; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+            width: 100%; 
+            color: #b3b9c5; 
+        }
+        
+        /* Loader */
+        #loading { text-align: center; color: #777; padding: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Reproductor de Video -->
+    <div id="player-container">
+        <video id="video" autoplay></video>
+    </div>
+
+    <!-- Lista de Canales -->
+    <div class="container">
+        <h2 class="section-title">Televisión en Vivo</h2>
+        <div id="loading">Cargando canales...</div>
+        <div id="canales" class="channel-grid"></div>
+    </div>
+
+    <script>
+        let player;
+
+        // 1. Inicializar Shaka Player
+        function initPlayer() {
+            shaka.polyfill.installAll();
+            if (shaka.Player.isBrowserSupported()) {
+                const video = document.getElementById('video');
+                const videoContainer = document.getElementById('player-container');
+                player = new shaka.Player(video);
+                const ui = new shaka.ui.Overlay(player, videoContainer, video);
+                
+                // Configuración para que el buffer cargue rápido en redes móviles
+                player.configure({ streaming: { bufferingGoal: 10 } });
+            } else {
+                alert('Tu navegador no soporta streaming DASH.');
+            }
+        }
+
+        // 2. Cargar y reproducir el canal a través del proxy del APK
+        async function playChannel(rawUrl) {
+            let urlFinal = rawUrl;
+            
+            // Si la URL es directa (empieza con http), la forzamos a pasar por tu proxy Kotlin
+            if (rawUrl.startsWith('http')) {
+                const urlObj = new URL(rawUrl);
+                urlFinal = '/proxy' + urlObj.pathname + urlObj.search;
+            }
+
+            try {
+                await player.load(urlFinal);
+                document.getElementById('video').play();
+            } catch (e) {
+                console.error('Error reproduciendo el canal:', e);
+                alert("No se pudo conectar con este canal.");
+            }
+        }
+
+        // 3. Obtener canales del JSON (el APK lo intercepta y trae de GitHub)
+        async function fetchCanales() {
+            try {
+                const res = await fetch('/canales.json');
+                const data = await res.json();
+                
+                document.getElementById('loading').style.display = 'none';
+                const container = document.getElementById('canales');
+                
+                // Procesar la estructura del JSON
+                let channels = [];
+                if (data.categories) {
+                    data.categories.forEach(c => {
+                        let catChannels = c.channels || c.canales || [];
+                        channels = channels.concat(catChannels);
+                    });
+                } else if (Array.isArray(data)) {
+                    channels = data;
+                }
+
+                // Renderizar los canales en la grilla
+                channels.forEach(ch => {
+                    const card = document.createElement('div');
+                    card.className = 'channel-card';
+                    card.onclick = () => playChannel(ch.url);
+                    
+                    // Imagen por defecto si un canal no tiene logo
+                    const fallbackImg = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="50"><rect width="80" height="50" fill="%231c202a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="sans-serif" font-size="14">TV</text></svg>';
+                    
+                    card.innerHTML = `
+                        <img src="${ch.logo || ch.img || fallbackImg}" onerror="this.src='${fallbackImg}'" alt="${ch.name}">
+                        <div class="channel-name">${ch.name || 'Canal'}</div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (e) {
+                console.error('Error obteniendo canales:', e);
+                document.getElementById('loading').innerText = 'No se pudieron cargar los canales.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initPlayer();
+            fetchCanales();
+        });
+    </script>
+</body>
+</html>
