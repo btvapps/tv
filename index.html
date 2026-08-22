@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- Meta tag vital para móviles: desactiva zoom táctil y ajusta al ancho -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TV Player Mobile v1.11</title>
+    <title>TV Player Mobile v1.12</title>
     
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
@@ -135,10 +135,9 @@
     
     <!-- Reproductor Arriba -->
     <!-- Se agrega 'playsinline' para evitar el fullscreen forzado en celulares -->
-    <div id="player-container" data-shaka-player-container>
+    <div id="player-container">
         <video id="video" autoplay muted playsinline></video>
     </div>
-
     <!-- Buscador y Lista Abajo -->
     <div id="sidebar">
         <input type="text" id="search-input" placeholder="Buscar canal..." oninput="filter()">
@@ -260,38 +259,27 @@
         // Función de reproducción blindada con UI e Idioma Español
        // Función de reproducción blindada con UI, Idioma Español y Fullscreen
        // Función de reproducción con limpieza de UI y Fullscreen
-        async function play(url, type, drm) {
+async function play(url, type, drm) {
             try {
                 const videoElement = document.getElementById('video');
                 const videoContainer = document.getElementById('player-container');
 
-                // 1. DESTRUIR PLAYER Y CONTROLES ANTERIORES PARA EVITAR CLONES
-                if (window.ui) { await window.ui.destroy(); window.ui = null; }
-                if (window.player) { await window.player.destroy(); window.player = null; }
-                
-                videoElement.src = '';
+                // 1. INICIALIZAR EL REPRODUCTOR ¡SOLO UNA VEZ!
+                if (!window.player) {
+                    window.player = new shaka.Player();
+                    await window.player.attach(videoElement);
+                    window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
+                    
+                    // Forzar el botón de Pantalla Completa
+                    window.ui.configure({
+                        controlPanelElements: [
+                            'play_pause', 'time_and_duration', 'spacer', 'mute', 
+                            'volume', 'fullscreen', 'overflow_menu'
+                        ]
+                    });
+                }
 
-                // 2. Inicialización limpia
-                window.player = new shaka.Player();
-                await window.player.attach(videoElement);
-                
-                // Usamos window.ui para poder destruirlo en el futuro
-                window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
-                
-                // === CONFIGURACIÓN DE CONTROLES ===
-                const config = {
-                    controlPanelElements: [
-                        'play_pause',
-                        'time_and_duration',
-                        'spacer',
-                        'mute',
-                        'volume',
-                        'fullscreen', 
-                        'overflow_menu'
-                    ]
-                };
-                window.ui.configure(config);
-
+                // 2. CONFIGURAR REINTENTOS
                 window.player.configure({
                     streaming: { retryParameters: { maxAttempts: 3 } },
                     preferredAudioLanguage: 'es',
@@ -300,6 +288,7 @@
 
                 url = decodeURIComponent(url);
                 
+                // 3. DRM
                 if(type === 'CLEARKEY' && drm) {
                     const parts = drm.split(',');
                     window.player.configure({ 
@@ -309,6 +298,7 @@
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
                 
+                // 4. PARSEO DE RUTAS
                 let liveIndex = url.indexOf('/live/');
                 if (liveIndex !== -1) {
                     url = url.substring(liveIndex);
@@ -329,7 +319,11 @@
                     if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
                 }
 
+                // 5. CARGAR CANAL (Simplemente cambia el video sin destruir la interfaz)
                 await window.player.load('/proxy' + url);
+                
+                // Aseguramos que el video inicie para sincronizar el botón de Play
+                videoElement.play();
                 
             } catch (e) {
                 console.error("Error al reproducir:", e);
