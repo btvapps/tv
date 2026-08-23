@@ -10,6 +10,43 @@
         #video-container { width: 100%; height: 100%; position: relative; }
         video { width: 100%; height: 100%; object-fit: contain; }
         
+        /* --- PANTALLA DE CARGA CON LOGO --- */
+        #loading-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #loading-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #loading-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+            animation: pulse 1.5s infinite alternate;
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.2);
+            border-top: 4px solid #E50914;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulse { 0% { transform: scale(0.95); } 100% { transform: scale(1.05); } }
+
         /* --- MENSAJES EN PANTALLA (OSD) --- */
         #osd-message {
             position: absolute;
@@ -32,7 +69,7 @@
             top: 40px;
             right: 40px;
             background: rgba(15, 15, 15, 0.85);
-            border-left: 5px solid #E50914; /* Borde rojo estilo Netflix */
+            border-left: 5px solid #E50914;
             padding: 20px;
             border-radius: 6px;
             display: flex;
@@ -120,6 +157,13 @@
 <body>
     <div id="video-container">
         <video id="video" autoplay></video>
+        
+        <!-- Pantalla de Carga con Logo -->
+        <div id="loading-overlay">
+            <img id="loading-logo" src="" alt="Cargando...">
+            <div class="loading-spinner"></div>
+        </div>
+
         <div id="osd-message"></div>
         
         <!-- CUADRO DE INFORMACIÓN -->
@@ -161,7 +205,7 @@
         window.player = new shaka.Player(video);
         
         window.player.configure({ 
-            streaming: { retryParameters: { maxAttempts: 5 } },
+            streaming: { retryParameters: { maxAttempts: 10, timeout: 30000 } },
             preferredAudioLanguage: 'es',
             preferredTextLanguage: 'es',
             abr: { enabled: true } 
@@ -179,6 +223,8 @@
         const btnQuality = document.getElementById('btn-quality');
         const timeDisplay = document.getElementById('time-display');
         const osd = document.getElementById('osd-message');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const loadingLogo = document.getElementById('loading-logo');
 
         let timeoutOcultar;
         let timeoutOsd;
@@ -362,55 +408,66 @@
         });
 
         // Función de inicialización desde Kotlin
-        async function playVideo(url, kid, key) {
+        async function playVideo(url, kid, key, logoUrl) {
             try {
+                if (logoUrl) {
+                    loadingLogo.src = logoUrl;
+                    loadingLogo.style.display = 'block';
+                } else {
+                    loadingLogo.style.display = 'none';
+                }
+                loadingOverlay.classList.add('visible');
+
+                await window.player.unload();
+
                 if (kid && key) {
                     window.player.configure({ drm: { clearKeys: { [kid]: key } } });
                 } else {
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
+
                 await window.player.load(url);
                 video.play();
                 
-                // Escaneo de audios
+                loadingOverlay.classList.remove('visible');
+
                 const tracks = window.player.getVariantTracks();
                 audioLangs = [...new Set(tracks.map(t => t.language))].filter(Boolean);
                 currentAudioIdx = Math.max(0, audioLangs.indexOf('es')); 
                 
-                // Escaneo de subtítulos
                 const textTracks = window.player.getTextTracks();
                 subLangs = [...new Set(textTracks.map(t => t.language))].filter(Boolean);
                 currentSubIdx = -1;
                 window.player.setTextTrackVisibility(false);
                 
-                // Creación dinámica del menú de calidades
                 qualityLevels = [...new Set(tracks.map(t => t.height).filter(h => h > 0))].sort((a, b) => b - a);
-                qualityMenu.innerHTML = ''; 
                 
-                const autoOpt = document.createElement('div');
-                autoOpt.id = 'opt-auto'; 
-                autoOpt.className = 'q-option active';
-                autoOpt.innerText = 'AUTO';
-                autoOpt.tabIndex = 0;
-                autoOpt.onclick = () => selectQuality('auto', autoOpt);
-                qualityMenu.appendChild(autoOpt);
-                
-                qualityLevels.forEach(h => {
-                    const opt = document.createElement('div');
-                    opt.className = 'q-option';
-                    opt.innerText = h + 'p';
-                    opt.tabIndex = 0;
-                    opt.onclick = () => selectQuality(h, opt);
-                    qualityMenu.appendChild(opt);
-                });
+                if (typeof qualityMenu !== 'undefined') {
+                    qualityMenu.innerHTML = ''; 
+                    const autoOpt = document.createElement('div');
+                    autoOpt.id = 'opt-auto'; 
+                    autoOpt.className = 'q-option active';
+                    autoOpt.innerText = 'AUTO';
+                    autoOpt.tabIndex = 0;
+                    autoOpt.onclick = () => selectQuality('auto', autoOpt);
+                    qualityMenu.appendChild(autoOpt);
+                    
+                    qualityLevels.forEach(h => {
+                        const opt = document.createElement('div');
+                        opt.className = 'q-option';
+                        opt.innerText = h + 'p';
+                        opt.tabIndex = 0;
+                        opt.onclick = () => selectQuality(h, opt);
+                        qualityMenu.appendChild(opt);
+                    });
+                }
 
                 window.player.configure({ abr: { enabled: true } });
-                
-                setTimeout(updateActiveQualityDisplay, 1000);
-                showControls();
-                btnPlay.focus();
+                setTimeout(updateInfoPanelData, 1500);
+
             } catch (e) {
-                console.error("Error reproduciendo el video:", e);
+                console.error("Error al cargar el video:", e);
+                setTimeout(() => { playVideo(url, kid, key, logoUrl); }, 2000);
             }
         }
     </script>
