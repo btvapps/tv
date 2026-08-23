@@ -9,6 +9,19 @@
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: black; overflow: hidden; font-family: sans-serif; color: white; }
         #video-container { width: 100%; height: 100%; position: relative; }
         video { width: 100%; height: 100%; object-fit: contain; }
+        /* Oculta cualquier control nativo que Android WebView intente forzar */
+video::-webkit-media-controls {
+    display:none !important;
+}
+video::-webkit-media-controls-panel {
+    display: none !important;
+}
+video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
         
         /* --- PANTALLA DE CARGA CON LOGO --- */
         #loading-overlay {
@@ -156,7 +169,7 @@
 </head>
 <body>
     <div id="video-container">
-        <video id="video" autoplay></video>
+        <video id="video" autoplay playsinline webkit-playsinline></video>
         
         <!-- Pantalla de Carga con Logo -->
         <div id="loading-overlay">
