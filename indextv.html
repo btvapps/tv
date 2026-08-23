@@ -9,19 +9,6 @@
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: black; overflow: hidden; font-family: sans-serif; color: white; }
         #video-container { width: 100%; height: 100%; position: relative; }
         video { width: 100%; height: 100%; object-fit: contain; }
-        /* Oculta cualquier control nativo que Android WebView intente forzar */
-video::-webkit-media-controls {
-    display:none !important;
-}
-video::-webkit-media-controls-panel {
-    display: none !important;
-}
-video::-webkit-media-controls-play-button {
-    display: none !important;
-}
-video::-webkit-media-controls-start-playback-button {
-    display: none !important;
-}
         
         /* --- PANTALLA DE CARGA CON LOGO --- */
         #loading-overlay {
@@ -120,7 +107,7 @@ video::-webkit-media-controls-start-playback-button {
         
         #tv-controls.visible { opacity: 1; }
         
-        .time-text { font-size: 22px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
+        .time-text { font-size: 22px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; cursor: pointer; }
         
         .botones-row { display: flex; gap: 15px; }
         
@@ -169,7 +156,7 @@ video::-webkit-media-controls-start-playback-button {
 </head>
 <body>
     <div id="video-container">
-        <video id="video" autoplay playsinline webkit-playsinline></video>
+        <video id="video" autoplay></video>
         
         <!-- Pantalla de Carga con Logo -->
         <div id="loading-overlay">
@@ -200,7 +187,7 @@ video::-webkit-media-controls-start-playback-button {
 
         <!-- BARRA INFERIOR DE BOTONES -->
         <div id="tv-controls">
-            <div class="time-text" id="time-display">🔴 EN VIVO</div>
+            <div class="time-text" id="time-display" tabindex="0">🔴 EN VIVO</div>
             <div class="botones-row">
                 <div class="btn" id="btn-subs" tabindex="0">💬</div>
                 <div class="btn" id="btn-rewind" tabindex="0">⏪</div>
@@ -224,7 +211,6 @@ video::-webkit-media-controls-start-playback-button {
             abr: { enabled: true } 
         });
 
-        // Referencias a la UI
         const controlsUi = document.getElementById('tv-controls');
         const infoPanel = document.getElementById('info-panel');
         const qualityMenu = document.getElementById('quality-menu');
@@ -248,13 +234,18 @@ video::-webkit-media-controls-start-playback-button {
         let currentSubIdx = -1; 
         let qualityLevels = [];
 
-        // Diccionario de idiomas
         const diccIdiomas = { 'es': 'Español', 'en': 'Inglés', 'pt': 'Portugués', 'fr': 'Francés', 'it': 'Italiano', 'de': 'Alemán' };
         function traducirIdioma(cod) { return diccIdiomas[cod.toLowerCase()] || cod.toUpperCase(); }
 
-        // Actualizar datos del panel de información
+        // Actualizar datos del panel de información con la validación de audio único
         function updateInfoPanelData() {
-            let txtAudio = audioLangs.length > 0 ? traducirIdioma(audioLangs[currentAudioIdx]) : "Desconocido";
+            let txtAudio = "Desconocido";
+            if (audioLangs.length === 1) {
+                txtAudio = traducirIdioma(audioLangs[0]) + " (Único disponible)";
+            } else if (audioLangs.length > 1) {
+                txtAudio = traducirIdioma(audioLangs[currentAudioIdx]);
+            }
+
             let txtSubs = "No disponible";
             if (subLangs.length > 0) {
                 txtSubs = (currentSubIdx !== -1) ? traducirIdioma(subLangs[currentSubIdx]) : "Apagados";
@@ -272,7 +263,6 @@ video::-webkit-media-controls-start-playback-button {
             document.getElementById('info-qual').innerText = txtQual;
         }
 
-        // Mostrar controles
         function showControls() {
             updateInfoPanelData(); 
             controlsUi.classList.add('visible');
@@ -286,7 +276,6 @@ video::-webkit-media-controls-start-playback-button {
             }, 5000); 
         }
         
-        // Mensaje emergente (OSD)
         function showOsd(mensaje) {
             osd.innerText = mensaje;
             osd.style.opacity = 1;
@@ -294,7 +283,6 @@ video::-webkit-media-controls-start-playback-button {
             timeoutOsd = setTimeout(() => { osd.style.opacity = 0; }, 3000);
         }
 
-        // Puente con Kotlin para el botón ATRÁS del control
         function handleBackButton() {
             if (qualityMenu.classList.contains('visible')) {
                 qualityMenu.classList.remove('visible');
@@ -317,7 +305,6 @@ video::-webkit-media-controls-start-playback-button {
             return m.toString().padStart(2, '0') + ':' + s.toString().padStart(2, '0');
         }
 
-        // Actualizar texto de calidad en tiempo real
         function updateActiveQualityDisplay() {
             updateInfoPanelData(); 
             const activeTrack = window.player.getVariantTracks().find(t => t.active);
@@ -331,19 +318,38 @@ video::-webkit-media-controls-start-playback-button {
         window.player.addEventListener('adaptation', updateActiveQualityDisplay);
         window.player.addEventListener('variantchanged', updateActiveQualityDisplay);
 
-        // Lógica de tiempo y en vivo
+        // Lógica de tiempo y botón de "Ir a En Vivo"
         video.addEventListener('timeupdate', () => {
             if (window.player.isLive()) {
-                timeDisplay.innerText = "🔴 EN VIVO";
+                const seekRange = window.player.seekRange();
+                const latency = seekRange.end - video.currentTime;
+                // Si el usuario se alejó más de 5 segundos del borde actual, permitimos volver a vivo
+                if (latency > 5) {
+                    timeDisplay.innerText = "▶ IR A EN VIVO 🔴";
+                    timeDisplay.style.color = "#E50914";
+                } else {
+                    timeDisplay.innerText = "🔴 EN VIVO";
+                    timeDisplay.style.color = "white";
+                }
             } else {
                 timeDisplay.innerText = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+                timeDisplay.style.color = "white";
             }
+        });
+
+        // Al hacer click o presionar OK sobre el texto de tiempo/en vivo, saltamos al presente
+        timeDisplay.addEventListener('click', () => {
+            if (window.player.isLive()) {
+                const seekRange = window.player.seekRange();
+                video.currentTime = seekRange.end;
+                showOsd("Transmisión en vivo actual");
+            }
+            showControls();
         });
 
         video.addEventListener('play', () => { btnPlay.innerText = '⏸️'; });
         video.addEventListener('pause', () => { btnPlay.innerText = '▶️'; });
 
-        // Eventos de botones
         btnPlay.addEventListener('click', () => { video.paused ? video.play() : video.pause(); showControls(); });
         btnRewind.addEventListener('click', () => { video.currentTime -= 15; showControls(); });
         btnForward.addEventListener('click', () => { video.currentTime += 15; showControls(); });
@@ -362,7 +368,7 @@ video::-webkit-media-controls-start-playback-button {
 
         btnSubs.addEventListener('click', () => {
             if (subLangs.length === 0) {
-                showOsd("Sin subtítulos");
+                showOsd("Subtítulos no disponibles");
             } else {
                 currentSubIdx++;
                 if (currentSubIdx >= subLangs.length) {
@@ -379,7 +385,6 @@ video::-webkit-media-controls-start-playback-button {
             showControls();
         });
 
-        // Menú de calidades
         btnQuality.addEventListener('click', () => {
             if (qualityMenu.classList.contains('visible')) {
                 qualityMenu.classList.remove('visible');
@@ -415,7 +420,6 @@ video::-webkit-media-controls-start-playback-button {
             btnQuality.focus();
         }
 
-        // Detección del control remoto
         document.addEventListener('keydown', (e) => {
             showControls();
             if (!controlsUi.classList.contains('visible') || document.activeElement.tagName !== 'DIV') {
@@ -423,20 +427,16 @@ video::-webkit-media-controls-start-playback-button {
             }
         });
 
-        // Función de inicialización desde Kotlin
         async function playVideo(url, kid, key, logoUrl) {
             try {
-                // 1. Limpiamos y mostramos el logo nuevo o dejamos en blanco al instante
                 if (logoUrl) {
                     loadingLogo.src = logoUrl;
                     loadingLogo.style.display = 'block';
                 } else {
                     loadingLogo.style.display = 'none';
                 }
-                // Mostramos la pantalla de carga limpia inmediatamente
                 loadingOverlay.classList.add('visible');
 
-                // 2. Descargamos el video anterior
                 await window.player.unload();
 
                 if (kid && key) {
@@ -448,7 +448,6 @@ video::-webkit-media-controls-start-playback-button {
                 await window.player.load(url);
                 video.play();
                 
-                // 3. Ocultamos la pantalla de carga solo cuando el nuevo video ya arrancó
                 loadingOverlay.classList.remove('visible');
 
                 const tracks = window.player.getVariantTracks();
