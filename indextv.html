@@ -166,8 +166,12 @@
 
         <div id="osd-message"></div>
         
-        <!-- CUADRO DE INFORMACIÓN -->
+        <!-- CUADRO DE INFORMACIÓN (STATS) -->
         <div id="info-panel">
+            <div class="info-row">
+                <span class="info-label">VERSIÓN</span>
+                <span class="info-value" id="info-version">-</span>
+            </div>
             <div class="info-row">
                 <span class="info-label">AUDIO</span>
                 <span class="info-value" id="info-audio">-</span>
@@ -200,12 +204,22 @@
     </div>
 
     <script>
+        // ========================================================
+        // 🛠️ MODIFICA EL NÚMERO DE VERSIÓN AQUÍ CUANDO QUIERAS 🛠️
+        const APP_VERSION = "v1.1.0";
+        // ========================================================
+
         shaka.polyfill.installAll();
         const video = document.getElementById('video');
         window.player = new shaka.Player(video);
         
         window.player.configure({ 
-            streaming: { retryParameters: { maxAttempts: 10, timeout: 30000 } },
+            streaming: { 
+                retryParameters: { maxAttempts: 10, timeout: 30000 },
+                bufferingGoal: 10,
+                rebufferingGoal: 2,
+                stallEnabled: true
+            },
             preferredAudioLanguage: 'es',
             preferredTextLanguage: 'es',
             abr: { enabled: true } 
@@ -237,8 +251,11 @@
         const diccIdiomas = { 'es': 'Español', 'en': 'Inglés', 'pt': 'Portugués', 'fr': 'Francés', 'it': 'Italiano', 'de': 'Alemán' };
         function traducirIdioma(cod) { return diccIdiomas[cod.toLowerCase()] || cod.toUpperCase(); }
 
-        // Actualizar datos del panel de información con la validación de audio único
+        // Actualizar datos del panel de información (Stats)
         function updateInfoPanelData() {
+            // Mostramos la versión configurada arriba
+            document.getElementById('info-version').innerText = APP_VERSION;
+
             let txtAudio = "Desconocido";
             if (audioLangs.length === 1) {
                 txtAudio = traducirIdioma(audioLangs[0]) + " (Único disponible)";
@@ -315,15 +332,11 @@
             }
         }
 
-        window.player.addEventListener('adaptation', updateActiveQualityDisplay);
-        window.player.addEventListener('variantchanged', updateActiveQualityDisplay);
-
         // Lógica de tiempo y botón de "Ir a En Vivo"
         video.addEventListener('timeupdate', () => {
             if (window.player.isLive()) {
                 const seekRange = window.player.seekRange();
                 const latency = seekRange.end - video.currentTime;
-                // Si el usuario se alejó más de 5 segundos del borde actual, permitimos volver a vivo
                 if (latency > 5) {
                     timeDisplay.innerText = "▶ IR A EN VIVO 🔴";
                     timeDisplay.style.color = "#E50914";
@@ -337,7 +350,6 @@
             }
         });
 
-        // Al hacer click o presionar OK sobre el texto de tiempo/en vivo, saltamos al presente
         timeDisplay.addEventListener('click', () => {
             if (window.player.isLive()) {
                 const seekRange = window.player.seekRange();
@@ -427,7 +439,7 @@
             }
         });
 
-     async function playVideo(url, kid, key, logoUrl) {
+        async function playVideo(url, kid, key, logoUrl) {
             try {
                 if (logoUrl) {
                     loadingLogo.src = logoUrl;
@@ -437,23 +449,20 @@
                 }
                 loadingOverlay.classList.add('visible');
 
-                // 1. Destruimos el reproductor anterior de Shaka
                 if (window.player) {
                     await window.player.destroy();
                     window.player = null;
                 }
 
-                // 2. Vaciamos agresivamente el elemento video de la RAM
                 video.pause();
                 video.removeAttribute('src');
-                video.load(); // Fuerza al navegador a liberar los búferes de video almacenados
+                video.load();
 
-                // 3. Recreamos la instancia de Shaka Player limpia
                 window.player = new shaka.Player(video);
                 window.player.configure({ 
                     streaming: { 
                         retryParameters: { maxAttempts: 10, timeout: 30000 },
-                        bufferingGoal: 10,       // Mantener un búfer corto evita consumo excesivo de RAM
+                        bufferingGoal: 10,
                         rebufferingGoal: 2,
                         stallEnabled: true
                     },
