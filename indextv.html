@@ -255,7 +255,10 @@ video::-webkit-media-controls-start-playback-button {
         // Actualizar datos del panel de información
         function updateInfoPanelData() {
             let txtAudio = audioLangs.length > 0 ? traducirIdioma(audioLangs[currentAudioIdx]) : "Desconocido";
-            let txtSubs = (currentSubIdx !== -1 && subLangs.length > 0) ? traducirIdioma(subLangs[currentSubIdx]) : "Apagados";
+            let txtSubs = "No disponible";
+            if (subLangs.length > 0) {
+                txtSubs = (currentSubIdx !== -1) ? traducirIdioma(subLangs[currentSubIdx]) : "Apagados";
+            }
             
             let txtQual = "AUTO";
             const isAuto = window.player.getConfiguration().abr.enabled;
