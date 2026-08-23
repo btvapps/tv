@@ -426,14 +426,17 @@ video::-webkit-media-controls-start-playback-button {
         // Función de inicialización desde Kotlin
         async function playVideo(url, kid, key, logoUrl) {
             try {
+                // 1. Limpiamos y mostramos el logo nuevo o dejamos en blanco al instante
                 if (logoUrl) {
                     loadingLogo.src = logoUrl;
                     loadingLogo.style.display = 'block';
                 } else {
                     loadingLogo.style.display = 'none';
                 }
+                // Mostramos la pantalla de carga limpia inmediatamente
                 loadingOverlay.classList.add('visible');
 
+                // 2. Descargamos el video anterior
                 await window.player.unload();
 
                 if (kid && key) {
@@ -445,6 +448,7 @@ video::-webkit-media-controls-start-playback-button {
                 await window.player.load(url);
                 video.play();
                 
+                // 3. Ocultamos la pantalla de carga solo cuando el nuevo video ya arrancó
                 loadingOverlay.classList.remove('visible');
 
                 const tracks = window.player.getVariantTracks();
