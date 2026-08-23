@@ -427,7 +427,7 @@
             }
         });
 
-        async function playVideo(url, kid, key, logoUrl) {
+      async function playVideo(url, kid, key, logoUrl) {
             try {
                 if (logoUrl) {
                     loadingLogo.src = logoUrl;
@@ -437,7 +437,28 @@
                 }
                 loadingOverlay.classList.add('visible');
 
-                await window.player.unload();
+                // 1. Destruimos completamente la sesión anterior de Shaka para liberar memoria y evitar lag acumulado
+                if (window.player) {
+                    await window.player.destroy();
+                }
+
+                // Volvemos a inicializar el reproductor limpio desde cero
+                window.player = new shaka.Player(video);
+                window.player.configure({ 
+                    streaming: { 
+                        retryParameters: { maxAttempts: 10, timeout: 30000 },
+                        // Optimizaciones de búfer para evitar tirones en vivo
+                        bufferingGoal: 15,
+                        rebufferingGoal: 2
+                    },
+                    preferredAudioLanguage: 'es',
+                    preferredTextLanguage: 'es',
+                    abr: { enabled: true } 
+                });
+
+                // Reasignamos los listeners de eventos
+                window.player.addEventListener('adaptation', updateActiveQualityDisplay);
+                window.player.addEventListener('variantchanged', updateActiveQualityDisplay);
 
                 if (kid && key) {
                     window.player.configure({ drm: { clearKeys: { [kid]: key } } });
