@@ -214,16 +214,17 @@
         window.player = new shaka.Player(video);
         
         window.player.configure({ 
-            streaming: { 
-                retryParameters: { maxAttempts: 10, timeout: 30000 },
-                bufferingGoal: 10,
-                rebufferingGoal: 2,
-                stallEnabled: true
-            },
-            preferredAudioLanguage: 'es',
-            preferredTextLanguage: 'es',
-            abr: { enabled: true } 
-        });
+                    streaming: { 
+                        retryParameters: { maxAttempts: 10, timeout: 30000 },
+                        bufferingGoal: 10,
+                        rebufferingGoal: 2,
+                        bufferBehind: 2, // <-- ESTO ES MAGIA: Borra de la RAM el video que ya viste
+                        stallEnabled: true
+                    },
+                    preferredAudioLanguage: 'es',
+                    preferredTextLanguage: 'es',
+                    abr: { enabled: true } 
+                });
 
         const controlsUi = document.getElementById('tv-controls');
         const infoPanel = document.getElementById('info-panel');
