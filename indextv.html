@@ -2,20 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Flow TV Player Híbrido</title>
+    <title>Flow TV Player</title>
+    <!-- Motor de Shaka Player -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.compiled.js"></script>
     <style>
-        /* --- FONDO 100% TRANSPARENTE PARA VER EXOPLAYER DETRÁS --- */
-        body, html { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            background: transparent !important; 
-            overflow: hidden; font-family: sans-serif; color: white; 
-        }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; font-family: sans-serif; color: white; }
+        #video-container { width: 100%; height: 100%; position: relative; }
+        video { width: 100%; height: 100%; object-fit: contain; background: #000; }
         
         /* --- PANTALLA DE CARGA CON LOGO --- */
         #loading-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -48,7 +47,6 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes pulse { 0% { transform: scale(0.95); } 100% { transform: scale(1.05); } }
 
-        /* --- MENSAJES EN PANTALLA (OSD) --- */
         #osd-message {
             position: absolute;
             top: 30px; left: 50%;
@@ -66,15 +64,35 @@
     </style>
 </head>
 <body>
-    <!-- Pantalla de Carga con Logo -->
-    <div id="loading-overlay">
-        <img id="loading-logo" src="" alt="Cargando...">
-        <div class="loading-spinner"></div>
+    <div id="video-container">
+        <video id="video" autoplay></video>
+        
+        <div id="loading-overlay">
+            <img id="loading-logo" src="" alt="Cargando...">
+            <div class="loading-spinner"></div>
+        </div>
+
+        <div id="osd-message"></div>
     </div>
 
-    <div id="osd-message"></div>
-
     <script>
+        shaka.polyfill.installAll();
+        const video = document.getElementById('video');
+        window.player = new shaka.Player(video);
+        
+        window.player.configure({ 
+            streaming: { 
+                retryParameters: { maxAttempts: 10, timeout: 30000 },
+                bufferingGoal: 10,
+                rebufferingGoal: 2,
+                bufferBehind: 2, // <-- Limpia la RAM para que nunca se clave por horas de uso
+                stallEnabled: true
+            },
+            preferredAudioLanguage: 'es',
+            preferredTextLanguage: 'es',
+            abr: { enabled: true } 
+        });
+
         const loadingOverlay = document.getElementById('loading-overlay');
         const loadingLogo = document.getElementById('loading-logo');
         const osd = document.getElementById('osd-message');
@@ -87,43 +105,60 @@
             timeoutOsd = setTimeout(() => { osd.style.opacity = 0; }, 3000);
         }
 
-        // Esta función atrapa la orden del botón Atrás
         function handleBackButton() {
-            // Le pedimos a Kotlin que abra el menú lateral de canales
             if (window.Android) window.Android.openGuide();
         }
 
-        // Esta es la nueva función que recibe Kotlin
-        // Solo dibuja el logo en pantalla mientras ExoPlayer arranca por detrás
-        function prepararInterfaz(logoUrl) {
-            if (logoUrl) {
-                loadingLogo.src = logoUrl;
-                loadingLogo.style.display = 'block';
-            } else {
-                loadingLogo.style.display = 'none';
-            }
-            loadingOverlay.classList.add('visible');
-            
-            // Ocultar la pantalla de carga después de 2.5 segundos
-            setTimeout(() => {
+        async function playVideo(url, kid, key, logoUrl) {
+            try {
+                if (logoUrl) {
+                    loadingLogo.src = logoUrl;
+                    loadingLogo.style.display = 'block';
+                } else {
+                    loadingLogo.style.display = 'none';
+                }
+                loadingOverlay.classList.add('visible');
+
+                if (window.player) {
+                    await window.player.destroy();
+                    window.player = null;
+                }
+
+                video.pause();
+                video.removeAttribute('src');
+                video.load();
+
+                window.player = new shaka.Player(video);
+                window.player.configure({ 
+                    streaming: { 
+                        retryParameters: { maxAttempts: 10, timeout: 30000 },
+                        bufferingGoal: 10,
+                        rebufferingGoal: 2,
+                        bufferBehind: 2,
+                        stallEnabled: true
+                    },
+                    preferredAudioLanguage: 'es',
+                    preferredTextLanguage: 'es',
+                    abr: { enabled: true } 
+                });
+
+                if (kid && key) {
+                    window.player.configure({ drm: { clearKeys: { [kid]: key } } });
+                } else {
+                    window.player.configure({ drm: { clearKeys: {} } });
+                }
+
+                await window.player.load(url);
+                video.play();
+                
                 loadingOverlay.classList.remove('visible');
-            }, 2500);
-        }
+                window.player.configure({ abr: { enabled: true } });
 
-        // Detectar teclas en el control remoto para abrir el menú
-        document.addEventListener('keydown', (e) => {
-            // Si presionan OK/Enter o los botones de dirección, podemos abrir la guía
-            if (e.key === 'Enter' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                if (window.Android) window.Android.openGuide();
+            } catch (e) {
+                console.error("Error al cargar el video:", e);
+                setTimeout(() => { playVideo(url, kid, key, logoUrl); }, 2000);
             }
-        });
-        // Detectar toques en la pantalla del celular para abrir la guía
-        document.body.addEventListener('click', () => {
-            if (window.Android) window.Android.openGuide();
-        });
-        document.body.addEventListener('touchstart', () => {
-            if (window.Android) window.Android.openGuide();
-        });
+        }
     </script>
 </body>
 </html>
