@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Flow TV Player</title>
-    <!-- Motor de Shaka Player -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.compiled.js"></script>
     <style>
         body, html { 
@@ -13,19 +12,12 @@
         #video-container { width: 100%; height: 100%; position: relative; }
         video { width: 100%; height: 100%; object-fit: contain; background: #000; }
         
-        /* --- PANTALLA DE CARGA CON LOGO --- */
         #loading-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.92);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            z-index: 50;
-            opacity: 0;
-            pointer-events: none;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 20px;
+            z-index: 50; opacity: 0; pointer-events: none;
             transition: opacity 0.3s ease;
         }
         #loading-overlay.visible { opacity: 1; pointer-events: auto; }
@@ -38,45 +30,31 @@
             width: 50px; height: 50px;
             border: 5px solid rgba(255,255,255,0.2);
             border-top: 5px solid #E50914;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            border-radius: 50%; animation: spin 1s linear infinite;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes pulse { 0% { transform: scale(0.95); } 100% { transform: scale(1.05); } }
 
-        /* --- MENSAJES EN PANTALLA (OSD) --- */
         #osd-message {
-            position: absolute;
-            top: 40px; left: 50%;
+            position: absolute; top: 40px; left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.85);
-            border: 2px solid #E50914;
-            padding: 12px 30px;
-            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.85); border: 2px solid #E50914;
+            padding: 12px 30px; border-radius: 8px;
             font-size: 22px; font-weight: bold;
-            opacity: 0; transition: opacity 0.3s ease;
-            z-index: 100;
+            opacity: 0; transition: opacity 0.3s ease; z-index: 100;
         }
         
-        /* --- PANEL DE INFORMACIÓN (STATS) --- */
         #info-panel {
             position: absolute; top: 40px; right: 40px;
             background: rgba(15, 15, 15, 0.9);
             border-left: 6px solid #E50914;
             padding: 20px; border-radius: 6px;
             display: flex; flex-direction: column; gap: 12px;
-            opacity: 0; 
-            visibility: hidden; 
-            pointer-events: none; 
+            opacity: 0; visibility: hidden; pointer-events: none; 
             transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 15;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: 15; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
-        #info-panel.visible { 
-            opacity: 1; 
-            visibility: visible; 
-            pointer-events: auto; 
-        }
+        #info-panel.visible { opacity: 1; visibility: visible; pointer-events: auto; }
         .info-row { display: flex; justify-content: space-between; align-items: center; gap: 50px; }
         .info-label { color: #999; font-size: 14px; font-weight: bold; letter-spacing: 1.5px; }
         .info-value { color: #FFF; font-size: 18px; font-weight: bold; }
@@ -86,30 +64,21 @@
             text-align: right; font-size: 12px; color: #777; letter-spacing: 1px;
         }
         
-        /* --- CONTROLES DE REPRODUCCIÓN (BARRA INFERIOR TV) --- */
         #tv-controls {
             position: absolute; bottom: 0; left: 0; right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
             padding: 50px 30px 30px 30px;
             display: flex; flex-direction: column; align-items: center;
-            opacity: 0; 
-            visibility: hidden; 
-            pointer-events: none; 
-            transition: opacity 0.3s ease, visibility 0.3s ease; 
-            z-index: 20;
+            opacity: 0; visibility: hidden; pointer-events: none; 
+            transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 20;
         }
-        #tv-controls.visible { 
-            opacity: 1; 
-            visibility: visible; 
-            pointer-events: auto; 
-        }
+        #tv-controls.visible { opacity: 1; visibility: visible; pointer-events: auto; }
         .time-text { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
         .botones-row { display: flex; gap: 20px; }
         
         .btn {
             background: rgba(255, 255, 255, 0.2);
-            border: 3px solid transparent; 
-            border-radius: 50%;
+            border: 3px solid transparent; border-radius: 50%;
             width: 75px; height: 75px;
             display: flex; justify-content: center; align-items: center;
             font-size: 30px; outline: none; cursor: pointer;
@@ -121,11 +90,21 @@
             transform: scale(1.2);
             box-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
         }
+        
+        #buffer-indicator {
+            position: absolute; bottom: 100px; left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7); color: #E50914;
+            padding: 8px 20px; border-radius: 20px;
+            font-size: 14px; font-weight: bold;
+            opacity: 0; transition: opacity 0.3s; z-index: 25;
+        }
+        #buffer-indicator.visible { opacity: 1; }
     </style>
 </head>
 <body>
     <div id="video-container">
-        <video id="video" autoplay></video>
+        <video id="video" autoplay playsinline></video>
         
         <div id="loading-overlay">
             <img id="loading-logo" src="" alt="Cargando...">
@@ -133,16 +112,16 @@
         </div>
 
         <div id="osd-message"></div>
+        <div id="buffer-indicator">⏳ Cargando...</div>
         
-        <!-- PANEL DE ESTADÍSTICAS Y VERSIÓN -->
         <div id="info-panel">
             <div class="info-row"><span class="info-label">AUDIO</span><span class="info-value" id="info-audio">Único disponible</span></div>
             <div class="info-row"><span class="info-label">SUBTÍTULOS</span><span class="info-value" id="info-subs">No disponibles</span></div>
-            <div class="info-row"><span class="info-label">CALIDAD</span><span class="info-value" id="info-qual">AUTO (1080p)</span></div>
-            <div class="info-version">Versión 2.1.6</div>
+            <div class="info-row"><span class="info-label">CALIDAD</span><span class="info-value" id="info-qual">AUTO</span></div>
+            <div class="info-row"><span class="info-label">BUFFER</span><span class="info-value" id="info-buffer">0s</span></div>
+            <div class="info-version">Versión 2.2.0-TV</div>
         </div>
 
-        <!-- BARRA INFERIOR DE CONTROLES -->
         <div id="tv-controls">
             <div class="time-text" id="time-display">🔴 EN VIVO</div>
             <div class="botones-row">
@@ -158,38 +137,81 @@
     <script>
         shaka.polyfill.installAll();
         const video = document.getElementById('video');
-        window.player = new shaka.Player(video);
+        const bufferIndicator = document.getElementById('buffer-indicator');
         
-        // Variables globales para el guardián de congelamiento
         window.currentStreamUrl = "";
         window.currentKid = "";
         window.currentKey = "";
         window.currentLogo = "";
+        window.player = null;
+        
+        let isLoading = false;
+        let loadTimeout = null;
 
-        // Configuración inicial ANTI-TIRONES
-        window.player.configure({ 
-            streaming: { 
-                retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
-                bufferingGoal: 20,
-                rebufferingGoal: 5,
-                bufferBehind: 1, 
-                stallEnabled: true,
-                jumpLargeGaps: true,
-                smallGapLimit: 2.5,
-                ignoreTextStreamFailures: true
-            },
-            manifest: {
-                dash: { 
-                    ignoreMinBufferTime: true,
-                    autoCorrectDrift: true
-                }
-            },
-            preferredAudioLanguage: 'es',
-            abr: { 
-                enabled: true,
-                defaultBandwidthEstimate: 1500000
-            } 
-        });
+        // ============================================================
+        // CONFIGURACIÓN OPTIMIZADA PARA TV BOX / ANDROID TV
+        // ============================================================
+        function getPlayerConfig() {
+            return {
+                streaming: { 
+                    retryParameters: { 
+                        maxAttempts: 25,           // Más reintentos para TV lenta
+                        baseDelay: 2000,           // Esperar más entre reintentos
+                        backoffFactor: 2,
+                        fuzzFactor: 0.5,
+                        timeout: 45000             // Más timeout para red lenta
+                    },
+                    bufferingGoal: 15,             // Buffer moderado (no saturar RAM de TV)
+                    rebufferingGoal: 8,            // No reiniciar hasta 8s de buffer
+                    bufferBehind: 15,              // CRÍTICO: conservar buffer pasado
+                    stallEnabled: true,
+                    stallThreshold: 3,             // Tolerar 3s de stall (TV es más lenta)
+                    stallSkip: 0,
+                    jumpLargeGaps: true,
+                    smallGapLimit: 2.5,
+                    ignoreTextStreamFailures: true,
+                    startAtSegmentBoundary: true,
+                    inaccurateManifestTolerance: 2,
+                    failureCallback: (error) => {
+                        console.error("[SHAKA] Streaming failure:", error);
+                        scheduleRecovery();
+                    }
+                },
+                manifest: {
+                    retryParameters: {
+                        maxAttempts: 10,
+                        baseDelay: 2000,
+                        backoffFactor: 2,
+                        timeout: 45000
+                    },
+                    dash: { 
+                        ignoreMinBufferTime: true,
+                        autoCorrectDrift: true,
+                        initialSegmentLimit: 25
+                    }
+                },
+                drm: {
+                    retryParameters: {
+                        maxAttempts: 5,
+                        baseDelay: 1000,
+                        timeout: 15000
+                    }
+                },
+                preferredAudioLanguage: 'es',
+                abr: { 
+                    enabled: true,
+                    defaultBandwidthEstimate: 1000000,  // Más conservador para TV
+                    switchInterval: 10,                   // Cambiar calidad cada 10s (menos CPU)
+                    bandwidthUpgradeTarget: 0.95,
+                    bandwidthDowngradeTarget: 0.6,
+                    // LIMITAR CALIDAD MÁXIMA para no matar el decoder del TV
+                    restrictions: {
+                        maxHeight: 1080,
+                        maxBandwidth: 6000000
+                    }
+                } 
+            };
+        }
 
         const controlsUi = document.getElementById('tv-controls');
         const infoPanel = document.getElementById('info-panel');
@@ -213,13 +235,22 @@
             subsEl.innerText = "No disponibles";
 
             const qualEl = document.getElementById('info-qual');
-            const activeTrack = window.player.getVariantTracks().find(t => t.active);
-            const isAbrEnabled = window.player.getConfiguration().abr.enabled;
+            const activeTrack = window.player ? window.player.getVariantTracks().find(t => t.active) : null;
+            const isAbrEnabled = window.player ? window.player.getConfiguration().abr.enabled : true;
             
             if (activeTrack && activeTrack.height) {
-                qualEl.innerText = (isAbrEnabled ? "AUTO (" : "") + activeTrack.height + "p" + (isAbrEnabled ? ")" : "");
+                qualEl.innerText = (isAbrEnabled ? "AUTO " : "") + activeTrack.height + "p";
             } else {
-                qualEl.innerText = "AUTO (1080p)";
+                qualEl.innerText = "AUTO";
+            }
+            
+            const bufEl = document.getElementById('info-buffer');
+            if (video.buffered.length > 0) {
+                const bufEnd = video.buffered.end(video.buffered.length - 1);
+                const bufSec = Math.max(0, Math.round(bufEnd - video.currentTime));
+                bufEl.innerText = bufSec + "s";
+            } else {
+                bufEl.innerText = "0s";
             }
         }
 
@@ -228,7 +259,6 @@
             controlsUi.classList.add('visible');
             infoPanel.classList.add('visible'); 
             clearTimeout(timeoutOcultar);
-            
             timeoutOcultar = setTimeout(() => {
                 controlsUi.classList.remove('visible');
                 infoPanel.classList.remove('visible'); 
@@ -242,7 +272,6 @@
             timeoutOsd = setTimeout(() => { osd.style.opacity = 0; }, 3000);
         }
 
-        // Activación mediante flechas o Enter del control remoto de la TV
         document.addEventListener('keydown', (e) => {
             if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Select'].includes(e.key)) {
                 if (!controlsUi.classList.contains('visible')) {
@@ -266,6 +295,30 @@
         video.addEventListener('play', () => { btnPlay.innerText = '⏸️'; });
         video.addEventListener('pause', () => { btnPlay.innerText = '▶️'; });
         
+        // Indicador de buffering
+        video.addEventListener('waiting', () => {
+            bufferIndicator.classList.add('visible');
+            console.log("[TV] Buffering...");
+        });
+        video.addEventListener('playing', () => {
+            bufferIndicator.classList.remove('visible');
+            console.log("[TV] Playing");
+        });
+        video.addEventListener('canplay', () => {
+            bufferIndicator.classList.remove('visible');
+        });
+
+        // DETECTAR ERRORES FATALES DEL VIDEO TAG (decodificación)
+        video.addEventListener('error', (e) => {
+            const error = video.error;
+            console.error("[VIDEO ERROR] Code:", error.code, "Message:", error.message);
+            // 1 = MEDIA_ERR_ABORTED, 2 = MEDIA_ERR_NETWORK, 3 = MEDIA_ERR_DECODE, 4 = MEDIA_ERR_SRC_NOT_SUPPORTED
+            if (error.code === 3) {
+                showOsd("Error de decodificación. Reiniciando...");
+            }
+            scheduleRecovery();
+        });
+
         btnPlay.addEventListener('click', () => { 
             video.paused ? video.play() : video.pause(); 
             showControls(); 
@@ -289,8 +342,31 @@
             showControls(); 
         });
 
+        let recoveryTimer = null;
+        
+        function scheduleRecovery() {
+            if (recoveryTimer) return;
+            console.warn("[RECOVERY] Scheduling recovery in 8s...");
+            recoveryTimer = setTimeout(() => {
+                recoveryTimer = null;
+                if (window.currentStreamUrl && !isLoading) {
+                    playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
+                }
+            }, 8000); // Más tiempo para TV lenta
+        }
+        
+        function cancelRecovery() {
+            if (recoveryTimer) {
+                clearTimeout(recoveryTimer);
+                recoveryTimer = null;
+            }
+        }
+
         async function playVideo(url, kid, key, logoUrl) {
-            // Guardamos los datos para el Watchdog
+            if (isLoading) return;
+            isLoading = true;
+            cancelRecovery();
+            
             window.currentStreamUrl = url;
             window.currentKid = kid;
             window.currentKey = key;
@@ -305,84 +381,134 @@
                 }
                 loadingOverlay.classList.add('visible');
 
-                if (window.player) {
-                    await window.player.destroy();
-                    window.player = null;
+                // ============================================================
+                // OPTIMIZACIÓN TV: REUTILIZAR PLAYER en lugar de destruirlo
+                // Destruir y recrear consume mucha RAM/GPU en TV Box
+                // ============================================================
+                if (!window.player) {
+                    console.log("[TV] Creating new Shaka Player...");
+                    window.player = new shaka.Player(video);
+                    window.player.configure(getPlayerConfig());
+                } else {
+                    console.log("[TV] Reusing existing Shaka Player...");
+                    // Solo detener el stream anterior, no destruir el player
+                    await window.player.unload();
+                    window.player.configure(getPlayerConfig());
                 }
 
-                video.pause();
-                video.removeAttribute('src');
-                video.load();
-
-                window.player = new shaka.Player(video);
-                
-                // Configuración ANTI-TIRONES al cargar el video
-                window.player.configure({ 
-                    streaming: { 
-                        retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
-                        bufferingGoal: 20,
-                        rebufferingGoal: 5,
-                        bufferBehind: 1,
-                        stallEnabled: true,
-                        jumpLargeGaps: true,
-                        smallGapLimit: 2.5,
-                        ignoreTextStreamFailures: true
-                    },
-                    manifest: {
-                        dash: { 
-                            ignoreMinBufferTime: true,
-                            autoCorrectDrift: true
-                        }
-                    },
-                    preferredAudioLanguage: 'es',
-                    abr: { 
-                        enabled: true,
-                        defaultBandwidthEstimate: 1500000
-                    } 
-                });
-
+                // Aplicar DRM
                 if (kid && key) {
                     window.player.configure({ drm: { clearKeys: { [kid]: key } } });
                 } else {
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
 
-                // Escuchar errores críticos de Shaka para auto-recuperarse
+                // Error handler
                 window.player.addEventListener('error', (event) => {
-                    console.error("Error detectado en Shaka Player, recargando...", event.detail);
-                    setTimeout(() => { playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo); }, 3000);
+                    const error = event.detail;
+                    console.error("[SHAKA ERROR]", error.code, error.message);
+                    // Errores críticos de red o decode
+                    if ([1001, 1002, 3016, 3014, 3015, 6001].includes(error.code)) {
+                        scheduleRecovery();
+                    }
                 });
 
+                // Timeout de carga extendido para TV
+                loadTimeout = setTimeout(() => {
+                    console.error("[TV] Load timeout!");
+                    scheduleRecovery();
+                }, 30000);
+
                 await window.player.load(url);
-                video.play();
+                clearTimeout(loadTimeout);
+                loadTimeout = null;
                 
+                await video.play();
                 loadingOverlay.classList.remove('visible');
-                window.player.configure({ abr: { enabled: true } });
+                isLoading = false;
 
             } catch (e) {
-                console.error("Error al cargar el video:", e);
-                setTimeout(() => { playVideo(url, kid, key, logoUrl); }, 3000);
+                clearTimeout(loadTimeout);
+                loadTimeout = null;
+                console.error("Error loading:", e);
+                isLoading = false;
+                scheduleRecovery();
             }
         }
 
-        // --- PERRO GUARDIÁN (WATCHDOG) ANTI-CONGELAMIENTO ---
+        // ============================================================
+        // WATCHDOG ULTRA-CONSERVADOR PARA TV
+        // ============================================================
         let lastTime = 0;
         let freezeCounter = 0;
+        let stallCounter = 0;
+        let decodeErrorCounter = 0;
 
         setInterval(() => {
-            if (!video.paused && !video.ended && window.currentStreamUrl) {
-                if (video.currentTime === lastTime) {
-                    freezeCounter++;
-                    // Si pasan 10 segundos congelado (5 ciclos de 2s)
-                    if (freezeCounter >= 5) {
-                        console.warn("¡Congelamiento detectado! Reiniciando stream...");
-                        freezeCounter = 0;
-                        playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
-                    }
-                } else {
+            if (!window.currentStreamUrl || isLoading) return;
+            
+            const currentTime = video.currentTime;
+            const readyState = video.readyState;
+            const networkState = video.networkState;
+            const isPaused = video.paused;
+            const isEnded = video.ended;
+            const hasError = video.error !== null;
+
+            if (isPaused || isEnded) {
+                freezeCounter = 0;
+                stallCounter = 0;
+                return;
+            }
+
+            // Si hay error nativo del video, no contar como freeze
+            if (hasError) return;
+
+            // Calcular buffer
+            let bufferSec = 0;
+            if (video.buffered.length > 0) {
+                bufferSec = video.buffered.end(video.buffered.length - 1) - currentTime;
+            }
+
+            // CASO 1: Buffering legítimo (esperando datos)
+            if (readyState < 3 || networkState === 2 || bufferSec < 2) {
+                stallCounter++;
+                // En TV darle 60 segundos de buffering antes de reiniciar
+                if (stallCounter >= 30) {
+                    console.warn("[WATCHDOG] TV stalled 60s, recovering...");
+                    stallCounter = 0;
                     freezeCounter = 0;
-                    lastTime = video.currentTime;
+                    playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
                 }
+                return;
+            } else {
+                stallCounter = 0;
+            }
+
+            // CASO 2: Congelamiento REAL (tiempo no avanza pero hay datos)
+            if (currentTime === lastTime && readyState >= 2 && bufferSec > 5) {
+                freezeCounter++;
+                console.warn(`[WATCHDOG] Freeze: ${freezeCounter}/15 (buffer=${bufferSec.toFixed(1)}s)`);
+                // 15 ciclos * 2s = 30 segundos congelado con buffer disponible
+                if (freezeCounter >= 15) {
+                    console.warn("[WATCHDOG] Real freeze confirmed! Restarting...");
+                    freezeCounter = 0;
+                    // En TV, en lugar de recrear player, solo hacer unload/load
+                    if (window.player) {
+                        window.player.unload().then(() => {
+                            playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
+                        }).catch(() => {
+                            // Si unload falla, destruir y recrear
+                            window.player.destroy().then(() => {
+                                window.player = null;
+                                playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
+                            });
+                        });
+                    }
+                }
+            } else {
+                if (freezeCounter > 0) console.log("[WATCHDOG] Freeze cleared");
+                freezeCounter = 0;
+                lastTime = currentTime;
             }
         }, 2000);
     </script>
