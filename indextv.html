@@ -63,7 +63,7 @@
             border-left: 6px solid #E50914;
             padding: 20px; border-radius: 6px;
             display: flex; flex-direction: column; gap: 12px;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+            opacity: 0; transition: opacity 0.3s ease;
             z-index: 15;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
@@ -89,9 +89,9 @@
             background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
             padding: 50px 30px 30px 30px;
             display: flex; flex-direction: column; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 20;
+            opacity: 0; transition: opacity 0.3s ease; z-index: 20;
         }
-        #tv-controls.visible { opacity: 1; pointer-events: auto; }
+        #tv-controls.visible { opacity: 1; }
         .time-text { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
         .botones-row { display: flex; gap: 20px; }
         
@@ -102,7 +102,6 @@
             width: 75px; height: 75px;
             display: flex; justify-content: center; align-items: center;
             font-size: 30px; outline: none; cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
         .btn:focus {
             background: #E50914 !important;
@@ -135,11 +134,11 @@
         <div id="tv-controls">
             <div class="time-text" id="time-display">🔴 EN VIVO</div>
             <div class="botones-row">
-                <div class="btn" id="btn-subs" tabindex="0" title="Subtítulos">💬</div>
-                <div class="btn" id="btn-rewind" tabindex="0" title="Retroceder">⏪</div>
-                <div class="btn" id="btn-playpause" tabindex="0" title="Play/Pausa">⏸️</div>
-                <div class="btn" id="btn-forward" tabindex="0" title="Avanzar">⏩</div>
-                <div class="btn" id="btn-audio" tabindex="0" title="Audio">🔊</div>
+                <div class="btn" id="btn-subs" tabindex="0">💬</div>
+                <div class="btn" id="btn-rewind" tabindex="0">⏪</div>
+                <div class="btn" id="btn-playpause" tabindex="0">⏸️</div>
+                <div class="btn" id="btn-forward" tabindex="0">⏩</div>
+                <div class="btn" id="btn-audio" tabindex="0">🔊</div>
             </div>
         </div>
     </div>
@@ -154,7 +153,7 @@
                 retryParameters: { maxAttempts: 10, timeout: 30000 },
                 bufferingGoal: 10,
                 rebufferingGoal: 2,
-                bufferBehind: 2, // Limpieza automática de RAM para la TV Box
+                bufferBehind: 2,
                 stallEnabled: true
             },
             preferredAudioLanguage: 'es',
@@ -176,30 +175,20 @@
         let timeoutOsd;
 
         function updateInfoPanelData() {
-            const audioEl = document.getElementById('info-audio');
-            audioEl.innerText = "Único disponible";
-
-            const textTracks = window.player.getTextTracks();
-            const subsEl = document.getElementById('info-subs');
-            if (textTracks && textTracks.length > 0) {
-                const activeSub = textTracks.find(t => t.active);
-                subsEl.innerText = activeSub ? (activeSub.language || "Activos") : "Disponibles";
-            } else {
-                subsEl.innerText = "No disponibles";
-            }
-
+            document.getElementById('info-audio').innerText = "Único disponible";
+            document.getElementById('info-subs').innerText = "No disponibles";
+            
             const qualEl = document.getElementById('info-qual');
             const activeTrack = window.player.getVariantTracks().find(t => t.active);
-            const isAbrEnabled = window.player.getConfiguration().abr.enabled;
-            
             if (activeTrack && activeTrack.height) {
-                qualEl.innerText = (isAbrEnabled ? "AUTO (" : "") + activeTrack.height + "p" + (isAbrEnabled ? ")" : "");
+                qualEl.innerText = "AUTO (" + activeTrack.height + "p)";
             } else {
                 qualEl.innerText = "AUTO (1080p)";
             }
         }
 
-        function showControls() {
+        // ESTA FUNCIÓN SE LLAMA DIRECTAMENTE DESDE KOTLIN AL TOCAR EL CONTROL REMOTO
+        function showControlsFromAndroid() {
             updateInfoPanelData();
             controlsUi.classList.add('visible');
             infoPanel.classList.add('visible'); 
@@ -218,16 +207,6 @@
             timeoutOsd = setTimeout(() => { osd.style.opacity = 0; }, 3000);
         }
 
-        document.addEventListener('keydown', (e) => {
-            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Select'].includes(e.key)) {
-                if (!controlsUi.classList.contains('visible')) {
-                    showControls();
-                    btnPlay.focus();
-                    e.preventDefault();
-                }
-            }
-        });
-
         function handleBackButton() {
             if (controlsUi.classList.contains('visible')) {
                 controlsUi.classList.remove('visible');
@@ -243,25 +222,25 @@
         
         btnPlay.addEventListener('click', () => { 
             video.paused ? video.play() : video.pause(); 
-            showControls(); 
+            showControlsFromAndroid(); 
         });
         btnRewind.addEventListener('click', () => { 
             video.currentTime -= 15; 
             showOsd("Retroceder 15s"); 
-            showControls(); 
+            showControlsFromAndroid(); 
         });
         btnForward.addEventListener('click', () => { 
             video.currentTime += 15; 
             showOsd("Avanzar 15s"); 
-            showControls(); 
+            showControlsFromAndroid(); 
         });
         btnAudio.addEventListener('click', () => { 
             showOsd("Audio: Único disponible"); 
-            showControls(); 
+            showControlsFromAndroid(); 
         });
         btnSubs.addEventListener('click', () => { 
             showOsd("Subtítulos: No disponibles"); 
-            showControls(); 
+            showControlsFromAndroid(); 
         });
 
         async function playVideo(url, kid, key, logoUrl) {
