@@ -125,27 +125,33 @@
         </div>
     </div>
 
-    <script>
+        <script>
         shaka.polyfill.installAll();
         const video = document.getElementById('video');
         window.player = new shaka.Player(video);
         
-window.player.configure({ 
-                    streaming: { 
-                        retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
-                        bufferingGoal: 10,
-                        rebufferingGoal: 2,
-                        bufferBehind: 1, // Más agresivo con la limpieza de RAM
-                        stallEnabled: true,
-                        jumpLargeGaps: true, // <-- CRÍTICO: Si el vivo pierde un paquete, lo salta y no se congela
-                        ignoreTextStreamFailures: true // Si fallan los subtítulos ocultos, que no congele el video
-                    },
-                    manifest: {
-                        dash: { ignoreMinBufferTime: true } // Fuerza la reproducción sin esperar tanto buffer
-                    },
-                    preferredAudioLanguage: 'es',
-                    abr: { enabled: true } 
-                });
+        // Variables globales para el guardián de congelamiento
+        window.currentStreamUrl = "";
+        window.currentKid = "";
+        window.currentKey = "";
+        window.currentLogo = "";
+
+        window.player.configure({ 
+            streaming: { 
+                retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
+                bufferingGoal: 10,
+                rebufferingGoal: 2,
+                bufferBehind: 1, 
+                stallEnabled: true,
+                jumpLargeGaps: true,
+                ignoreTextStreamFailures: true
+            },
+            manifest: {
+                dash: { ignoreMinBufferTime: true }
+            },
+            preferredAudioLanguage: 'es',
+            abr: { enabled: true } 
+        });
 
         const controlsUi = document.getElementById('tv-controls');
         const infoPanel = document.getElementById('info-panel');
@@ -199,7 +205,6 @@ window.player.configure({
             }
         }
 
-        // Mostrar controles al tocar cualquier tecla direccional en la TV
         document.addEventListener('keydown', (e) => {
             if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Select'].includes(e.key)) {
                 if (!controlsUi.classList.contains('visible')) {
@@ -219,6 +224,12 @@ window.player.configure({
         btnSubs.addEventListener('click', () => { showOsd("Subtítulos: No disponibles"); showControls(); });
 
         async function playVideo(url, kid, key, logoUrl) {
+            // Guardamos los datos para que el guardián pueda reiniciar si se clava
+            window.currentStreamUrl = url;
+            window.currentKid = kid;
+            window.currentKey = key;
+            window.currentLogo = logoUrl;
+
             try {
                 if (logoUrl) {
                     loadingLogo.src = logoUrl;
@@ -238,18 +249,18 @@ window.player.configure({
                 video.load();
 
                 window.player = new shaka.Player(video);
-window.player.configure({ 
+                window.player.configure({ 
                     streaming: { 
                         retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
                         bufferingGoal: 10,
                         rebufferingGoal: 2,
-                        bufferBehind: 1, // Más agresivo con la limpieza de RAM
+                        bufferBehind: 1,
                         stallEnabled: true,
-                        jumpLargeGaps: true, // <-- CRÍTICO: Si el vivo pierde un paquete, lo salta y no se congela
-                        ignoreTextStreamFailures: true // Si fallan los subtítulos ocultos, que no congele el video
+                        jumpLargeGaps: true,
+                        ignoreTextStreamFailures: true
                     },
                     manifest: {
-                        dash: { ignoreMinBufferTime: true } // Fuerza la reproducción sin esperar tanto buffer
+                        dash: { ignoreMinBufferTime: true }
                     },
                     preferredAudioLanguage: 'es',
                     abr: { enabled: true } 
@@ -261,6 +272,12 @@ window.player.configure({
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
 
+                // Escuchar errores críticos de Shaka para auto-recuperarse
+                window.player.addEventListener('error', (event) => {
+                    console.error("Error detectado en Shaka Player, recargando...", event.detail);
+                    setTimeout(() => { playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo); }, 3000);
+                });
+
                 await window.player.load(url);
                 video.play();
                 
@@ -269,9 +286,34 @@ window.player.configure({
 
             } catch (e) {
                 console.error("Error al cargar el video:", e);
-                setTimeout(() => { playVideo(url, kid, key, logoUrl); }, 2000);
+                setTimeout(() => { playVideo(url, kid, key, logoUrl); }, 3000);
             }
         }
+
+        // --- PERRO GUARDIÁN (WATCHDOG) ANTI-CONGELAMIENTO ---
+        let lastTime = 0;
+        let freezeCounter = 0;
+
+        setInterval(() => {
+            // Si el video debería estar reproduciéndose y no está pausado
+            if (!video.paused && !video.ended && window.currentStreamUrl) {
+                // Si el tiempo actual es exactamente igual al último registrado (la imagen se clavó)
+                if (video.currentTime === lastTime) {
+                    freezeCounter++;
+                    // Si lleva más de 10 segundos (5 ciclos de 2s) con el mismo frame congelado:
+                    if (freezeCounter >= 5) {
+                        console.warn("¡Congelamiento detectado por el Watchdog! Reiniciando stream...");
+                        freezeCounter = 0;
+                        playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
+                    }
+                } else {
+                    // El video avanza normal, reiniciamos el contador
+                    freezeCounter = 0;
+                    lastTime = video.currentTime;
+                }
+            }
+        }, 2000);
     </script>
+
 </body>
 </html>
