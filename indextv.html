@@ -117,6 +117,13 @@
                 if (window.Android) window.Android.openGuide();
             }
         });
+        // Detectar toques en la pantalla del celular para abrir la guía
+        document.body.addEventListener('click', () => {
+            if (window.Android) window.Android.openGuide();
+        });
+        document.body.addEventListener('touchstart', () => {
+            if (window.Android) window.Android.openGuide();
+        });
     </script>
 </body>
 </html>
