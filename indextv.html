@@ -25,20 +25,14 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
-        #loading-overlay.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        #loading-overlay.visible { opacity: 1; pointer-events: auto; }
         #loading-logo {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
+            width: 120px; height: 120px; object-fit: contain;
             filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
             animation: pulse 1.5s infinite alternate;
         }
         .loading-spinner {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             border: 4px solid rgba(255,255,255,0.2);
             border-top: 4px solid #E50914;
             border-radius: 50%;
@@ -47,6 +41,7 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes pulse { 0% { transform: scale(0.95); } 100% { transform: scale(1.05); } }
 
+        /* --- MENSAJES EN PANTALLA (OSD) --- */
         #osd-message {
             position: absolute;
             top: 30px; left: 50%;
@@ -55,12 +50,61 @@
             border: 2px solid #333;
             padding: 10px 25px;
             border-radius: 8px;
-            font-size: 20px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            font-size: 20px; font-weight: bold;
+            opacity: 0; transition: opacity 0.3s ease;
             z-index: 10;
         }
+        
+        /* --- PANEL DE INFORMACIÓN (STATS) --- */
+        #info-panel {
+            position: absolute; top: 40px; right: 40px;
+            background: rgba(15, 15, 15, 0.85);
+            border-left: 5px solid #E50914;
+            padding: 20px; border-radius: 6px;
+            display: flex; flex-direction: column; gap: 12px;
+            opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-10px); z-index: 15;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        #info-panel.visible { opacity: 1; transform: translateY(0); }
+        .info-row { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+        .info-label { color: #999; font-size: 13px; font-weight: bold; letter-spacing: 1.5px; }
+        .info-value { color: #FFF; font-size: 18px; font-weight: bold; text-transform: capitalize; }
+        
+        /* --- CONTROLES DE REPRODUCCIÓN (BARRA INFERIOR) --- */
+        #tv-controls {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            padding: 40px 20px 30px 20px;
+            display: flex; flex-direction: column; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease; z-index: 5;
+        }
+        #tv-controls.visible { opacity: 1; }
+        .time-text { font-size: 22px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; cursor: pointer; }
+        .botones-row { display: flex; gap: 15px; }
+        .btn {
+            background: rgba(255,255,255,0.15);
+            border: 3px solid transparent; border-radius: 50%;
+            width: 70px; height: 70px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 28px; outline: none; cursor: pointer;
+        }
+        .btn:focus { background: #E50914; border: 3px solid white; transform: scale(1.15); }
+
+        /* --- MENÚ DE CALIDADES --- */
+        #quality-menu {
+            position: absolute; bottom: 120px; right: 40px;
+            background: rgba(20, 20, 20, 0.95);
+            border: 2px solid #444; border-radius: 8px;
+            display: flex; flex-direction: column; min-width: 160px;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+            z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        #quality-menu.visible { opacity: 1; pointer-events: auto; }
+        .q-option { padding: 15px; font-size: 20px; text-align: center; border-bottom: 1px solid #333; outline: none; cursor: pointer; color: #CCC; }
+        .q-option:last-child { border-bottom: none; }
+        .q-option.active { color: #E50914; font-weight: bold; }
+        .q-option:focus { background: #E50914; color: white; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -73,6 +117,28 @@
         </div>
 
         <div id="osd-message"></div>
+        
+        <!-- PANEL DE INFORMACIÓN -->
+        <div id="info-panel">
+            <div class="info-row"><span class="info-label">AUDIO</span><span class="info-value" id="info-audio">-</span></div>
+            <div class="info-row"><span class="info-label">SUBTÍTULOS</span><span class="info-value" id="info-subs">-</span></div>
+            <div class="info-row"><span class="info-label">CALIDAD</span><span class="info-value" id="info-qual">-</span></div>
+        </div>
+
+        <div id="quality-menu"></div>
+
+        <!-- BARRA INFERIOR -->
+        <div id="tv-controls">
+            <div class="time-text" id="time-display" tabindex="0">🔴 EN VIVO</div>
+            <div class="botones-row">
+                <div class="btn" id="btn-subs" tabindex="0">💬</div>
+                <div class="btn" id="btn-rewind" tabindex="0">⏪</div>
+                <div class="btn" id="btn-playpause" tabindex="0">⏸️</div>
+                <div class="btn" id="btn-forward" tabindex="0">⏩</div>
+                <div class="btn" id="btn-audio" tabindex="0">🔊</div>
+                <div class="btn" id="btn-quality" tabindex="0">⚙️</div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -93,11 +159,56 @@
             abr: { enabled: true } 
         });
 
+        const controlsUi = document.getElementById('tv-controls');
+        const infoPanel = document.getElementById('info-panel');
+        const qualityMenu = document.getElementById('quality-menu');
+        const btnPlay = document.getElementById('btn-playpause');
+        const btnRewind = document.getElementById('btn-rewind');
+        const btnForward = document.getElementById('btn-forward');
+        const btnAudio = document.getElementById('btn-audio');
+        const btnSubs = document.getElementById('btn-subs');
+        const btnQuality = document.getElementById('btn-quality');
+        const timeDisplay = document.getElementById('time-display');
+        const osd = document.getElementById('osd-message');
         const loadingOverlay = document.getElementById('loading-overlay');
         const loadingLogo = document.getElementById('loading-logo');
-        const osd = document.getElementById('osd-message');
-        let timeoutOsd;
 
+        let timeoutOcultar;
+        let timeoutOsd;
+        let audioLangs = [];
+        let currentAudioIdx = 0;
+        let subLangs = [];
+        let currentSubIdx = -1; 
+        let qualityLevels = [];
+
+        const diccIdiomas = { 'es': 'Español', 'en': 'Inglés', 'pt': 'Portugués', 'fr': 'Francés' };
+        function traducirIdioma(cod) { return diccIdiomas[cod.toLowerCase()] || cod.toUpperCase(); }
+
+        function updateInfoPanelData() {
+            let txtAudio = audioLangs.length > 0 ? traducirIdioma(audioLangs[currentAudioIdx]) : "Estándar";
+            let txtSubs = (subLangs.length > 0 && currentSubIdx !== -1) ? traducirIdioma(subLangs[currentSubIdx]) : "Apagados";
+            let txtQual = "AUTO";
+            const activeTrack = window.player.getVariantTracks().find(t => t.active);
+            if (activeTrack && activeTrack.height) {
+                txtQual = window.player.getConfiguration().abr.enabled ? "AUTO (" + activeTrack.height + "p)" : activeTrack.height + "p";
+            }
+            document.getElementById('info-audio').innerText = txtAudio;
+            document.getElementById('info-subs').innerText = txtSubs;
+            document.getElementById('info-qual').innerText = txtQual;
+        }
+
+        function showControls() {
+            updateInfoPanelData(); 
+            controlsUi.classList.add('visible');
+            infoPanel.classList.add('visible'); 
+            clearTimeout(timeoutOcultar);
+            timeoutOcultar = setTimeout(() => {
+                controlsUi.classList.remove('visible');
+                infoPanel.classList.remove('visible'); 
+                qualityMenu.classList.remove('visible'); 
+            }, 5000); 
+        }
+        
         function showOsd(mensaje) {
             osd.innerText = mensaje;
             osd.style.opacity = 1;
@@ -106,8 +217,23 @@
         }
 
         function handleBackButton() {
-            if (window.Android) window.Android.openGuide();
+            if (qualityMenu.classList.contains('visible')) {
+                qualityMenu.classList.remove('visible');
+                btnQuality.focus();
+            } else if (controlsUi.classList.contains('visible')) {
+                controlsUi.classList.remove('visible');
+                infoPanel.classList.remove('visible'); 
+                clearTimeout(timeoutOcultar);
+            } else {
+                if (window.Android) window.Android.openGuide();
+            }
         }
+
+        video.addEventListener('play', () => { btnPlay.innerText = '⏸️'; });
+        video.addEventListener('pause', () => { btnPlay.innerText = '▶️'; });
+        btnPlay.addEventListener('click', () => { video.paused ? video.play() : video.pause(); showControls(); });
+        btnRewind.addEventListener('click', () => { video.currentTime -= 15; showControls(); });
+        btnForward.addEventListener('click', () => { video.currentTime += 15; showControls(); });
 
         async function playVideo(url, kid, key, logoUrl) {
             try {
