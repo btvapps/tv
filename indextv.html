@@ -130,17 +130,22 @@
         const video = document.getElementById('video');
         window.player = new shaka.Player(video);
         
-        window.player.configure({ 
-            streaming: { 
-                retryParameters: { maxAttempts: 10, timeout: 30000 },
-                bufferingGoal: 10,
-                rebufferingGoal: 2,
-                bufferBehind: 2, // <-- LA MAGIA QUE LIMPIA LA RAM SIN ROMPER NADA
-                stallEnabled: true
-            },
-            preferredAudioLanguage: 'es',
-            abr: { enabled: true } 
-        });
+window.player.configure({ 
+                    streaming: { 
+                        retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
+                        bufferingGoal: 10,
+                        rebufferingGoal: 2,
+                        bufferBehind: 1, // Más agresivo con la limpieza de RAM
+                        stallEnabled: true,
+                        jumpLargeGaps: true, // <-- CRÍTICO: Si el vivo pierde un paquete, lo salta y no se congela
+                        ignoreTextStreamFailures: true // Si fallan los subtítulos ocultos, que no congele el video
+                    },
+                    manifest: {
+                        dash: { ignoreMinBufferTime: true } // Fuerza la reproducción sin esperar tanto buffer
+                    },
+                    preferredAudioLanguage: 'es',
+                    abr: { enabled: true } 
+                });
 
         const controlsUi = document.getElementById('tv-controls');
         const infoPanel = document.getElementById('info-panel');
@@ -233,13 +238,18 @@
                 video.load();
 
                 window.player = new shaka.Player(video);
-                window.player.configure({ 
+window.player.configure({ 
                     streaming: { 
-                        retryParameters: { maxAttempts: 10, timeout: 30000 },
+                        retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
                         bufferingGoal: 10,
                         rebufferingGoal: 2,
-                        bufferBehind: 2, // <-- Protege la RAM para que nunca se cuelgue
-                        stallEnabled: true
+                        bufferBehind: 1, // Más agresivo con la limpieza de RAM
+                        stallEnabled: true,
+                        jumpLargeGaps: true, // <-- CRÍTICO: Si el vivo pierde un paquete, lo salta y no se congela
+                        ignoreTextStreamFailures: true // Si fallan los subtítulos ocultos, que no congele el video
+                    },
+                    manifest: {
+                        dash: { ignoreMinBufferTime: true } // Fuerza la reproducción sin esperar tanto buffer
                     },
                     preferredAudioLanguage: 'es',
                     abr: { enabled: true } 
