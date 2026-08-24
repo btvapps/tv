@@ -6,7 +6,10 @@
     <!-- Motor de Shaka Player -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.compiled.js"></script>
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; font-family: sans-serif; color: white; }
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background: #000; overflow: hidden; font-family: sans-serif; color: white; 
+        }
         #video-container { width: 100%; height: 100%; position: relative; }
         video { width: 100%; height: 100%; object-fit: contain; background: #000; }
         
@@ -14,7 +17,7 @@
         #loading-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.92);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -27,14 +30,14 @@
         }
         #loading-overlay.visible { opacity: 1; pointer-events: auto; }
         #loading-logo {
-            width: 120px; height: 120px; object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+            width: 140px; height: 140px; object-fit: contain;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.7));
             animation: pulse 1.5s infinite alternate;
         }
         .loading-spinner {
-            width: 40px; height: 40px;
-            border: 4px solid rgba(255,255,255,0.2);
-            border-top: 4px solid #E50914;
+            width: 50px; height: 50px;
+            border: 5px solid rgba(255,255,255,0.2);
+            border-top: 5px solid #E50914;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -44,53 +47,80 @@
         /* --- MENSAJES EN PANTALLA (OSD) --- */
         #osd-message {
             position: absolute;
-            top: 30px; left: 50%;
+            top: 40px; left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #333;
-            padding: 10px 25px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #E50914;
+            padding: 12px 30px;
             border-radius: 8px;
-            font-size: 20px; font-weight: bold;
+            font-size: 22px; font-weight: bold;
             opacity: 0; transition: opacity 0.3s ease;
-            z-index: 10;
+            z-index: 100;
         }
         
         /* --- PANEL DE INFORMACIÓN (STATS) --- */
         #info-panel {
             position: absolute; top: 40px; right: 40px;
-            background: rgba(15, 15, 15, 0.85);
-            border-left: 5px solid #E50914;
+            background: rgba(15, 15, 15, 0.9);
+            border-left: 6px solid #E50914;
             padding: 20px; border-radius: 6px;
-            display: flex; flex-direction: column; gap: 10px;
-            opacity: 0; transition: opacity 0.3s ease;
+            display: flex; flex-direction: column; gap: 12px;
+            opacity: 0; 
+            visibility: hidden; 
+            pointer-events: none; 
+            transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 15;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
-        #info-panel.visible { opacity: 1; }
-        .info-row { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
-        .info-label { color: #999; font-size: 13px; font-weight: bold; letter-spacing: 1.5px; }
-        .info-value { color: #FFF; font-size: 16px; font-weight: bold; }
-        .info-version { margin-top: 5px; padding-top: 5px; border-top: 1px solid #333; text-align: right; font-size: 11px; color: #777; }
+        #info-panel.visible { 
+            opacity: 1; 
+            visibility: visible; 
+            pointer-events: auto; 
+        }
+        .info-row { display: flex; justify-content: space-between; align-items: center; gap: 50px; }
+        .info-label { color: #999; font-size: 14px; font-weight: bold; letter-spacing: 1.5px; }
+        .info-value { color: #FFF; font-size: 18px; font-weight: bold; }
+        .info-version {
+            margin-top: 5px; padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: right; font-size: 12px; color: #777; letter-spacing: 1px;
+        }
         
-        /* --- CONTROLES DE REPRODUCCIÓN (BARRA INFERIOR) --- */
+        /* --- CONTROLES DE REPRODUCCIÓN (BARRA INFERIOR TV) --- */
         #tv-controls {
             position: absolute; bottom: 0; left: 0; right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-            padding: 40px 20px 30px 20px;
+            padding: 50px 30px 30px 30px;
             display: flex; flex-direction: column; align-items: center;
-            opacity: 0; transition: opacity 0.3s ease; z-index: 5;
+            opacity: 0; 
+            visibility: hidden; 
+            pointer-events: none; 
+            transition: opacity 0.3s ease, visibility 0.3s ease; 
+            z-index: 20;
         }
-        #tv-controls.visible { opacity: 1; }
-        .time-text { font-size: 22px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
-        .botones-row { display: flex; gap: 15px; }
+        #tv-controls.visible { 
+            opacity: 1; 
+            visibility: visible; 
+            pointer-events: auto; 
+        }
+        .time-text { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
+        .botones-row { display: flex; gap: 20px; }
+        
         .btn {
-            background: rgba(255,255,255,0.15);
-            border: 3px solid transparent; border-radius: 50%;
-            width: 70px; height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid transparent; 
+            border-radius: 50%;
+            width: 75px; height: 75px;
             display: flex; justify-content: center; align-items: center;
-            font-size: 28px; outline: none; cursor: pointer;
+            font-size: 30px; outline: none; cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
-        .btn:focus { background: #E50914; border: 3px solid white; transform: scale(1.15); }
+        .btn:focus {
+            background: #E50914 !important;
+            border: 3px solid #FFFFFF !important;
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -104,28 +134,28 @@
 
         <div id="osd-message"></div>
         
-        <!-- PANEL DE ESTADÍSTICAS -->
+        <!-- PANEL DE ESTADÍSTICAS Y VERSIÓN -->
         <div id="info-panel">
             <div class="info-row"><span class="info-label">AUDIO</span><span class="info-value" id="info-audio">Único disponible</span></div>
             <div class="info-row"><span class="info-label">SUBTÍTULOS</span><span class="info-value" id="info-subs">No disponibles</span></div>
             <div class="info-row"><span class="info-label">CALIDAD</span><span class="info-value" id="info-qual">AUTO (1080p)</span></div>
-            <div class="info-version">Versión 2.1.5</div>
+            <div class="info-version">Versión 2.1.6</div>
         </div>
 
-        <!-- BARRA INFERIOR -->
+        <!-- BARRA INFERIOR DE CONTROLES -->
         <div id="tv-controls">
             <div class="time-text" id="time-display">🔴 EN VIVO</div>
             <div class="botones-row">
-                <div class="btn" id="btn-subs" tabindex="0">💬</div>
-                <div class="btn" id="btn-rewind" tabindex="0">⏪</div>
-                <div class="btn" id="btn-playpause" tabindex="0">⏸️</div>
-                <div class="btn" id="btn-forward" tabindex="0">⏩</div>
-                <div class="btn" id="btn-audio" tabindex="0">🔊</div>
+                <div class="btn" id="btn-subs" tabindex="0" title="Subtítulos">💬</div>
+                <div class="btn" id="btn-rewind" tabindex="0" title="Retroceder">⏪</div>
+                <div class="btn" id="btn-playpause" tabindex="0" title="Play/Pausa">⏸️</div>
+                <div class="btn" id="btn-forward" tabindex="0" title="Avanzar">⏩</div>
+                <div class="btn" id="btn-audio" tabindex="0" title="Audio">🔊</div>
             </div>
         </div>
     </div>
 
-        <script>
+    <script>
         shaka.polyfill.installAll();
         const video = document.getElementById('video');
         window.player = new shaka.Player(video);
@@ -136,21 +166,29 @@
         window.currentKey = "";
         window.currentLogo = "";
 
+        // Configuración inicial ANTI-TIRONES
         window.player.configure({ 
             streaming: { 
                 retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
-                bufferingGoal: 10,
-                rebufferingGoal: 2,
+                bufferingGoal: 20,
+                rebufferingGoal: 5,
                 bufferBehind: 1, 
                 stallEnabled: true,
                 jumpLargeGaps: true,
+                smallGapLimit: 2.5,
                 ignoreTextStreamFailures: true
             },
             manifest: {
-                dash: { ignoreMinBufferTime: true }
+                dash: { 
+                    ignoreMinBufferTime: true,
+                    autoCorrectDrift: true
+                }
             },
             preferredAudioLanguage: 'es',
-            abr: { enabled: true } 
+            abr: { 
+                enabled: true,
+                defaultBandwidthEstimate: 1500000
+            } 
         });
 
         const controlsUi = document.getElementById('tv-controls');
@@ -168,10 +206,18 @@
         let timeoutOsd;
 
         function updateInfoPanelData() {
+            const audioEl = document.getElementById('info-audio');
+            audioEl.innerText = "Único disponible";
+
+            const subsEl = document.getElementById('info-subs');
+            subsEl.innerText = "No disponibles";
+
             const qualEl = document.getElementById('info-qual');
             const activeTrack = window.player.getVariantTracks().find(t => t.active);
+            const isAbrEnabled = window.player.getConfiguration().abr.enabled;
+            
             if (activeTrack && activeTrack.height) {
-                qualEl.innerText = "AUTO (" + activeTrack.height + "p)";
+                qualEl.innerText = (isAbrEnabled ? "AUTO (" : "") + activeTrack.height + "p" + (isAbrEnabled ? ")" : "");
             } else {
                 qualEl.innerText = "AUTO (1080p)";
             }
@@ -182,10 +228,11 @@
             controlsUi.classList.add('visible');
             infoPanel.classList.add('visible'); 
             clearTimeout(timeoutOcultar);
+            
             timeoutOcultar = setTimeout(() => {
                 controlsUi.classList.remove('visible');
                 infoPanel.classList.remove('visible'); 
-            }, 5000); 
+            }, 6000); 
         }
         
         function showOsd(mensaje) {
@@ -194,6 +241,17 @@
             clearTimeout(timeoutOsd);
             timeoutOsd = setTimeout(() => { osd.style.opacity = 0; }, 3000);
         }
+
+        // Activación mediante flechas o Enter del control remoto de la TV
+        document.addEventListener('keydown', (e) => {
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Select'].includes(e.key)) {
+                if (!controlsUi.classList.contains('visible')) {
+                    showControls();
+                    btnPlay.focus();
+                    e.preventDefault();
+                }
+            }
+        });
 
         function handleBackButton() {
             if (controlsUi.classList.contains('visible')) {
@@ -205,26 +263,34 @@
             }
         }
 
-        document.addEventListener('keydown', (e) => {
-            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Select'].includes(e.key)) {
-                if (!controlsUi.classList.contains('visible')) {
-                    showControls();
-                    btnPlay.focus();
-                    e.preventDefault();
-                }
-            }
-        });
-
         video.addEventListener('play', () => { btnPlay.innerText = '⏸️'; });
         video.addEventListener('pause', () => { btnPlay.innerText = '▶️'; });
-        btnPlay.addEventListener('click', () => { video.paused ? video.play() : video.pause(); showControls(); });
-        btnRewind.addEventListener('click', () => { video.currentTime -= 15; showOsd("Retroceder 15s"); showControls(); });
-        btnForward.addEventListener('click', () => { video.currentTime += 15; showOsd("Avanzar 15s"); showControls(); });
-        btnAudio.addEventListener('click', () => { showOsd("Audio: Único disponible"); showControls(); });
-        btnSubs.addEventListener('click', () => { showOsd("Subtítulos: No disponibles"); showControls(); });
+        
+        btnPlay.addEventListener('click', () => { 
+            video.paused ? video.play() : video.pause(); 
+            showControls(); 
+        });
+        btnRewind.addEventListener('click', () => { 
+            video.currentTime -= 15; 
+            showOsd("Retroceder 15s"); 
+            showControls(); 
+        });
+        btnForward.addEventListener('click', () => { 
+            video.currentTime += 15; 
+            showOsd("Avanzar 15s"); 
+            showControls(); 
+        });
+        btnAudio.addEventListener('click', () => { 
+            showOsd("Audio: Único disponible"); 
+            showControls(); 
+        });
+        btnSubs.addEventListener('click', () => { 
+            showOsd("Subtítulos: No disponibles"); 
+            showControls(); 
+        });
 
         async function playVideo(url, kid, key, logoUrl) {
-            // Guardamos los datos para que el guardián pueda reiniciar si se clava
+            // Guardamos los datos para el Watchdog
             window.currentStreamUrl = url;
             window.currentKid = kid;
             window.currentKey = key;
@@ -249,21 +315,30 @@
                 video.load();
 
                 window.player = new shaka.Player(video);
+                
+                // Configuración ANTI-TIRONES al cargar el video
                 window.player.configure({ 
                     streaming: { 
                         retryParameters: { maxAttempts: 15, baseDelay: 1000, timeout: 30000 },
-                        bufferingGoal: 10,
-                        rebufferingGoal: 2,
+                        bufferingGoal: 20,
+                        rebufferingGoal: 5,
                         bufferBehind: 1,
                         stallEnabled: true,
                         jumpLargeGaps: true,
+                        smallGapLimit: 2.5,
                         ignoreTextStreamFailures: true
                     },
                     manifest: {
-                        dash: { ignoreMinBufferTime: true }
+                        dash: { 
+                            ignoreMinBufferTime: true,
+                            autoCorrectDrift: true
+                        }
                     },
                     preferredAudioLanguage: 'es',
-                    abr: { enabled: true } 
+                    abr: { 
+                        enabled: true,
+                        defaultBandwidthEstimate: 1500000
+                    } 
                 });
 
                 if (kid && key) {
@@ -295,25 +370,21 @@
         let freezeCounter = 0;
 
         setInterval(() => {
-            // Si el video debería estar reproduciéndose y no está pausado
             if (!video.paused && !video.ended && window.currentStreamUrl) {
-                // Si el tiempo actual es exactamente igual al último registrado (la imagen se clavó)
                 if (video.currentTime === lastTime) {
                     freezeCounter++;
-                    // Si lleva más de 10 segundos (5 ciclos de 2s) con el mismo frame congelado:
+                    // Si pasan 10 segundos congelado (5 ciclos de 2s)
                     if (freezeCounter >= 5) {
-                        console.warn("¡Congelamiento detectado por el Watchdog! Reiniciando stream...");
+                        console.warn("¡Congelamiento detectado! Reiniciando stream...");
                         freezeCounter = 0;
                         playVideo(window.currentStreamUrl, window.currentKid, window.currentKey, window.currentLogo);
                     }
                 } else {
-                    // El video avanza normal, reiniciamos el contador
                     freezeCounter = 0;
                     lastTime = video.currentTime;
                 }
             }
         }, 2000);
     </script>
-
 </body>
 </html>
