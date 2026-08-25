@@ -2,114 +2,194 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- Meta tag vital para móviles: desactiva zoom táctil y ajusta al ancho -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TV Player Mobile v1.12 (LOGGER DRM)</title>
+    <title>TV Player Mobile v1.12</title>
     
-    <!-- Usamos la versión DEBUG de Shaka para tener acceso a los logs internos -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.debug.js"></script>
+    <!-- Shaka Player UI CSS y JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
     
     <style>
+        /* Estructura general de la pantalla orientada a Móviles */
         body { 
-            margin: 0; background-color: #0f0f0f; color: #fff; 
-            display: flex; flex-direction: column; height: 100vh; width: 100vw;
+            margin: 0; 
+            background-color: #0f0f0f; 
+            color: #fff; 
+            display: flex; 
+            flex-direction: column; /* Columna: Video arriba, Lista abajo */
+            height: 100vh; 
+            width: 100vw;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
-            overflow: hidden; overscroll-behavior-y: none; 
+            overflow: hidden; 
+            overscroll-behavior-y: none; /* Evita rebote de la app al scrollear */
         }
         
+        /* Contenedor del reproductor: Fijo arriba con proporción de TV 16:9 */
         #player-container { 
-            width: 100%; aspect-ratio: 16 / 9; max-height: 45vh; 
-            background: #000; position: relative; flex-shrink: 0; z-index: 10;
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Mantiene la forma rectangular del video */
+            max-height: 45vh; /* Evita que ocupe demasiado en modo horizontal */
+            background: #000; 
+            position: relative; 
+            flex-shrink: 0; /* Evita que la lista de abajo lo aplaste */
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
         }
 
-        video { width: 100% !important; height: 100% !important; object-fit: contain !important; }
+        video { 
+            width: 100% !important; 
+            height: 100% !important; 
+            object-fit: contain !important; 
+        }
 
+        /* Contenedor de búsqueda y canales (Ocupa el resto de la pantalla) */
         #sidebar { 
-            width: 100%; flex: 1; display: flex; flex-direction: column; 
-            background: #181818; overflow: hidden; 
+            width: 100%; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            background: #181818; 
+            overflow: hidden; /* El scroll se lo damos solo a la lista */
         }
 
         #search-input { 
-            width: 100%; box-sizing: border-box; padding: 15px; background: #222; 
-            border: none; color: #fff; outline: none; font-size: 1rem; border-bottom: 1px solid #333; 
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px; 
+            background: #222; 
+            border: none; 
+            color: #fff; 
+            outline: none; 
+            font-size: 1rem; 
+            border-bottom: 1px solid #333; 
         }
 
-        #channel-list { overflow-y: auto; flex: 1; padding: 10px; padding-bottom: env(safe-area-inset-bottom, 20px); }
+        #channel-list { 
+            overflow-y: auto; 
+            flex: 1; 
+            padding: 10px; 
+            /* Espacio extra al final para que no quede pegado al borde del celular */
+            padding-bottom: env(safe-area-inset-bottom, 20px); 
+        }
         
-        .category-header { background: #2a2a2a; color: #d1d1d1; padding: 15px 12px; font-weight: bold; font-size: 0.95rem; margin-top: 5px; margin-bottom: 2px; border-radius: 4px; border-left: 4px solid #007bff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .category-channels { display: none; padding-left: 5px; }
-        .category-channels.open { display: block; }
-        .channel-item { display: flex; align-items: center; padding: 10px 12px; background: #1e1e1e; margin-bottom: 4px; cursor: pointer; border-radius: 6px; }
-        .channel-icon { width: 40px; height: 40px; object-fit: contain; margin-right: 12px; border-radius: 4px; background: transparent; }
-        .channel-name { font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
-
-        /* =========================================
-           CONSOLA FLOTANTE PARA DEPURAR EN EL CELULAR
-           ========================================= */
-        #debug-console {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 35vh;
-            background: rgba(0,0,0,0.85);
-            color: #0f0; font-family: monospace; font-size: 11px;
-            overflow-y: auto; z-index: 9999;
-            padding: 10px; box-sizing: border-box;
-            border-top: 2px solid #0f0;
+        /* Estilos de Categorías y Canales (Se mantienen iguales, son muy buenos para táctil) */
+        .category-header {
+            background: #2a2a2a;
+            color: #d1d1d1;
+            padding: 15px 12px; /* Un poco más de padding para dedos (Touch Target) */
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
-        .log-info { color: #0f0; }
-        .log-warn { color: #ff0; }
-        .log-error { color: #f00; }
-        .log-drm { color: #0ff; font-weight: bold; }
+        .category-header:active { background: #353535; } /* Efecto táctil */
+        
+        .category-channels {
+            display: none;
+            padding-left: 5px;
+        }
+        .category-channels.open {
+            display: block;
+        }
+
+        .channel-item { 
+            display: flex; 
+            align-items: center; 
+            padding: 10px 12px; 
+            background: #1e1e1e; 
+            margin-bottom: 4px; 
+            cursor: pointer; 
+            border-radius: 6px; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        .channel-item:active { background: #333; transform: scale(0.98); } /* Efecto de toque */
+        
+        .channel-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 12px;
+            border-radius: 4px;
+            background: transparent;
+        }
+        
+        .channel-name {
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
     </style>
 </head>
 <body>
     
+    <!-- Reproductor Arriba -->
+    <!-- Se agrega 'playsinline' para evitar el fullscreen forzado en celulares -->
     <div id="player-container">
         <video id="video" autoplay muted playsinline></video>
     </div>
-    
+    <!-- Buscador y Lista Abajo -->
     <div id="sidebar">
         <input type="text" id="search-input" placeholder="Buscar canal..." oninput="filter()">
         <div id="channel-list"></div>
     </div>
 
-    <!-- Consola Visual -->
-    <div id="debug-console">--- LOGGER DRM INICIADO ---<br></div>
-
     <script>
-        // ==========================================
-        // INTERCEPTOR DE LOGS HACIA LA PANTALLA
-        // ==========================================
-        const consoleEl = document.getElementById('debug-console');
-        function printLog(msg, type) {
-            const div = document.createElement('div');
-            div.className = 'log-' + type;
-            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
-            consoleEl.appendChild(div);
-            consoleEl.scrollTop = consoleEl.scrollHeight;
-            console.log(`[${type.toUpperCase()}] ${msg}`); // Mantiene el log nativo
-        }
-
-        window.onerror = function(msg, url, line) { printLog(`JS ERROR: ${msg} en linea ${line}`, 'error'); };
-
+        // EL JAVASCRIPT SE MANTIENE INTACTO YA QUE FUNCIONA PERFECTAMENTE
         let player = null, ui = null, categoriesData = [];
 
         async function init() {
-            // Activamos logs internos de Shaka
-            shaka.log.setLevel(shaka.log.Level.V1);
-
             try {
                 const res = await fetch('/canales.json');
                 const data = await res.json();
                 categoriesData = data.categories; 
                 render(categoriesData, false); 
+
+                // ==========================================
+                // AUTOREPRODUCCIÓN DEL CANAL INICIAL
+                // ==========================================
+                const canalDeseado = "TN"; // Cambia esto por tu canal por defecto
+                let canalEncontrado = null;
+
+                for (const cat of categoriesData) {
+                    canalEncontrado = cat.samples.find(ch => ch.name === canalDeseado);
+                    if (canalEncontrado) break;
+                }
+
+                if (!canalEncontrado && categoriesData.length > 0 && categoriesData[0].samples.length > 0) {
+                    canalEncontrado = categoriesData[0].samples[0];
+                }
+
+                if (canalEncontrado) {
+                    const url = encodeURIComponent(canalEncontrado.original_url || canalEncontrado.url);
+                    const type = canalEncontrado.type;
+                    const drm = canalEncontrado.drm_license_uri || '';
+                    
+                    console.log(`Auto-iniciando el canal: ${canalEncontrado.name}`);
+                    play(url, type, drm);
+                }
+
             } catch (error) {
-                printLog("Error cargando canales.json: " + error, 'error');
+                console.error("Error cargando canales.json:", error);
+                document.getElementById('channel-list').innerHTML = '<div style="padding: 15px; color: #ff4d4d;">Error al cargar la lista de canales.</div>';
             }
         }
 
+        // Función para abrir/cerrar categorías
         function toggleCategory(index) {
             const content = document.getElementById('cat-content-' + index);
             const icon = document.getElementById('cat-icon-' + index);
+            
             if (content.classList.contains('open')) {
                 content.classList.remove('open');
                 icon.textContent = '▶';
@@ -119,16 +199,22 @@
             }
         }
 
+        // Renderizador de categorías y canales
         function render(categories, expandAll = false) {
             const container = document.getElementById('channel-list');
+            
             if (categories.length === 0) {
                 container.innerHTML = '<div style="padding: 15px; color: #888;">No se encontraron canales.</div>';
                 return;
             }
+
             container.innerHTML = categories.map((cat, index) => {
                 const channelsHtml = cat.samples.map(ch => {
                     const imgUrl = ch.icono || ch.logo || '';
-                    let imgTag = imgUrl && !imgUrl.startsWith('S<') ? `<img src="${imgUrl}" class="channel-icon" onerror="this.style.display='none'" loading="lazy">` : '';
+                    let imgTag = '';
+                    if (imgUrl && !imgUrl.startsWith('S<')) {
+                        imgTag = `<img src="${imgUrl}" class="channel-icon" onerror="this.style.display='none'" loading="lazy">`;
+                    }
                     return `
                     <div class="channel-item" onclick="play('${encodeURIComponent(ch.original_url || ch.url)}', '${ch.type}', '${ch.drm_license_uri || ''}')">
                         ${imgTag}
@@ -136,8 +222,10 @@
                     </div>
                     `;
                 }).join('');
+
                 const isOpenClass = expandAll ? 'open' : '';
                 const icon = expandAll ? '▼' : '▶';
+
                 return `
                 <div class="category-header" onclick="toggleCategory(${index})">
                     <span>${cat.name}</span>
@@ -152,45 +240,46 @@
 
         function filter() {
             const q = document.getElementById('search-input').value.toLowerCase();
-            if (!q) { render(categoriesData, false); return; }
-            const filteredCategories = categoriesData.map(cat => ({
-                ...cat,
-                samples: cat.samples.filter(ch => ch.name.toLowerCase().includes(q))
-            })).filter(cat => cat.samples.length > 0); 
+            
+            if (!q) {
+                render(categoriesData, false); 
+                return;
+            }
+
+            const filteredCategories = categoriesData.map(cat => {
+                return {
+                    ...cat,
+                    samples: cat.samples.filter(ch => ch.name.toLowerCase().includes(q))
+                };
+            }).filter(cat => cat.samples.length > 0); 
+
             render(filteredCategories, true); 
         }
 
-        async function play(url, type, drm) {
+        // Función de reproducción blindada con UI e Idioma Español
+       // Función de reproducción blindada con UI, Idioma Español y Fullscreen
+       // Función de reproducción con limpieza de UI y Fullscreen
+async function play(url, type, drm) {
             try {
                 const videoElement = document.getElementById('video');
                 const videoContainer = document.getElementById('player-container');
 
+                // 1. INICIALIZAR EL REPRODUCTOR ¡SOLO UNA VEZ!
                 if (!window.player) {
-                    window.player = new shaka.Player(videoElement);
+                    window.player = new shaka.Player();
+                    await window.player.attach(videoElement);
                     window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
                     
+                    // Forzar el botón de Pantalla Completa
                     window.ui.configure({
-                        controlPanelElements: ['play_pause', 'time_and_duration', 'spacer', 'mute', 'volume', 'fullscreen', 'overflow_menu']
-                    });
-
-                    // EVENTO CLAVE: Escuchar errores de DRM internos
-                    window.player.addEventListener('error', (event) => {
-                        const error = event.detail;
-                        if(error.category === shaka.util.Error.Category.DRM) {
-                            printLog(`SHAKA DRM ERROR: code=${error.code}, data=${error.data}`, 'error');
-                        }
-                    });
-
-                    // EVENTO CLAVE: Escuchar cuando cambia de pista (para ver si salta de calidad)
-                    window.player.addEventListener('adaptation', () => {
-                        const tracks = window.player.getVariantTracks();
-                        const active = tracks.find(t => t.active);
-                        if(active) {
-                            printLog(`Adaptación de pista. Resolucion actual: ${active.height}p, Video KID: ${active.videoRoles}, Audio KID: ${active.audioRoles}`, 'info');
-                        }
+                        controlPanelElements: [
+                            'play_pause', 'time_and_duration', 'spacer', 'mute', 
+                            'volume', 'fullscreen', 'overflow_menu'
+                        ]
                     });
                 }
 
+                // 2. CONFIGURAR REINTENTOS
                 window.player.configure({
                     streaming: { retryParameters: { maxAttempts: 3 } },
                     preferredAudioLanguage: 'es',
@@ -199,25 +288,17 @@
 
                 url = decodeURIComponent(url);
                 
-                printLog(`Iniciando Play... URL: ${url}`, 'info');
-                printLog(`DRM crudo de tu base de datos: ${drm}`, 'drm');
-
+                // 3. DRM
                 if(type === 'CLEARKEY' && drm) {
                     const parts = drm.split(',');
-                    const rawKid = parts[0].replace('kid:', '');
-                    const rawKey = parts[1].replace('k:', '');
-                    
-                    printLog(`KID extraído: [${rawKid}]`, 'drm');
-                    printLog(`KEY extraída: [${rawKey}]`, 'drm');
-
                     window.player.configure({ 
-                        drm: { clearKeys: { [rawKid]: rawKey } } 
+                        drm: { clearKeys: { [parts[0].replace('kid:', '')]: parts[1].replace('k:', '') } } 
                     });
-                    
                 } else {
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
                 
+                // 4. PARSEO DE RUTAS
                 let liveIndex = url.indexOf('/live/');
                 if (liveIndex !== -1) {
                     url = url.substring(liveIndex);
@@ -238,23 +319,18 @@
                     if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
                 }
 
-                printLog(`Cargando Proxy: /proxy${url}`, 'info');
+                // 5. CARGAR CANAL (Simplemente cambia el video sin destruir la interfaz)
                 await window.player.load('/proxy' + url);
                 
-                // Mostrar los KIDs reales que leyó Shaka del archivo MPD
-                const tracks = window.player.getVariantTracks();
-                tracks.forEach((t, i) => {
-                    printLog(`Track ${i} | ${t.height}p | Roles de Video: ${t.videoRoles ? t.videoRoles.join(',') : 'Ninguno'} | Roles de Audio: ${t.audioRoles ? t.audioRoles.join(',') : 'Ninguno'}`, 'info');
-                });
-
+                // Aseguramos que el video inicie para sincronizar el botón de Play
                 videoElement.play();
                 
             } catch (e) {
-                printLog(`Fallo al cargar: ${e.message}`, 'error');
-                if (e.code) printLog(`Shaka Error Code: ${e.code}`, 'error');
+                console.error("Error al reproducir:", e);
             }
         }
 
+        // Arrancar la app
         init();
     </script>
 </body>
