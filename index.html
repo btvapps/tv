@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.9</title>
+    <title>TV Player v1.10</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
@@ -264,17 +264,22 @@ async function play(url, type, drm) {
                 const videoElement = document.getElementById('video');
                 const videoContainer = document.getElementById('player-container');
 
-                if (window.player) { await window.player.destroy(); window.player = null; }
-                videoElement.src = '';
+                // 1. INICIALIZAR EL REPRODUCTOR ¡SOLO UNA VEZ!
+                if (!window.player) {
+                    window.player = new shaka.Player();
+                    await window.player.attach(videoElement);
+                    window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
+                    
+                    // Forzar el botón de Pantalla Completa
+                    window.ui.configure({
+                        controlPanelElements: [
+                            'play_pause', 'time_and_duration', 'spacer', 'mute', 
+                            'volume', 'fullscreen', 'overflow_menu'
+                        ]
+                    });
+                }
 
-                // Inicialización limpia estándar
-                window.player = new shaka.Player();
-                await window.player.attach(videoElement);
-                
-                // Conectamos la interfaz UI directamente a los elementos existentes
-                const ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
-                const controls = ui.getControls();
-
+                // 2. CONFIGURAR REINTENTOS
                 window.player.configure({
                     streaming: { retryParameters: { maxAttempts: 3 } },
                     preferredAudioLanguage: 'es',
@@ -283,6 +288,7 @@ async function play(url, type, drm) {
 
                 url = decodeURIComponent(url);
                 
+                // 3. DRM
                 if(type === 'CLEARKEY' && drm) {
                     const parts = drm.split(',');
                     window.player.configure({ 
@@ -292,6 +298,7 @@ async function play(url, type, drm) {
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
                 
+                // 4. PARSEO DE RUTAS
                 let liveIndex = url.indexOf('/live/');
                 if (liveIndex !== -1) {
                     url = url.substring(liveIndex);
@@ -312,7 +319,11 @@ async function play(url, type, drm) {
                     if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
                 }
 
+                // 5. CARGAR CANAL (Simplemente cambia el video sin destruir la interfaz)
                 await window.player.load('/proxy' + url);
+                
+                // Aseguramos que el video inicie para sincronizar el botón de Play
+                videoElement.play();
                 
             } catch (e) {
                 console.error("Error al reproducir:", e);
