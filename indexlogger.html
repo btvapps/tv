@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>TV Player Mobile v1.12 (LOGGER DRM)</title>
+    
+    <!-- Usamos la versión DEBUG de Shaka para tener acceso a los logs internos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.debug.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
+    
+    <style>
+        body { 
+            margin: 0; background-color: #0f0f0f; color: #fff; 
+            display: flex; flex-direction: column; height: 100vh; width: 100vw;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
+            overflow: hidden; overscroll-behavior-y: none; 
+        }
+        
+        #player-container { 
+            width: 100%; aspect-ratio: 16 / 9; max-height: 45vh; 
+            background: #000; position: relative; flex-shrink: 0; z-index: 10;
+        }
+
+        video { width: 100% !important; height: 100% !important; object-fit: contain !important; }
+
+        #sidebar { 
+            width: 100%; flex: 1; display: flex; flex-direction: column; 
+            background: #181818; overflow: hidden; 
+        }
+
+        #search-input { 
+            width: 100%; box-sizing: border-box; padding: 15px; background: #222; 
+            border: none; color: #fff; outline: none; font-size: 1rem; border-bottom: 1px solid #333; 
+        }
+
+        #channel-list { overflow-y: auto; flex: 1; padding: 10px; padding-bottom: env(safe-area-inset-bottom, 20px); }
+        
+        .category-header { background: #2a2a2a; color: #d1d1d1; padding: 15px 12px; font-weight: bold; font-size: 0.95rem; margin-top: 5px; margin-bottom: 2px; border-radius: 4px; border-left: 4px solid #007bff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .category-channels { display: none; padding-left: 5px; }
+        .category-channels.open { display: block; }
+        .channel-item { display: flex; align-items: center; padding: 10px 12px; background: #1e1e1e; margin-bottom: 4px; cursor: pointer; border-radius: 6px; }
+        .channel-icon { width: 40px; height: 40px; object-fit: contain; margin-right: 12px; border-radius: 4px; background: transparent; }
+        .channel-name { font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
+
+        /* =========================================
+           CONSOLA FLOTANTE PARA DEPURAR EN EL CELULAR
+           ========================================= */
+        #debug-console {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 35vh;
+            background: rgba(0,0,0,0.85);
+            color: #0f0; font-family: monospace; font-size: 11px;
+            overflow-y: auto; z-index: 9999;
+            padding: 10px; box-sizing: border-box;
+            border-top: 2px solid #0f0;
+        }
+        .log-info { color: #0f0; }
+        .log-warn { color: #ff0; }
+        .log-error { color: #f00; }
+        .log-drm { color: #0ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    
+    <div id="player-container">
+        <video id="video" autoplay muted playsinline></video>
+    </div>
+    
+    <div id="sidebar">
+        <input type="text" id="search-input" placeholder="Buscar canal..." oninput="filter()">
+        <div id="channel-list"></div>
+    </div>
+
+    <!-- Consola Visual -->
+    <div id="debug-console">--- LOGGER DRM INICIADO ---<br></div>
+
+    <script>
+        // ==========================================
+        // INTERCEPTOR DE LOGS HACIA LA PANTALLA
+        // ==========================================
+        const consoleEl = document.getElementById('debug-console');
+        function printLog(msg, type) {
+            const div = document.createElement('div');
+            div.className = 'log-' + type;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            consoleEl.appendChild(div);
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+            console.log(`[${type.toUpperCase()}] ${msg}`); // Mantiene el log nativo
+        }
+
+        window.onerror = function(msg, url, line) { printLog(`JS ERROR: ${msg} en linea ${line}`, 'error'); };
+
+        let player = null, ui = null, categoriesData = [];
+
+        async function init() {
+            // Activamos logs internos de Shaka
+            shaka.log.setLevel(shaka.log.Level.V1);
+
+            try {
+                const res = await fetch('/canales.json');
+                const data = await res.json();
+                categoriesData = data.categories; 
+                render(categoriesData, false); 
+            } catch (error) {
+                printLog("Error cargando canales.json: " + error, 'error');
+            }
+        }
+
+        function toggleCategory(index) {
+            const content = document.getElementById('cat-content-' + index);
+            const icon = document.getElementById('cat-icon-' + index);
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.textContent = '▶';
+            } else {
+                content.classList.add('open');
+                icon.textContent = '▼';
+            }
+        }
+
+        function render(categories, expandAll = false) {
+            const container = document.getElementById('channel-list');
+            if (categories.length === 0) {
+                container.innerHTML = '<div style="padding: 15px; color: #888;">No se encontraron canales.</div>';
+                return;
+            }
+            container.innerHTML = categories.map((cat, index) => {
+                const channelsHtml = cat.samples.map(ch => {
+                    const imgUrl = ch.icono || ch.logo || '';
+                    let imgTag = imgUrl && !imgUrl.startsWith('S<') ? `<img src="${imgUrl}" class="channel-icon" onerror="this.style.display='none'" loading="lazy">` : '';
+                    return `
+                    <div class="channel-item" onclick="play('${encodeURIComponent(ch.original_url || ch.url)}', '${ch.type}', '${ch.drm_license_uri || ''}')">
+                        ${imgTag}
+                        <span class="channel-name">${ch.name}</span>
+                    </div>
+                    `;
+                }).join('');
+                const isOpenClass = expandAll ? 'open' : '';
+                const icon = expandAll ? '▼' : '▶';
+                return `
+                <div class="category-header" onclick="toggleCategory(${index})">
+                    <span>${cat.name}</span>
+                    <span id="cat-icon-${index}" style="font-size: 0.75rem;">${icon}</span>
+                </div>
+                <div id="cat-content-${index}" class="category-channels ${isOpenClass}">
+                    ${channelsHtml}
+                </div>
+                `;
+            }).join('');
+        }
+
+        function filter() {
+            const q = document.getElementById('search-input').value.toLowerCase();
+            if (!q) { render(categoriesData, false); return; }
+            const filteredCategories = categoriesData.map(cat => ({
+                ...cat,
+                samples: cat.samples.filter(ch => ch.name.toLowerCase().includes(q))
+            })).filter(cat => cat.samples.length > 0); 
+            render(filteredCategories, true); 
+        }
+
+        async function play(url, type, drm) {
+            try {
+                const videoElement = document.getElementById('video');
+                const videoContainer = document.getElementById('player-container');
+
+                if (!window.player) {
+                    window.player = new shaka.Player(videoElement);
+                    window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
+                    
+                    window.ui.configure({
+                        controlPanelElements: ['play_pause', 'time_and_duration', 'spacer', 'mute', 'volume', 'fullscreen', 'overflow_menu']
+                    });
+
+                    // EVENTO CLAVE: Escuchar errores de DRM internos
+                    window.player.addEventListener('error', (event) => {
+                        const error = event.detail;
+                        if(error.category === shaka.util.Error.Category.DRM) {
+                            printLog(`SHAKA DRM ERROR: code=${error.code}, data=${error.data}`, 'error');
+                        }
+                    });
+
+                    // EVENTO CLAVE: Escuchar cuando cambia de pista (para ver si salta de calidad)
+                    window.player.addEventListener('adaptation', () => {
+                        const tracks = window.player.getVariantTracks();
+                        const active = tracks.find(t => t.active);
+                        if(active) {
+                            printLog(`Adaptación de pista. Resolucion actual: ${active.height}p, Video KID: ${active.videoRoles}, Audio KID: ${active.audioRoles}`, 'info');
+                        }
+                    });
+                }
+
+                window.player.configure({
+                    streaming: { retryParameters: { maxAttempts: 3 } },
+                    preferredAudioLanguage: 'es',
+                    preferredTextLanguage: 'es'
+                });
+
+                url = decodeURIComponent(url);
+                
+                printLog(`Iniciando Play... URL: ${url}`, 'info');
+                printLog(`DRM crudo de tu base de datos: ${drm}`, 'drm');
+
+                if(type === 'CLEARKEY' && drm) {
+                    const parts = drm.split(',');
+                    const rawKid = parts[0].replace('kid:', '');
+                    const rawKey = parts[1].replace('k:', '');
+                    
+                    printLog(`KID extraído: [${rawKid}]`, 'drm');
+                    printLog(`KEY extraída: [${rawKey}]`, 'drm');
+
+                    window.player.configure({ 
+                        drm: { clearKeys: { [rawKid]: rawKey } } 
+                    });
+                    
+                } else {
+                    window.player.configure({ drm: { clearKeys: {} } });
+                }
+                
+                let liveIndex = url.indexOf('/live/');
+                if (liveIndex !== -1) {
+                    url = url.substring(liveIndex);
+                } else if (url.includes('path=')) {
+                    try {
+                        const parsed = new URL(url);
+                        const realPath = parsed.searchParams.get('path');
+                        if (realPath) {
+                            const idx = realPath.indexOf('/live/');
+                            if (idx !== -1) url = realPath.substring(idx);
+                        }
+                    } catch(e) {}
+                }
+
+                if (url.startsWith('tok_') || url.includes('/tok_')) {
+                    const parts = url.split('/');
+                    const liveIdx = parts.findIndex(p => p.startsWith('live'));
+                    if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
+                }
+
+                printLog(`Cargando Proxy: /proxy${url}`, 'info');
+                await window.player.load('/proxy' + url);
+                
+                // Mostrar los KIDs reales que leyó Shaka del archivo MPD
+                const tracks = window.player.getVariantTracks();
+                tracks.forEach((t, i) => {
+                    printLog(`Track ${i} | ${t.height}p | Roles de Video: ${t.videoRoles ? t.videoRoles.join(',') : 'Ninguno'} | Roles de Audio: ${t.audioRoles ? t.audioRoles.join(',') : 'Ninguno'}`, 'info');
+                });
+
+                videoElement.play();
+                
+            } catch (e) {
+                printLog(`Fallo al cargar: ${e.message}`, 'error');
+                if (e.code) printLog(`Shaka Error Code: ${e.code}`, 'error');
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
