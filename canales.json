@@ -2872,7 +2872,7 @@
           "name": "DSPORTS ARGENTINA SD",
           "type": "CLEARKEY",
           "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/129.webp",
-          "drm_license_uri": "kid:RbvVgvIg9Dj4lkUNgwaj8g","k:WCxrp_ZLvA8tkcawwmV2DA",
+          "drm_license_uri": "kid:RbvVgvIg9Dj4lkUNgwaj8g,k:WCxrp_ZLvA8tkcawwmV2DA",
           "original_url": "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash-sd/enc/hubonmgf5k/out/v1/10560d92577e4917973aa4624124ecd6/cenc-sd.mpd",
           "url1": "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash-sd/enc/kp7qfx2tly/out/v1/bbfb730b45b74d4ea875d75786ea3f13/cenc-sd.mpd",
           "headers": {
