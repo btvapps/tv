@@ -32,6 +32,7 @@
           "drm_license_uri": "kid:piQ_RjZkReu_MRfsJzZUgQ,k:gWZ83DvPGaambAkZ-gCiCw",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/Argentinisima/SA_Live_dash_enc/Argentinisima.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/Argentinisima/SA_Live_dash_enc/Argentinisima.mpd",
+          "url2": "https://stream1.sersat.com/hls/argentinisima.m3u8",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -211,6 +212,7 @@
           "icono": "https://www.pngkey.com/png/full/139-1393003_el-garage-tv-garage-tv-logo.png",
           "drm_license_uri": "kid:A9HfuN8DTYuB5XdT3wCjbQ,k:CNg2YNtKc7sdYdYLCd9fTQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/El_Garage/SA_Live_dash_enc/El_Garage.mpd",
+          "url1": "https://stream1.sersat.com/hls/garagetv.m3u8",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -259,6 +261,7 @@
           "icono": "https://static.wikia.nocookie.net/logopedia/images/2/21/NETTV2018.png/revision/latest/scale-to-width-down/200?cb=20210315130135&path-prefix=es",
           "drm_license_uri": "kid:idQzFm7dMdVt8qWd-OxnBA,k:sgFfre0KRW0Qqo2xtMusaA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/Net_TV/SA_Live_dash_enc/Net_TV.mpd",
+          "url1": "https://unlimited1-saopaulo.dps.live/nettv/nettv.smil/nettv/livestream1/chunks.m3u8",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -309,6 +312,7 @@
           "icono": "https://i.postimg.cc/BbwCJ6zd/Telemax.png",
           "drm_license_uri": "kid:5-w2StaFT-2teXU4y1h4DQ,k:V9-z_KLKNbN_-Bw1WV6b6A",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/Telemax/SA_Live_dash_enc/Telemax.mpd",
+          "url1": "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -2071,6 +2075,7 @@
           "drm_license_uri": "kid:4yqqS2dDCztRvh785adKxQ,k:rWDF4dN4qXJxv4aI8JTQkg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/26_TV_HD/SA_Live_dash_enc/26_TV_HD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/26_TV_HD/SA_Live_dash_enc/26_TV_HD.mpd",
+          "url2": "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -2105,6 +2110,7 @@
           "drm_license_uri": "kid:fOsc0GIs1-iPzcmf46Vd5g,k:lRY3CT1BxziKHvP2IM_qIQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/TodoNoticias/SA_Live_dash_enc_wl/TodoNoticias.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c7eds/TodoNoticias/SA_Live_dash_enc/TodoNoticias.mpd",
+          "url2": "https://dai.google.com/linear/hls/event/5OEEtA9FR-yrvhNE5K8PQQ/master.m3u8",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
