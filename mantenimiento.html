@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Player - En Mantenimiento</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0d0d11;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Fondo con gradientes sutiles */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 152, 0, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .card {
+            background: #17171e;
+            border: 1px solid #282834;
+            border-radius: 20px;
+            padding: 45px 35px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 152, 0, 0.08);
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon-container {
+            width: 86px;
+            height: 86px;
+            background: rgba(255, 152, 0, 0.12);
+            border: 2px solid rgba(255, 152, 0, 0.35);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            font-size: 2.5rem;
+            animation: pulseGlow 2.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 152, 0, 0.2); }
+            100% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 152, 0, 0.45); }
+        }
+
+        h1 {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #a0a0b2;
+            margin-bottom: 28px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #ffb74d;
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff9800;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff9800;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 13px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.35);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon-container">
+            🛠️
+        </div>
+        
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            Tareas de Mantenimiento
+        </div>
+
+        <h1>Servicio en Mantenimiento</h1>
+        <p>
+            Estamos realizando mejoras y optimizaciones en nuestros servidores centrales para garantizar la máxima estabilidad y calidad de streaming.
+            <br><br>
+            El servicio se restablecerá en breve. Por favor, vuelve a intentar en unos instantes.
+        </p>
+
+        <button class="btn" onclick="window.location.reload()">
+            🔄 Reintentar Conexión
+        </button>
+    </div>
+</body>
+</html>
