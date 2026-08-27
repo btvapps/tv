@@ -181,17 +181,28 @@
                 render(categoriesData, false); 
 
                 // ==========================================
-                // AUTOREPRODUCCIÓN DEL CANAL INICIAL
+                // AUTOREPRODUCCIÓN DEL CANAL INICIAL DESDE CONFIG.JSON
                 // ==========================================
-                const canalDeseado = "TN"; // Canal por defecto
+                let canalDeseado = "DSports";
+                try {
+                    const configRes = await fetch('/config.json?t=' + Date.now());
+                    const configData = await configRes.json();
+                    if (configData && configData.canal_inicial) {
+                        canalDeseado = configData.canal_inicial.trim();
+                    }
+                } catch (cfgErr) {
+                    console.warn("No se pudo cargar canal_inicial de config.json:", cfgErr);
+                }
+
                 let canalEncontrado = null;
+                const canalDeseadoLower = canalDeseado.toLowerCase();
 
                 for (const cat of categoriesData) {
-                    canalEncontrado = (cat.samples || []).find(ch => ch.name === canalDeseado);
+                    canalEncontrado = (cat.samples || []).find(ch => (ch.name || '').toLowerCase() === canalDeseadoLower);
                     if (canalEncontrado) break;
                     const subcats = cat.subcategories || cat.subCategories || [];
                     for (const sub of subcats) {
-                        canalEncontrado = (sub.samples || []).find(ch => ch.name === canalDeseado);
+                        canalEncontrado = (sub.samples || []).find(ch => (ch.name || '').toLowerCase() === canalDeseadoLower);
                         if (canalEncontrado) break;
                     }
                     if (canalEncontrado) break;
