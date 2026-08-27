@@ -2,14 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.10</title>
+    <title>TV Player v1.2</title>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
-    <style>/* Estructura general de la pantalla en dos columnas fijas */
-       /* Estructura general de la pantalla */
-/* Usamos CSS Grid para dividir la pantalla en dos columnas perfectas */
-    /* Volvemos a flexbox tradicional que respeta el menú al 100% */
+    <style>
+        /* Estructura general de la pantalla */
         body { 
             margin: 0; 
             background-color: #0f0f0f; 
@@ -31,7 +29,8 @@
             display: flex; 
             flex-direction: column; 
             height: 100vh;
-            flex-shrink: 0; /* Evita que el menú se comprima */
+            flex-shrink: 0;
+            z-index: 10;
         }
 
         #search-input { 
@@ -77,6 +76,35 @@
             display: block;
         }
 
+        /* Estilos de las Subcategorías (Provincias / Carpetas anidadas) */
+        .subcategory-header {
+            background: #232328;
+            color: #d1d1d8;
+            padding: 9px 12px;
+            margin: 4px 0 2px 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-radius: 4px;
+            border-left: 3px solid #ff9800;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .subcategory-header:hover {
+            background: #2e2e38;
+            color: #fff;
+        }
+        .subcategory-channels {
+            display: none;
+            padding-left: 8px;
+        }
+        .subcategory-channels.open {
+            display: block;
+        }
+
         .channel-item { 
             display: flex; 
             align-items: center; 
@@ -106,8 +134,7 @@
             flex: 1;
         }
 
-        /* Contenedor del reproductor: Ocupa exactamente el espacio restante */
-       /* Aseguramos que el contenedor general del reproductor ocupe el espacio correcto */
+        /* Contenedor del reproductor */
         #player-container { 
             flex: 1; 
             height: 100vh;
@@ -116,10 +143,7 @@
             overflow: hidden;
         }
 
-        /* 
-          ESTA ES LA CLAVE: Forzamos a Shaka UI a correrse 350px a la derecha 
-          para que no tape el menú lateral y las categorías vuelvan a verse.
-        */
+        /* Ajuste de Shaka UI para no solapar el menú lateral */
         .shaka-video-container {
             width: calc(100% - 350px) !important;
             height: 100% !important;
@@ -138,14 +162,13 @@
 <body>
     <div id="sidebar">
         <input type="text" id="search-input" placeholder="Buscar canal..." oninput="filter()">
-        <div id="channel-list"></div>
+        <div id="channel-list">Cargando canales...</div>
     </div>
     
     <!-- Contenedor necesario para Shaka UI -->
-
     <div id="player-container" data-shaka-player-container style="position: relative; width: 100%; height: 100%;">
-    <video id="video" autoplay muted data-shaka-player style="width: 100%; height: 100%; object-fit: contain;"></video>
-</div>
+        <video id="video" autoplay muted data-shaka-player style="width: 100%; height: 100%; object-fit: contain;"></video>
+    </div>
 
     <script>
         let player = null, ui = null, categoriesData = [];
@@ -154,29 +177,39 @@
             try {
                 const res = await fetch('/canales.json');
                 const data = await res.json();
-                categoriesData = data.categories; 
+                categoriesData = data.categories || []; 
                 render(categoriesData, false); 
 
                 // ==========================================
                 // AUTOREPRODUCCIÓN DEL CANAL INICIAL
                 // ==========================================
-                const canalDeseado = "TN"; // Cambia esto por tu canal por defecto
+                const canalDeseado = "TN"; // Canal por defecto
                 let canalEncontrado = null;
 
                 for (const cat of categoriesData) {
-                    canalEncontrado = cat.samples.find(ch => ch.name === canalDeseado);
+                    canalEncontrado = (cat.samples || []).find(ch => ch.name === canalDeseado);
+                    if (canalEncontrado) break;
+                    const subcats = cat.subcategories || cat.subCategories || [];
+                    for (const sub of subcats) {
+                        canalEncontrado = (sub.samples || []).find(ch => ch.name === canalDeseado);
+                        if (canalEncontrado) break;
+                    }
                     if (canalEncontrado) break;
                 }
 
-                if (!canalEncontrado && categoriesData.length > 0 && categoriesData[0].samples.length > 0) {
-                    canalEncontrado = categoriesData[0].samples[0];
+                if (!canalEncontrado && categoriesData.length > 0) {
+                    const firstCat = categoriesData[0];
+                    if (firstCat.samples && firstCat.samples.length > 0) {
+                        canalEncontrado = firstCat.samples[0];
+                    } else if (firstCat.subcategories && firstCat.subcategories.length > 0 && firstCat.subcategories[0].samples && firstCat.subcategories[0].samples.length > 0) {
+                        canalEncontrado = firstCat.subcategories[0].samples[0];
+                    }
                 }
 
                 if (canalEncontrado) {
                     const url = encodeURIComponent(canalEncontrado.original_url || canalEncontrado.url);
-                    const type = canalEncontrado.type;
+                    const type = canalEncontrado.type || '';
                     const drm = canalEncontrado.drm_license_uri || '';
-                    
                     console.log(`Auto-iniciando el canal: ${canalEncontrado.name}`);
                     play(url, type, drm);
                 }
@@ -187,90 +220,142 @@
             }
         }
 
-        // Función para abrir/cerrar categorías
+        // Función para abrir/cerrar categorías principales
         function toggleCategory(index) {
             const content = document.getElementById('cat-content-' + index);
             const icon = document.getElementById('cat-icon-' + index);
-            
+            if (!content) return;
             if (content.classList.contains('open')) {
                 content.classList.remove('open');
-                icon.textContent = '▶';
+                if (icon) icon.textContent = '▶';
             } else {
                 content.classList.add('open');
-                icon.textContent = '▼';
+                if (icon) icon.textContent = '▼';
             }
         }
 
-        // Renderizador de categorías y canales
+        // Función para abrir/cerrar subcategorías (provincias)
+        function toggleSubcategory(catIndex, subIndex) {
+            const content = document.getElementById('subcat-content-' + catIndex + '-' + subIndex);
+            const icon = document.getElementById('subcat-icon-' + catIndex + '-' + subIndex);
+            if (!content) return;
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                if (icon) icon.textContent = '▶';
+            } else {
+                content.classList.add('open');
+                if (icon) icon.textContent = '▼';
+            }
+        }
+
+        // Genera el HTML para cada elemento de canal
+        function renderChannelItem(ch) {
+            const imgUrl = ch.icono || ch.logo || '';
+            let imgTag = '';
+            if (imgUrl && !imgUrl.startsWith('S<')) {
+                imgTag = `<img src="${imgUrl}" class="channel-icon" onerror="this.style.display='none'" loading="lazy">`;
+            }
+            const playUrl = encodeURIComponent(ch.original_url || ch.url);
+            const drmStr = encodeURIComponent(ch.drm_license_uri || '');
+            return `
+            <div class="channel-item" onclick="play('${playUrl}', '${ch.type || ''}', decodeURIComponent('${drmStr}'))">
+                ${imgTag}
+                <span class="channel-name">${ch.name}</span>
+            </div>
+            `;
+        }
+
+        // Renderizador con soporte de carpetas principales y subcarpetas (provincias)
         function render(categories, expandAll = false) {
             const container = document.getElementById('channel-list');
-            
-            if (categories.length === 0) {
+            if (!categories || categories.length === 0) {
                 container.innerHTML = '<div style="padding: 15px; color: #888;">No se encontraron canales.</div>';
                 return;
             }
 
-            container.innerHTML = categories.map((cat, index) => {
-                const channelsHtml = cat.samples.map(ch => {
-                    const imgUrl = ch.icono || ch.logo || '';
-                    let imgTag = '';
-                    if (imgUrl && !imgUrl.startsWith('S<')) {
-                        imgTag = `<img src="${imgUrl}" class="channel-icon" onerror="this.style.display='none'" loading="lazy">`;
-                    }
+            container.innerHTML = categories.map((cat, catIndex) => {
+                const directChannelsHtml = (cat.samples || []).map(ch => renderChannelItem(ch)).join('');
+                const subcats = cat.subcategories || cat.subCategories || [];
+                const subcatsHtml = subcats.map((sub, subIndex) => {
+                    const subChannelsHtml = (sub.samples || []).map(ch => renderChannelItem(ch)).join('');
+                    const isSubOpen = expandAll ? 'open' : '';
+                    const subIcon = expandAll ? '▼' : '▶';
+                    const count = (sub.samples || []).length;
                     return `
-                    <div class="channel-item" onclick="play('${encodeURIComponent(ch.original_url || ch.url)}', '${ch.type}', '${ch.drm_license_uri || ''}')">
-                        ${imgTag}
-                        <span class="channel-name">${ch.name}</span>
+                    <div class="subcategory-header" onclick="toggleSubcategory(${catIndex}, ${subIndex})">
+                        <span>📍 ${sub.name} <small style="color:#aaa; font-weight:normal;">(${count})</small></span>
+                        <span id="subcat-icon-${catIndex}-${subIndex}" style="font-size: 0.7rem;">${subIcon}</span>
+                    </div>
+                    <div id="subcat-content-${catIndex}-${subIndex}" class="subcategory-channels ${isSubOpen}">
+                        ${subChannelsHtml}
                     </div>
                     `;
                 }).join('');
 
                 const isOpenClass = expandAll ? 'open' : '';
                 const icon = expandAll ? '▼' : '▶';
+                const countBadge = subcats.length > 0 ? `<small style="color:#888; font-weight:normal;">(${subcats.length} prov.)</small>` : '';
 
                 return `
-                <div class="category-header" onclick="toggleCategory(${index})">
-                    <span>${cat.name}</span>
-                    <span id="cat-icon-${index}" style="font-size: 0.75rem;">${icon}</span>
+                <div class="category-header" onclick="toggleCategory(${catIndex})">
+                    <span>${cat.name} ${countBadge}</span>
+                    <span id="cat-icon-${catIndex}" style="font-size: 0.75rem;">${icon}</span>
                 </div>
-                <div id="cat-content-${index}" class="category-channels ${isOpenClass}">
-                    ${channelsHtml}
+                <div id="cat-content-${catIndex}" class="category-channels ${isOpenClass}">
+                    ${directChannelsHtml}
+                    ${subcatsHtml}
                 </div>
                 `;
             }).join('');
         }
 
+        // Buscador inteligente en categorías y subcategorías
         function filter() {
-            const q = document.getElementById('search-input').value.toLowerCase();
-            
+            const q = document.getElementById('search-input').value.toLowerCase().trim();
             if (!q) {
-                render(categoriesData, false); 
+                render(categoriesData, false);
                 return;
             }
 
-            const filteredCategories = categoriesData.map(cat => {
-                return {
-                    ...cat,
-                    samples: cat.samples.filter(ch => ch.name.toLowerCase().includes(q))
-                };
-            }).filter(cat => cat.samples.length > 0); 
+            const filteredCategories = [];
+            categoriesData.forEach(cat => {
+                const matchingDirect = (cat.samples || []).filter(ch => ch.name.toLowerCase().includes(q));
+                const matchingSubcats = [];
+                (cat.subcategories || cat.subCategories || []).forEach(sub => {
+                    const subMatches = (sub.samples || []).filter(ch => 
+                        ch.name.toLowerCase().includes(q) || sub.name.toLowerCase().includes(q)
+                    );
+                    if (subMatches.length > 0) {
+                        matchingSubcats.push({
+                            ...sub,
+                            samples: subMatches
+                        });
+                    }
+                });
 
-            render(filteredCategories, true); 
+                if (matchingDirect.length > 0 || matchingSubcats.length > 0 || cat.name.toLowerCase().includes(q)) {
+                    filteredCategories.push({
+                        ...cat,
+                        samples: matchingDirect,
+                        subcategories: matchingSubcats
+                    });
+                }
+            });
+
+            render(filteredCategories, true);
         }
 
-        // Función de reproducción blindada con UI e Idioma Español
-async function play(url, type, drm) {
+        // Función de reproducción blindada (Flow + Servidores Externos)
+        async function play(url, type, drm) {
             try {
                 const videoElement = document.getElementById('video');
                 const videoContainer = document.getElementById('player-container');
 
-                // 1. INICIALIZAR EL REPRODUCTOR ¡SOLO UNA VEZ!
+                // 1. Inicializar Shaka Player solo una vez
                 if (!window.player) {
                     window.player = new shaka.Player();
                     await window.player.attach(videoElement);
                     window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
-                    
-                    // Forzar el botón de Pantalla Completa
                     window.ui.configure({
                         controlPanelElements: [
                             'play_pause', 'time_and_duration', 'spacer', 'mute', 
@@ -279,7 +364,7 @@ async function play(url, type, drm) {
                     });
                 }
 
-                // 2. CONFIGURAR REINTENTOS
+                // 2. Configurar reintentos e idioma
                 window.player.configure({
                     streaming: { retryParameters: { maxAttempts: 3 } },
                     preferredAudioLanguage: 'es',
@@ -287,9 +372,9 @@ async function play(url, type, drm) {
                 });
 
                 url = decodeURIComponent(url);
-                
-                // 3. DRM
-                if(type === 'CLEARKEY' && drm) {
+
+                // 3. Configuración de DRM (ClearKey)
+                if (type === 'CLEARKEY' && drm) {
                     const parts = drm.split(',');
                     window.player.configure({ 
                         drm: { clearKeys: { [parts[0].replace('kid:', '')]: parts[1].replace('k:', '') } } 
@@ -297,40 +382,40 @@ async function play(url, type, drm) {
                 } else {
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
-                
-                // 4. PARSEO DE RUTAS
-                let liveIndex = url.indexOf('/live/');
-                if (liveIndex !== -1) {
-                    url = url.substring(liveIndex);
-                } else if (url.includes('path=')) {
-                    try {
-                        const parsed = new URL(url);
-                        const realPath = parsed.searchParams.get('path');
-                        if (realPath) {
-                            const idx = realPath.indexOf('/live/');
-                            if (idx !== -1) url = realPath.substring(idx);
-                        }
-                    } catch(e) {}
+
+                // 4. Detección y parseo de rutas (Flow vs Canales Externos)
+                const isFlowUrl = url.includes('flow.com.ar') || url.includes('cvattv.com.ar') || url.includes('/tok_') || url.startsWith('tok_') || url.startsWith('/live/') || url.startsWith('live/');
+                if (isFlowUrl) {
+                    let liveIndex = url.indexOf('/live/');
+                    if (liveIndex !== -1) {
+                        url = url.substring(liveIndex);
+                    } else if (url.includes('path=')) {
+                        try {
+                            const parsed = new URL(url);
+                            const realPath = parsed.searchParams.get('path');
+                            if (realPath) {
+                                const idx = realPath.indexOf('/live/');
+                                if (idx !== -1) url = realPath.substring(idx);
+                            }
+                        } catch(e) {}
+                    }
+                    if (url.startsWith('tok_') || url.includes('/tok_')) {
+                        const parts = url.split('/');
+                        const liveIdx = parts.findIndex(p => p.startsWith('live'));
+                        if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
+                    }
                 }
 
-                if (url.startsWith('tok_') || url.includes('/tok_')) {
-                    const parts = url.split('/');
-                    const liveIdx = parts.findIndex(p => p.startsWith('live'));
-                    if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
-                }
-
-                // 5. CARGAR CANAL (Simplemente cambia el video sin destruir la interfaz)
-                await window.player.load('/proxy' + url);
-                
-                // Aseguramos que el video inicie para sincronizar el botón de Play
+                // 5. Cargar canal en el proxy
+                const targetProxyUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
+                await window.player.load(targetProxyUrl);
                 videoElement.play();
-                
             } catch (e) {
                 console.error("Error al reproducir:", e);
             }
         }
 
-        // Arrancar la app
+        // Iniciar al cargar la página
         init();
     </script>
 </body>
