@@ -5393,7 +5393,8 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.ibb.co/zfmjcgb/HBO.png",
-          "drm_license_uri": "kid:UxcoP0EQ-sP7Ogvs2fZIvA,k:B1SgPJJrEkchbgHZ28-sKA",
+          "drm_license_uri": "kid:b059cdbfc787a32f57fbcb6e52dbc0a0:50648d7806624eb8d53fb2aecc8b1af1",
+          "drm_license_uriback": "kid:UxcoP0EQ-sP7Ogvs2fZIvA,k:B1SgPJJrEkchbgHZ28-sKA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/HBOHD/SA_Live_dash_enc_wl/HBOHD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c4eds/HBOHD/SA_Live_dash_enc/HBOHD.mpd",
           "headers": {
