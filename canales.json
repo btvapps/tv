@@ -867,7 +867,7 @@
               "flow": "yes",
               "type": "CLEARKEY",
               "icono": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Canal_10_C%C3%B3rdoba_%28Logo_2025%29.svg/250px-Canal_10_C%C3%B3rdoba_%28Logo_2025%29.svg.png",
-              "drm_license_uri": "kid:bYX8xwmJ0Nvo1w3XCkYpwA,k:qVMpAZL9XbW_eTaojsxodw",
+              "drm_license_uri": "kid:NAg_E-Nd7HekOy6_dSkezQ,k:EiODPx2FqcsgBhqgllPuNQ",
               "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Canal10_CBA_HD/SA_Live_dash_enc/Canal10_CBA_HD.mpd",
               "headers": {
                 "Origin": "https://portal.app.flow.com.ar",
@@ -2506,6 +2506,23 @@
           "source_group": "samples"
         },
         {
+          "name": "DSports 2",
+          "flow": "yes",
+          "type": "CLEARKEY",
+          "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/131.webp",
+          "drm_license_uri": "kid:DdST-nRkBEKr11E5tnMH1g,k:Mc9ClTktk5qX87YOvxzrRA",
+          "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/DSports_2/SA_Live_dash_enc/DSports_2.mpd",
+          "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/DSports_2/SA_Live_dash_enc/DSports_2.mpd",
+          "headers": {
+            "Origin": "https://portal.app.flow.com.ar",
+            "Referer": "https://portal.app.flow.com.ar/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+          },
+          "globalIndex": 138,
+          "category": "⚽ Deportes",
+          "source_group": "samples"
+        },
+        {
           "name": "ESPN",
           "flow": "yes",
           "type": "CLEARKEY",
@@ -2806,7 +2823,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/Cx34701w/Logo.png",
-          "drm_license_uri": "kid:3z7WJFu5rxoDRjeejkdd_w,k:-G-EV0ONTkSdU7lWzBvmZA",
+          "drm_license_uri": "kid:SYHFnDMcrP_3A5CpmxAnnQ,k:dgN9AbRP8eK-XB0I-7HwTg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Show_Sports/SA_Live_dash_enc/Show_Sports.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
