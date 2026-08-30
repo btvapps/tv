@@ -1123,7 +1123,7 @@
               "flow": "yes",
               "type": "CLEARKEY",
               "icono": "https://upload.wikimedia.org/wikipedia/commons/3/30/Telefe_Rosario_%282018%29.png",
-              "drm_license_uri": "kid:xhtayOFmS_W1ROkuoll-HA,k:k4Q3rCXwoY4E78Ggg0ie3A",
+              "drm_license_uri": "kid:F7PqWweXn3GcnB8pxWagTQ,k:t-7mUirRq7zuLAltVdHBdQ",
               "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Canal_5_Rosario/SA_Live_dash_enc/Canal_5_Rosario.mpd",
               "headers": {
                 "Origin": "https://portal.app.flow.com.ar",
