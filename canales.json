@@ -283,8 +283,8 @@
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/TelefeHD/SA_Live_dash_enc_wl/TelefeHD.mpd",
           "url2": "https://mdstrm.com/live-stream-playlist/6a024684fd4ca6a938f3a118.m3u8?uid=vQhxhZcXphkeKn5MzXxxN5mUYIzAXnFD&sid=4SUa4Hz5h735Lqk6POSyyGPlWbVETS7q&pid=PHymiTGHgky9CR4AOoVAL9q4DcnDBoRd&pid_dvr=HUqKVQXiwVs9nyh7ESGSQkWrVJdvG9DX&an=Mediastream_Player&at=web-app&av=v7.0.101&ref=https%3A%2F%2Fwww.mitelefe.com%2F&res=1296x729&without_cookies=false&listenerid=&dnt=true&access_token=3YkRXxuv65BU5Kgr12iwexzZi5siRbSvmoVXP4bW1EF2pg9lxLV4bYgvsBXg3DaUwI77AHKMamF&adInsertionGoogleStreamId=be866a8c-a563-4a46-8da2-5f56a45e7f7e:SCL2&CMCD=cid%3D%226a024684fd4ca6a938f3a118%22%2Cmtp%3D500%2Cot%3Dm%2Csf%3Dh%2Csid%3D%22PHymiTGHgky9CR4AOoVAL9q4DcnDBoRd%22%2Csu",
           "headers": {
-            "Origin": "https://portal.app.flow.com.ar",
-            "Referer": "https://portal.app.flow.com.ar/",
+            "Origin": "https://mdstrm.com",
+            "Referer": "https://mdstrm.com/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
           },
           "globalIndex": 16,
