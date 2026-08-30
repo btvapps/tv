@@ -1137,6 +1137,24 @@
               "subCategory": "Santa Fe"
             },
             {
+              "name": "Telefe Rosario (Canal 5) (610)",
+              "flow": "yes",
+              "type": "CLEARKEY",
+              "icono": "https://upload.wikimedia.org/wikipedia/commons/3/30/Telefe_Rosario_%282018%29.png",
+              "drm_license_uri": "kid:POwbHql5ndpVluZPN-XtIA,k:xp86_eIIXcqq3b9VJGoDIw",
+              "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/TelefeHD/SA_Live_dash_enc/TelefeHD.mpd",
+              "headers": {
+                "Origin": "https://portal.app.flow.com.ar",
+                "Referer": "https://portal.app.flow.com.ar/",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+              },
+              "globalIndex": 64,
+              "category": "📍 Canales Locales",
+              "source_group": "samples",
+              "provincia": "Santa Fe",
+              "subCategory": "Santa Fe"
+            },
+            {
               "name": "Somos Rafaela",
               "flow": "yes",
               "type": "CLEARKEY",
