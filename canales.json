@@ -2509,6 +2509,23 @@
           "source_group": "samples"
         },
         {
+          "name": "Clarosports",
+          "flow": "yes",
+          "type": "CLEARKEY",
+          "icono": "https://images.ctfassets.net/ugxciox4nyye/HACpPafOQ9Yj5f8T8Ey1Y/fe9b0f454657b8c4812a138c5870239e/12_ClaroSports.png?fm=webp&q=80",
+          "drm_license_uri": "kid:StKRGaClUbgubgrCGkZsTg,k:FYomilbtihxJxXLmxYO2Kg",
+          "original_url": "https://arlocallivechannelsdash.clarovideo.com/Content/DASH_DASH_FK/Live/Channel(CLARO_SPORTS_LATAM)/master.mpd",
+          
+          "headers": {
+            "Origin": "https://www.clarovideo.com",
+            "Referer": "https://www.clarovideo.com/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+          },
+          "globalIndex": 138,
+          "category": "⚽ Deportes",
+          "source_group": "samples"
+        },
+        {
           "name": "DSports",
           "flow": "yes",
           "type": "CLEARKEY",
