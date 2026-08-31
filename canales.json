@@ -2510,7 +2510,7 @@
         },
         {
           "name": "Clarosports",
-          "flow": "yes",
+          
           "type": "CLEARKEY",
           "icono": "https://images.ctfassets.net/ugxciox4nyye/HACpPafOQ9Yj5f8T8Ey1Y/fe9b0f454657b8c4812a138c5870239e/12_ClaroSports.png?fm=webp&q=80",
           "drm_license_uri": "kid:StKRGaClUbgubgrCGkZsTg,k:FYomilbtihxJxXLmxYO2Kg",
