@@ -2404,7 +2404,7 @@
           "name": "Canal 26",
           "flow": "yes",
           "type": "CLEARKEY",
-          "icono": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEVHcEzIEhPIFBXIFBXIFBXIFBTIFBXIFBXIEhPIExTIFBXIEhPIExT////FAADHAAH67Oz34eHy0ND++PjloKDZcHDQR0jICgzDAADrt7jvxsfXZ2fOOjvUWlrgjo7JFxjKFxm0xUHMAAAADHRSTlMAz/jevkeC6CwTYqv52V6TAAABKklEQVQokX2TiZaDIAxF0VpxSYPgQlxa5/+/chJcRm2nz3M4yNUkPIJSm7I00THoJM3UVYWGXbo4ofwGR81R/sfu8KbsC9tpDuCR+NnWDbL8ElkDdn1V2wYWjKNzznZRqBOweSx6CsWnTF8Id4axGR+bJs9RZNIQwE2qQctv9VDz6NBMG5OaUvDWWodkhOIs46NvJUGqIs7C4rHn1R+7JrAGIFG7bSTr7Z7eESfdWCjZDRJzaiV257WK1/9e8rlUasljGzaj1WI5BtbTEs88A4xUGVjIZYkq+Z3ISXpTskGbKfXYjkP4KGzHQCG2L6Zc1CCw9YmfPrABQZzPZltdNYy0nmiJdBUGf9YD/SS1t8KXJsrj/xkrOaNja0oHHjpX3996Xq7DHJ+uwy+XDCMU8rsf0AAAAABJRU5ErkJggg==",
+          "icono": "https://telecentro.com.ar/img/cm/channels/canal%2026%20128.png",
           "drm_license_uri": "kid:4yqqS2dDCztRvh785adKxQ,k:rWDF4dN4qXJxv4aI8JTQkg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/26_TV_HD/SA_Live_dash_enc/26_TV_HD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/26_TV_HD/SA_Live_dash_enc/26_TV_HD.mpd",
@@ -2420,7 +2420,7 @@
         },
         {
           "name": "Canal 26 4K",
-          "icono": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEVHcEzIEhPIFBXIFBXIFBXIFBTIFBXIFBXIEhPIExTIFBXIEhPIExT////FAADHAAH67Oz34eHy0ND++PjloKDZcHDQR0jICgzDAADrt7jvxsfXZ2fOOjvUWlrgjo7JFxjKFxm0xUHMAAAADHRSTlMAz/jevkeC6CwTYqv52V6TAAABKklEQVQokX2TiZaDIAxF0VpxSYPgQlxa5/+/chJcRm2nz3M4yNUkPIJSm7I00THoJM3UVYWGXbo4ofwGR81R/sfu8KbsC9tpDuCR+NnWDbL8ElkDdn1V2wYWjKNzznZRqBOweSx6CsWnTF8Id4axGR+bJs9RZNIQwE2qQctv9VDz6NBMG5OaUvDWWodkhOIs46NvJUGqIs7C4rHn1R+7JrAGIFG7bSTr7Z7eESfdWCjZDRJzaiV257WK1/9e8rlUasljGzaj1WI5BtbTEs88A4xUGVjIZYkq+Z3ISXpTskGbKfXYjkP4KGzHQCG2L6Zc1CCw9YmfPrABQZzPZltdNYy0nmiJdBUGf9YD/SS1t8KXJsrj/xkrOaNja0oHHjpX3996Xq7DHJ+uwy+XDCMU8rsf0AAAAABJRU5ErkJggg==",
+          "icono": "https://telecentro.com.ar/img/cm/channels/canal%2026%20128.png",
           "original_url": "https://stream-gtlc.telecentro.net.ar/hls/canal264khls/main.m3u8",
           "globalIndex": 132,
           "category": "📰 Noticias",
