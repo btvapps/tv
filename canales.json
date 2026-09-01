@@ -2419,6 +2419,14 @@
           "source_group": "samples"
         },
         {
+          "name": "Canal 26 4K",
+          "icono": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAY1BMVEVHcEzIEhPIFBXIFBXIFBXIFBTIFBXIFBXIEhPIExTIFBXIEhPIExT////FAADHAAH67Oz34eHy0ND++PjloKDZcHDQR0jICgzDAADrt7jvxsfXZ2fOOjvUWlrgjo7JFxjKFxm0xUHMAAAADHRSTlMAz/jevkeC6CwTYqv52V6TAAABKklEQVQokX2TiZaDIAxF0VpxSYPgQlxa5/+/chJcRm2nz3M4yNUkPIJSm7I00THoJM3UVYWGXbo4ofwGR81R/sfu8KbsC9tpDuCR+NnWDbL8ElkDdn1V2wYWjKNzznZRqBOweSx6CsWnTF8Id4axGR+bJs9RZNIQwE2qQctv9VDz6NBMG5OaUvDWWodkhOIs46NvJUGqIs7C4rHn1R+7JrAGIFG7bSTr7Z7eESfdWCjZDRJzaiV257WK1/9e8rlUasljGzaj1WI5BtbTEs88A4xUGVjIZYkq+Z3ISXpTskGbKfXYjkP4KGzHQCG2L6Zc1CCw9YmfPrABQZzPZltdNYy0nmiJdBUGf9YD/SS1t8KXJsrj/xkrOaNja0oHHjpX3996Xq7DHJ+uwy+XDCMU8rsf0AAAAABJRU5ErkJggg==",
+          "original_url": "https://stream-gtlc.telecentro.net.ar/hls/canal264khls/main.m3u8",
+          "globalIndex": 132,
+          "category": "📰 Noticias",
+          "source_group": "samples"
+        },
+        {
           "name": "Crónica TV",
           "flow": "yes",
           "type": "CLEARKEY",
@@ -4261,12 +4269,22 @@
           "source_group": "samples"
         }, {
           "name": "MusicTop",
-          
-         
           "icono": "https://telecentro.com.ar/img/cm/channels/musictophd.png",
-          
           "original_url": "https://stream-gtlc.telecentro.net.ar/hls/musictophls/main.m3u8",
-         
+          "globalIndex": 239,
+          "category": "🎵 Música",
+          "source_group": "samples"
+        }, {
+          "name": "LatinaTV",
+          "icono": "https://telecentro.com.ar/img/cm/channels/Latinatv%20128.png",
+          "original_url": "https://stream-gtlc.telecentro.net.ar/hls/latinatvhls/main.m3u8", 
+          "globalIndex": 239,
+          "category": "🎵 Música",
+          "source_group": "samples"
+        }, {
+          "name": "LatinaTV",
+          "icono": "https://telecentro.com.ar/img/cm/channels/Latinatv%20128.png",
+          "original_url": "https://stream-gtlc.telecentro.net.ar/hls/latinatv4k/main.m3u8", 
           "globalIndex": 239,
           "category": "🎵 Música",
           "source_group": "samples"
@@ -5793,6 +5811,13 @@
             "Referer": "https://portal.app.flow.com.ar/",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
           },
+          "globalIndex": 332,
+          "category": "📺 Otras",
+          "source_group": "samples"
+        }, {
+          "name": "Telecentro Preview",
+          "icono": "https://telecentro.com.ar/img/logo-pua-chica.svg",
+          "original_url": "https://stream-gtlc.telecentro.net.ar/hls/telecentropreviewhls/main.m3u8", 
           "globalIndex": 332,
           "category": "📺 Otras",
           "source_group": "samples"
