@@ -4159,7 +4159,7 @@
           "name": "Allegro",
           "flow": "yes",
           "type": "CLEARKEY",
-          "icono": "https://www.allegrohd.com/images/logo3.png",
+          "icono": "https://www.personal.com.ar/content/dam/teco-cms-ecosystem/flow/guia-de-canales/3154.png",
           "drm_license_uri": "kid:5V5huBuZLWwhRmiR1yFX6Q,k:Vm00G_cgmoiXbnXCCtesog",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/AllegroHD/SA_Live_dash_enc/AllegroHD.mpd",
           "headers": {
@@ -4175,7 +4175,7 @@
           "name": "CM",
           "flow": "yes",
           "type": "CLEARKEY",
-          "icono": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Logocmtvargentina.png",
+          "icono": "https://www.personal.com.ar/content/dam/teco-cms-ecosystem/flow/guia-de-canales/230.png",
           "drm_license_uri": "kid:aC82tXNvRWCVHKFLgNKVJA,k:Osy3KQZ6ObO4FD8bRHudJQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/CM/SA_Live_dash_enc/CM.mpd",
           "headers": {
