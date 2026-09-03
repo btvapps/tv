@@ -3068,7 +3068,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://www.personal.com.ar/content/dam/teco-cms-ecosystem/flow/guia-de-canales/adultswim.png",
-          "drm_license_uri": "kid://m-FDLh5ZTI0GSKRNPZ8MRg,k:jmx4WxTZc8UEB0sZIPEbFQ",
+          "drm_license_uri": "kid:m-FDLh5ZTI0GSKRNPZ8MRg,k:jmx4WxTZc8UEB0sZIPEbFQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/Adult_Swim/SA_Live_dash_enc/Adult_Swim.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/Adult_Swim/SA_Live_dash_enc/Adult_Swim.mpd",
           "headers": {
