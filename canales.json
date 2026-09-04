@@ -2535,7 +2535,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/131.webp",
-          "drm_license_uri": "kid:TbgEc68u0xjEHYefKCIgPg,k:0w-U5gNErfD0skKllSV1rQ",
+          "drm_license_uri": "kid:htGZBEKfeLr5jPH9SBxDDg,k:0w-U5gNErfD0skKllSV1rQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/DSports_1/SA_Live_dash_enc_wl/DSports_1.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/DSports_1/SA_Live_dash_enc_wl/DSports_1.mpd",
           "headers": {
@@ -2552,7 +2552,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/131.webp",
-          "drm_license_uri": "kid:DdST-nRkBEKr11E5tnMH1g,k:Mc9ClTktk5qX87YOvxzrRA",
+          "drm_license_uri": "kid:M4SMJio8yMDrizTNuWkfBA,k:Mc9ClTktk5qX87YOvxzrRA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/DSports_2/SA_Live_dash_enc/DSports_2.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/DSports_2/SA_Live_dash_enc/DSports_2.mpd",
           "headers": {
