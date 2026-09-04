@@ -2947,7 +2947,7 @@
           "name": "DSPORTS 2 ARGENTINA",
           "type": "CLEARKEY",
           "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/132.webp",
-          "drm_license_uri": "https://mrghnngupolsgatcmevw.supabase.co/functions/v1/DSPORTSAQ",
+          "drm_license_uri": "kid:T0w6mRLqdS6I9El4ZKG8iw,k:J4EoAE_oxv-yzSoMFUokGg",
           "original_url": "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/x0srg3jjpz/out/v1/f779c49314394d61886d63f58d9d52e4/cenc.mpd",
           "url1": "https://otte-qw.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/x0srg3jjpz/out/v1/f779c49314394d61886d63f58d9d52e4/cenc.mpd",
           "url2": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
@@ -2965,7 +2965,7 @@
           "name": "DSPORTS 2 ARGENTINA - OPC 2",
           "type": "CLEARKEY",
           "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/138.webp",
-          "drm_license_uri": "https://mrghnngupolsgatcmevw.supabase.co/functions/v1/DSPORT2_OPC2",
+          "drm_license_uri": "kid:A/Etaj2/06b6fdf2QX4MEQ,k:6ge4es3y5FvoJM3koc81BA",
           "original_url": "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/dash/enc/rgilyeubta/out/v1/09a67027b18f4fd78aaa3794a2aacfe8/cenc.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -2987,6 +2987,36 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
           },
           "globalIndex": 164,
+          "category": "⚽ Deportes",
+          "source_group": "samples"
+        },
+        {
+          "name": "DSPORTS CHILE 🇨🇱",
+          "type": "CLEARKEY",
+          "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/129.webp",
+          "drm_license_uri": "kid:Yvnglehy1DC5MbatNb4haA,k:QV60dwUqpC0BB2jVfMlTWg",
+          "original_url": "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/cardt9ai8g/out/v1/a85c58beee18435e82a57a0fb9d2f681/cenc.mpd",
+          "headers": {
+            "Origin": "https://www.primevideo.com",
+            "Referer": "https://www.primevideo.com/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+          },
+          "globalIndex": 165,
+          "category": "⚽ Deportes",
+          "source_group": "samples"
+        },
+        {
+          "name": "DSPORTS COLOMBIA 🇨🇴",
+          "type": "CLEARKEY",
+          "icono": "https://raw.githubusercontent.com/novaplaytv/novaimg/main/icons/129.webp",
+          "drm_license_uri": "kid:+LIHwQ8/dq66MqNg7FK55A,k:r61J0g6zlnDpPjccHWaZIQ",
+          "original_url": "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/3gg2jnixjn/out/v1/e1840e01f3f14563b66bbb944d5cc54c/cenc.mpd",
+          "headers": {
+            "Origin": "https://www.primevideo.com",
+            "Referer": "https://www.primevideo.com/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+          },
+          "globalIndex": 166,
           "category": "⚽ Deportes",
           "source_group": "samples"
         },
