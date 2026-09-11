@@ -2637,7 +2637,8 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://static.wikia.nocookie.net/logopedia/images/5/55/ESPN_Premium_blanco.png/revision/latest/scale-to-width-down/200?cb=20220501173330&path-prefix=es",
-          "drm_license_uri": "kid:TCMNvH9qS_pq0Kpz_3kjdA,k:QYanwqFfWQqTmYhv6uxCVw",
+          "drm_license_uri": "kid:xQKJLgN6nzSCcUeysk5Czw,k:JTG9NL7GwOj6Tgeu2yYa3g",
+          
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/Fox_Sports_Premiun_HD/SA_Live_dash_enc_wl/Fox_Sports_Premiun_HD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c7eds/Fox_Sports_Premiun_HD/SA_Live_dash_enc/Fox_Sports_Premiun_HD.mpd",
           "headers": {
