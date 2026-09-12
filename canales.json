@@ -2569,9 +2569,10 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/T5YBc3cB/ESPN-1-Argentina.png",
-          "drm_license_uri": "kid:6IS3EasRG-uKe6HnvL3Jvw,k:y4nuOWFZnj5kilqtYIlfNA",
+          "drm_license_uri": "kid:iAA8mSpn8yIdxFAvz0qAhg,k:2t5a9nRh_azstyHbu1APsQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/ESPN2HD/SA_Live_dash_enc/ESPN2HD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/ESPN2HD/SA_Live_dash_enc/ESPN2HD.mpd",
+          "url2": "https://flow-cdn-gcp.app.flow.com.ar/live/c4eds/ESPN2_PY/SA_Live_dash_enc/ESPN2_PY.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -2581,6 +2582,7 @@
           "category": "⚽ Deportes",
           "source_group": "samples"
         },
+        
         {
           "name": "ESPN 2",
           "flow": "yes",
