@@ -96,7 +96,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/YSphQFCM/Logo.png",
-          "drm_license_uri": "kid:sCxWgWPBTP2k3blYoKq3Qg,k:72SnCshaZjozCL5kdmEKrQ",
+          "drm_license_uri": "kid:cjCLRnNpjfPEFDvlQQyC1A,k:NfOMn7BGZFcu5sCpxTojiA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/Canal_Rural/SA_Live_dash_enc/Canal_Rural.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -244,7 +244,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/L5rVsDRX/Logo.png",
-          "drm_license_uri": "kid:DhMntbH03-dnrsYiye9kzg,k:YMZKkirwEhv3MmHIJeM_GA",
+          "drm_license_uri": "kid:ZdcRQ8sYt44XnO6F-FjV3Q,k:JO3bRSGms293cNak8tkH7g",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/MixTV/SA_Live_dash_enc/MixTV.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -295,7 +295,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://static.wikia.nocookie.net/logopedia/images/8/80/Telefe_Internacional_(2018).svg/revision/latest/scale-to-width-down/200?cb=20210610211401",
-          "drm_license_uri": "kid:zAq8yE7DgM_BkrltMqutIw,k:m3glOFuJ_4LQGQmkrkBIdw",
+          "drm_license_uri": "kid:Kj_V4MU-qyp_8Z4QGIjD-w,k:4WyzErgKBjqzRr3Iuvk0ZA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Telefe_Internacional/SA_Live_dash_enc/Telefe_Internacional.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c4eds/Telefe_Internacional/SA_Live_dash_enc/Telefe_Internacional.mpd",
           "headers": {
@@ -922,7 +922,7 @@
               "flow": "yes",
               "type": "CLEARKEY",
               "icono": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Canal_13_R%C3%ADo_Cuarto_%28Logo_2008%29.png/250px-Canal_13_R%C3%ADo_Cuarto_%28Logo_2008%29.png",
-              "drm_license_uri": "kid:b0Q5uMYkrGqKu6h8NiHVgA,k:yHmNpu4-CTQImrKrn-XVtw",
+              "drm_license_uri": "kid:yUgCl6LeVzzHPV2vysYK2w,k:HPJJ_lzTDUTIlk5w2dj3cw",
               "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Canal_13_Rio_4to/SA_Live_dash_enc_wl/Canal_13_Rio_4to.mpd",
               "headers": {
                 "Origin": "https://portal.app.flow.com.ar",
@@ -1548,7 +1548,7 @@
               "flow": "yes",
               "type": "CLEARKEY",
               "icono": "https://i.ibb.co/m5bbjySK/LOGO2.png",
-              "drm_license_uri": "kid:eMvOh12Q4E8/Ky4mJh1SVQ,k:1sajw+yJhINgj/OeCGytZg",
+              "drm_license_uri": "kid:zhwy-1NUbo6f121zKCVZQQ,k:HNX_DmdL6BnwzLGO0r7Yvw",
               "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Canal_11_Formosa/SA_Live_dash_enc_wl/Canal_11_Formosa.mpd",
               "headers": {
                 "Origin": "https://portal.app.flow.com.ar",
@@ -2156,7 +2156,7 @@
               "flow": "yes",
               "type": "CLEARKEY",
               "icono": "https://i.ibb.co/pB8qBSpn/tvpp.png",
-              "drm_license_uri": "kid:uj_QT7ZX2wHeD9z901RmZA,k:HTX4yMa0WMyHuNP4tS0BuQ",
+              "drm_license_uri": "kid:9ddzO8sUyHI-V_6kXmf8Cg,k:ihGxKTt4g02QVoMCkNQgoQ",
               "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Canal3_Santa_Rosa/SA_Live_dash_enc/Canal3_Santa_Rosa.mpd",
               "headers": {
                 "Origin": "https://portal.app.flow.com.ar",
@@ -2486,7 +2486,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/fWrf82xx/Logo-2.png",
-          "drm_license_uri": "kid:oKoBM3ohSL2h4hhiKVrgNw,k:_uD4egUnSXNR_FTONq0d4g",
+          "drm_license_uri": "kid:MmlTb-3GnLoeAoH_YsxOuQ,k:Ukbu305683cfgImdtmfe3g",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/America_Sports/SA_Live_dash_enc/America_Sports.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/America_Sports/SA_Live_dash_enc/America_Sports.mpd",
           "headers": {
@@ -2503,7 +2503,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/XYG9JmYB/Logo_1.png",
-          "drm_license_uri": "kid:82IJeBWJKkuDlQ8dEG_wsg,k:Q0nkLoHDGoOJ9KQvzSmJKA",
+          "drm_license_uri": "kid:5yHN-QQ-5WIpYAUFaidX3g,k:cCWcnYJ5BegIjN7c61auhw",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/DeporTVHD/SA_Live_dash_enc/DeporTVHD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/DeporTVHD/SA_Live_dash_enc/DeporTVHD.mpd",
           "headers": {
@@ -2581,14 +2581,14 @@
           "category": "⚽ Deportes",
           "source_group": "samples"
         },
-         {
+        {
           "name": "ESPN (PY)",
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/T5YBc3cB/ESPN-1-Argentina.png",
           "drm_license_uri": "kid:iAA8mSpn8yIdxFAvz0qAhg,k:2t5a9nRh_azstyHbu1APsQ",
           "original_url": "https://flow-cdn-gcp.app.flow.com.ar/live/c4eds/ESPN2_PY/SA_Live_dash_enc/ESPN2_PY.mpd",
-           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c4eds/ESPN2_PY/SA_Live_dash_enc/ESPN2_PY.mpd",
+          "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c4eds/ESPN2_PY/SA_Live_dash_enc/ESPN2_PY.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
             "Referer": "https://portal.app.flow.com.ar/",
@@ -2671,7 +2671,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://static.wikia.nocookie.net/logopedia/images/3/34/ESPN.svg/revision/latest/scale-to-width-down/200?cb=20201130040927",
-          "drm_license_uri": "kid:Y2Lh82/LfuPEfevZFAM2rQ,k:m6HUbFucejEwpdq79xVRdQ",
+          "drm_license_uri": "kid:6V_oS59z5mVf3nEdXIlgVg,k:JnoOUU3rmEgDvsQ8xgfEyw",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/ESPN_UY/SA_Live_dash_enc/ESPN_UY.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -2767,7 +2767,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://static.flow.com.ar/images/673/CH_LOGO/500/500/0/0/53028730071359.png",
-          "drm_license_uri": "kid:XIbiNzF8IjGsG8Ew6ZX61g,k:3Kz3sjnuA988acoR283k6w",
+          "drm_license_uri": "kid:_bmWNSpFszm4bz6zNq82xg,k:IbhUPBOyuH4OCXYCpx8_kQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/Eventos1HD/SA_Live_dash_enc/Eventos1HD.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -2866,7 +2866,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/L5JRmjMP/Logo.png",
-          "drm_license_uri": "kid:k5MyHa7xRj_H4uBgKY24Ug,k:vmvJHheBb2fmJZa-1GPFrQ",
+          "drm_license_uri": "kid:YZc-L2uBZXhitkX-KjRBag,k:J4bFtm0Fz28aQrjCcEUzGQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/PX_Sports/SA_Live_dash_enc/PX_Sports.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -2932,7 +2932,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/mD82Lb12/Ty_C_Sports.png",
-          "drm_license_uri": "kid:WOHr512UT2qY6mexx8Clcg,k:HDEbBp284xzo5ipufiQz6w",
+          "drm_license_uri": "kid:54gOGw1QyjJGRrnXPXgeHw,k:K-8teRLuUjENQhwdd1bQcg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/TyC_Internacional/SA_Live_dash_enc/TyC_Internacional.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/TyC_Internacional/SA_Live_dash_enc/TyC_Internacional.mpd",
           "headers": {
@@ -3080,7 +3080,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://raw.githubusercontent.com/masterentertainment/listas/refs/heads/main/logos/A3CIN.png?raw=true",
-          "drm_license_uri": "kid:1v-IGm8HmGqA1q1vBBtX1A,k:tAHIfCqxGhpIjuHEdLEJrg",
+          "drm_license_uri": "kid:X9I9eLlPXdelAgVHvxZz0w,k:KeTRbSANSspUN9FEuFOOkg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/A3_Cine/SA_Live_dash_enc_wl/A3_Cine.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -3146,7 +3146,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/Hcd31vF7/AMC-Series.png",
-          "drm_license_uri": "kid:ENPU8zprrSd6zMJojEa0Bg,k:WI_Va8qx_NtPM7XC9wGNKQ",
+          "drm_license_uri": "kid:7t5NaLjwLSb-P1nSEltW4g,k:LwZOHEK9LsEryY0C62Lwbg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/AMC_Series/SA_Live_dash_enc/AMC_Series.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -3293,7 +3293,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.ibb.co/5LvDcdV/587595.png",
-          "drm_license_uri": "kid:lwGTLKsOSqO4B4F21dVN0A,k:doGQJliLFv1wg0NrK5RIXg",
+          "drm_license_uri": "kid:eKFyWL5cpy7DvDYq65doFg,k:McGINh9kMc9N-1wXaHC06Q",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c3eds/FXHD/SA_Live_dash_enc/FXHD.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c3eds/FXHD/SA_Live_dash_enc/FXHD.mpd",
           "headers": {
@@ -3425,7 +3425,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/yx613kKm/TELEMUNDOMX.png",
-          "drm_license_uri": "kid:U9dS5GSdrdgI2ROYX4budw,k:0f0k2xth1jTKv8RFOM6bDg",
+          "drm_license_uri": "kid:jxeASXoxHrXjjqAwhYiMRw,k:Db3ryNUzbJcKyMkE6bzQNA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/Telemundo_HD/SA_Live_dash_enc/Telemundo_HD.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -3506,7 +3506,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/USA_Network_2025_logo.svg/330px-USA_Network_2025_logo.svg.png",
-          "drm_license_uri": "kid:x1S1IrO4fcK6LaPjUVTsFA,k:FBpR6eg4Ya6ZtLIXQxcQsw",
+          "drm_license_uri": "kid:J-Ijqwe1jCyWjnMEwUzXXg,k:bcTJZA8nd42iEWicghrezQ",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/USA_Network/SA_Live_dash_enc/USA_Network.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
@@ -3616,7 +3616,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://www.personal.com.ar/content/dam/teco-cms-ecosystem/flow/guia-de-canales/695.png",
-          "drm_license_uri": "kid:ngnwo-y5MlguDzvGphlMjQ,k:bSNjt7p2gOo79ty60e-lvw",
+          "drm_license_uri": "kid:tsyNSnlZvMGEE5J_GkmKfA,k:GVuU0v8zV-k9JOKWw5tDJg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/BabyTV/SA_Live_dash_enc/BabyTV.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c7eds/BabyTV/SA_Live_dash_enc/BabyTV.mpd",
           "headers": {
@@ -3701,7 +3701,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://www.personal.com.ar/content/dam/teco-cms-ecosystem/flow/guia-de-canales/756.png",
-          "drm_license_uri": "kid:vSnEpTjyiEXOM1gREXSUKA,k:RtlYn0GhHDY3wHxgSVberA",
+          "drm_license_uri": "kid:YyQpzZljp2-QlRFF2ksi5g,k:vMhSeTzz-FoeCs0FCYU-Rw",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/DisneyJr/SA_Live_dash_enc/DisneyJr.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c7eds/DisneyJr/SA_Live_dash_enc/DisneyJr.mpd",
           "headers": {
@@ -3718,7 +3718,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://www.personal.com.ar/content/dam/teco-cms-ecosystem/flow/guia-de-canales/dreamworks.png",
-          "drm_license_uri": "kid:fzDEPkdURBIiH9ZCAdkvSw,k:-D0J11oJRrHXGqSMIBtNiw",
+          "drm_license_uri": "kid:OQ_lqzySIpv3BCyg7saZqA,k:M6C4SYifZ4xgFWCT3Aelyg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/Dreamworks/SA_Live_dash_enc/Dreamworks.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c7eds/Dreamworks/SA_Live_dash_enc/Dreamworks.mpd",
           "headers": {
@@ -3735,7 +3735,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://cdn.bo.flow.com.ar/images/content/800/542/VZirRVsFrCclyGZf9mHQlg?tags=CH_LOGO",
-          "drm_license_uri": "kid:O0i6oYb21W-2hQr61c5sRA,k:SEblx1UEPybHFjD7AE0ulg",
+          "drm_license_uri": "kid:tuTnMG8drEn87sxs4L6-HQ,k:bQL-n8OTi7JoQFrRaT8KWg",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c7eds/Reino_Infantil/SA_Live_dash_enc/Reino_Infantil.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c7eds/Reino_Infantil/SA_Live_dash_enc/Reino_Infantil.mpd",
           "headers": {
@@ -3752,7 +3752,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/Z5y6RpDq/Logo-1.png",
-          "drm_license_uri": "kid:3NiTN6UBq5KcAaA5d0CJ3A,k:6WzHvpE5qNWBs_Xuvr_BDQ",
+          "drm_license_uri": "kid:nQc_M5UJU-uk6Lt_PVwijw,k:mvr_DnbYGCuPt5TxV5rv1A",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/Kidoo/SA_Live_dash_enc/Kidoo.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/Kidoo/SA_Live_dash_enc/Kidoo.mpd",
           "headers": {
@@ -3803,7 +3803,7 @@
           "flow": "yes",
           "type": "CLEARKEY",
           "icono": "https://i.postimg.cc/Y9nMcbT7/Fondo_Oscuro.png",
-          "drm_license_uri": "kid:M0ABsvJkTfm9816S0rifjw,k:R17IfYbtBjbbttbZ1KQ7tw",
+          "drm_license_uri": "kid:6cQhp_IFygjmLr48pA40Mw,k:ZfoZfcL0cnOcHYT8tfiAzw",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c6eds/PAKA_PAKA/SA_Live_dash_enc/PAKA_PAKA.mpd",
           "url1": "https://flow-cdn-gcp.app.flow.com.ar/live/c6eds/PAKA_PAKA/SA_Live_dash_enc/PAKA_PAKA.mpd",
           "headers": {
@@ -4815,7 +4815,7 @@
           "flow": "yes",
           "type": "HLS",
           "icono": "https://i.ibb.co/RpQLdrKk/flow.png",
-          "drm_license_uri": "kid:SeuSS6mYyn+7ruMNzvHstA,k:ERERERERERGBEQAAAAAAAA",
+          "drm_license_uri": "kid:SeuSS6mYyn-7ruMNzvHstA,k:ERERERERERGBEQAAAAAAAA",
           "original_url": "https://cdn-flow-balancer.app.flow.com.ar/live/c4eds/Info_Mora/SA_Live_dash_enc_wl/Info_Mora.mpd",
           "headers": {
             "Origin": "https://portal.app.flow.com.ar",
