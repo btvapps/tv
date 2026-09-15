@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>TV Player v1.2</title>
+    <!-- Mux.js para soporte de streams MPEG-2 TS (HLS) en navegadores de Windows -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/6.0.1/mux.min.js"></script>
     <!-- Shaka Player UI CSS y JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css">
@@ -384,18 +386,15 @@
 
                 url = decodeURIComponent(url);
 
-                // 3. Configuración de DRM (ClearKey)
-                if (type === 'CLEARKEY' && drm) {
-                    const parts = drm.split(',');
-                    window.player.configure({ 
-                        drm: { clearKeys: { [parts[0].replace('kid:', '')]: parts[1].replace('k:', '') } } 
-                    });
-                } else {
-                    window.player.configure({ drm: { clearKeys: {} } });
-                }
+                // 3. Detección de Flow (igual que en Android: solo Flow pasa por el proxy)
+                const isFlowUrl = url.includes('flow.com.ar') || 
+                                 url.includes('cvattv.com.ar') || 
+                                 url.includes('/tok_') || 
+                                 url.startsWith('tok_') || 
+                                 url.startsWith('/live/') || 
+                                 url.startsWith('live/');
 
-                // 4. Detección y parseo de rutas (Flow vs Canales Externos)
-                const isFlowUrl = url.includes('flow.com.ar') || url.includes('cvattv.com.ar') || url.includes('/tok_') || url.startsWith('tok_') || url.startsWith('/live/') || url.startsWith('live/');
+                let playbackUrl = url;
                 if (isFlowUrl) {
                     let liveIndex = url.indexOf('/live/');
                     if (liveIndex !== -1) {
@@ -415,11 +414,36 @@
                         const liveIdx = parts.findIndex(p => p.startsWith('live'));
                         if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
                     }
+                    playbackUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
+                } else {
+                    // Servidores externos: Directo igual que en Android
+                    playbackUrl = url;
                 }
 
-                // 5. Cargar canal en el proxy
-                const targetProxyUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
-                await window.player.load(targetProxyUrl);
+                // 4. Configuración de DRM (ClearKey)
+                // En streams HLS (.m3u8), no activar DRM si no hay cifrado real
+                const isM3u8 = url.includes('.m3u8');
+                if (type === 'CLEARKEY' && drm && (!isM3u8 || drm.includes('cenc'))) {
+                    const parts = drm.split(',');
+                    window.player.configure({ 
+                        drm: { clearKeys: { [parts[0].replace('kid:', '')]: parts[1].replace('k:', '') } } 
+                    });
+                } else {
+                    window.player.configure({ drm: { clearKeys: {} } });
+                }
+
+                // 5. Cargar canal: directo si es externo, o fallback al proxy si el navegador bloquea CORS
+                try {
+                    await window.player.load(playbackUrl);
+                } catch (loadErr) {
+                    if (!isFlowUrl) {
+                        console.warn("Fallo directo en navegador (bloqueo CORS externo), reintentando vía proxy local...", loadErr);
+                        const fallbackProxyUrl = playbackUrl.startsWith('/') ? ('/proxy' + playbackUrl) : ('/proxy/' + playbackUrl);
+                        await window.player.load(fallbackProxyUrl);
+                    } else {
+                        throw loadErr;
+                    }
+                }
                 videoElement.play();
             } catch (e) {
                 console.error("Error al reproducir:", e);
