@@ -223,8 +223,9 @@
                     const url = encodeURIComponent(canalEncontrado.original_url || canalEncontrado.url);
                     const type = canalEncontrado.type || '';
                     const drm = canalEncontrado.drm_license_uri || '';
+                    const isFlowVal = (canalEncontrado.flow === 'yes' || canalEncontrado.flow === true) ? 'yes' : 'no';
                     console.log(`Auto-iniciando el canal: ${canalEncontrado.name}`);
-                    play(url, type, drm);
+                    play(url, type, drm, isFlowVal);
                 }
 
             } catch (error) {
@@ -270,8 +271,9 @@
             }
             const playUrl = encodeURIComponent(ch.original_url || ch.url);
             const drmStr = encodeURIComponent(ch.drm_license_uri || '');
+            const isFlowVal = (ch.flow === 'yes' || ch.flow === true) ? 'yes' : 'no';
             return `
-            <div class="channel-item" onclick="play('${playUrl}', '${ch.type || ''}', decodeURIComponent('${drmStr}'))">
+            <div class="channel-item" onclick="play('${playUrl}', '${ch.type || ''}', decodeURIComponent('${drmStr}'), '${isFlowVal}')">
                 ${imgTag}
                 <span class="channel-name">${ch.name}</span>
             </div>
@@ -358,8 +360,8 @@
             render(filteredCategories, true);
         }
 
-        // Función de reproducción blindada (Flow + Servidores Externos)
-        async function play(url, type, drm) {
+        // Función de reproducción (Flow por proxy, resto DIRECTO)
+        async function play(url, type, drm, flow = '') {
             try {
                 const videoElement = document.getElementById('video');
                 const videoContainer = document.getElementById('player-container');
@@ -386,16 +388,17 @@
 
                 url = decodeURIComponent(url);
 
-                // 3. Detección de Flow (igual que en Android: solo Flow pasa por el proxy)
-                const isFlowUrl = url.includes('flow.com.ar') || 
-                                 url.includes('cvattv.com.ar') || 
-                                 url.includes('/tok_') || 
-                                 url.startsWith('tok_') || 
-                                 url.startsWith('/live/') || 
-                                 url.startsWith('live/');
+                // 3. Detección de Flow: ÚNICAMENTE si flow:yes o dominios de Flow
+                const isFlow = (String(flow).toLowerCase() === 'yes') ||
+                               url.includes('flow.com.ar') || 
+                               url.includes('cvattv.com.ar') || 
+                               url.includes('/tok_') || 
+                               url.startsWith('tok_') || 
+                               url.startsWith('/live/') || 
+                               url.startsWith('live/');
 
                 let playbackUrl = url;
-                if (isFlowUrl) {
+                if (isFlow) {
                     let liveIndex = url.indexOf('/live/');
                     if (liveIndex !== -1) {
                         url = url.substring(liveIndex);
@@ -416,7 +419,7 @@
                     }
                     playbackUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
                 } else {
-                    // Servidores externos: Directo igual que en Android
+                    // Servidores externos (NO FLOW): Directo a la URL original, NUNCA pasa por el proxy
                     playbackUrl = url;
                 }
 
@@ -432,19 +435,20 @@
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
 
-                // 5. Cargar canal: directo si es externo, o fallback al proxy si el navegador bloquea CORS
+                // 5. Cargar canal: directo si no es Flow (sin tocar el proxy)
                 try {
-                    await window.player.load(playbackUrl);
-                } catch (loadErr) {
-                    if (!isFlowUrl) {
-                        console.warn("Fallo directo en navegador (bloqueo CORS externo), reintentando vía proxy local...", loadErr);
-                        const fallbackProxyUrl = playbackUrl.startsWith('/') ? ('/proxy' + playbackUrl) : ('/proxy/' + playbackUrl);
-                        await window.player.load(fallbackProxyUrl);
-                    } else {
-                        throw loadErr;
-                    }
+                    await window.player.unload();
+                } catch(_) {}
+
+                await window.player.load(playbackUrl);
+
+                try {
+                    videoElement.muted = false;
+                    await videoElement.play();
+                } catch(pe) {
+                    videoElement.muted = true;
+                    await videoElement.play();
                 }
-                videoElement.play();
             } catch (e) {
                 console.error("Error al reproducir:", e);
             }
