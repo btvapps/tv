@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TV Player v1.2</title>
+    <title>TV Player v1.3-KAI</title>
     <!-- Mux.js para soporte de streams MPEG-2 TS (HLS) en navegadores de Windows -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/6.0.1/mux.min.js"></script>
     <!-- Shaka Player UI CSS y JS -->
@@ -360,7 +360,48 @@
             render(filteredCategories, true);
         }
 
-        // Función de reproducción (Flow por proxy, resto DIRECTO)
+        function ensureHexVal(val) {
+            if (!val) return '';
+            val = val.trim();
+            if (/^[0-9a-fA-F]{32}$/.test(val)) return val.toLowerCase();
+            try {
+                let b64 = val.replace(/-/g, '+').replace(/_/g, '/');
+                while (b64.length % 4) b64 += '=';
+                const bin = atob(b64);
+                let hex = '';
+                for (let i = 0; i < bin.length; i++) {
+                    hex += bin.charCodeAt(i).toString(16).padStart(2, '0');
+                }
+                return hex.toLowerCase();
+            } catch(e) {
+                return val;
+            }
+        }
+
+        function sanitizeStreamUrl(rawUrl) {
+            try {
+                if (!rawUrl || typeof rawUrl !== 'string' || !rawUrl.includes('?')) return rawUrl;
+                const urlObj = new URL(rawUrl);
+                const params = new URLSearchParams(urlObj.search);
+                const keysToDelete = [];
+                for (const [key, value] of params.entries()) {
+                    if (/^\{.*\}$/.test(value) || /^%7B.*%7D$/i.test(value) || 
+                        value.includes('{') || value.includes('}') || 
+                        value.toLowerCase().includes('%7b') || value.toLowerCase().includes('%7d') ||
+                        key.includes('{') || key.includes('}')) {
+                        keysToDelete.push(key);
+                    }
+                }
+                keysToDelete.forEach(k => params.delete(k));
+                const newSearch = params.toString();
+                urlObj.search = newSearch ? '?' + newSearch : '';
+                return urlObj.toString();
+            } catch(e) {
+                return rawUrl;
+            }
+        }
+
+        // Función de reproducción (Flow por proxy, resto DIRECTO con rescate)
         async function play(url, type, drm, flow = '') {
             try {
                 const videoElement = document.getElementById('video');
@@ -386,7 +427,9 @@
                     preferredTextLanguage: 'es'
                 });
 
-                url = decodeURIComponent(url);
+                url = sanitizeStreamUrl(url);
+                try { url = decodeURIComponent(url); } catch(e) {}
+                url = sanitizeStreamUrl(url);
 
                 // 3. Detección de Flow: ÚNICAMENTE si flow:yes o dominios de Flow
                 const isFlow = (String(flow).toLowerCase() === 'yes') ||
@@ -417,35 +460,83 @@
                         const liveIdx = parts.findIndex(p => p.startsWith('live'));
                         if (liveIdx !== -1) url = '/' + parts.slice(liveIdx).join('/');
                     }
+
+                    // Auto-failover para canales c3eds
+                    if (url.includes('DSports_2') && url.includes('/SA_Live_dash_enc/')) {
+                        url = url.replace(/\/SA_Live_dash_enc\//i, '/SA_Live_dash_enc_wl/');
+                    }
+
                     playbackUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
+                } else if (url.includes('emitiendoenvivo.com')) {
+                    // Servidores externos sin CORS: pasan por el proxy para inyectar cabeceras CORS
+                    playbackUrl = '/proxy/' + url;
                 } else {
-                    // Servidores externos (NO FLOW): Directo a la URL original, NUNCA pasa por el proxy
+                    // Servidores externos: Directo a la URL original
                     playbackUrl = url;
                 }
 
-                // 4. Configuración de DRM (ClearKey)
-                // En streams HLS (.m3u8), no activar DRM si no hay cifrado real
+                // 4. Configuración de DRM (ClearKey Hex + extracción dinámica de default_KID)
                 const isM3u8 = url.includes('.m3u8');
                 if (type === 'CLEARKEY' && drm && (!isM3u8 || drm.includes('cenc'))) {
                     const parts = drm.split(',');
+                    const kidRaw = parts[0].replace('kid:', '').trim();
+                    const keyRaw = (parts[1] || '').replace('k:', '').trim();
+                    const kidHex = ensureHexVal(kidRaw);
+                    const keyHex = ensureHexVal(keyRaw);
+
+                    const clearKeysObj = {};
+                    if (kidHex && keyHex) clearKeysObj[kidHex] = keyHex;
+
+                    if (playbackUrl.includes('.mpd')) {
+                        try {
+                            const mpdRes = await fetch(playbackUrl);
+                            if (mpdRes.ok) {
+                                const mpdText = await mpdRes.text();
+                                const kidMatch = mpdText.match(/(?:cenc:)?default_KID=["']([a-fA-F0-9-]+)["']/i);
+                                if (kidMatch && kidMatch[1]) {
+                                    const realKidHex = kidMatch[1].replace(/-/g, '').toLowerCase();
+                                    if (keyHex) {
+                                        clearKeysObj[realKidHex] = keyHex;
+                                    }
+                                }
+                            }
+                        } catch(e) {}
+                    }
+
                     window.player.configure({ 
-                        drm: { clearKeys: { [parts[0].replace('kid:', '')]: parts[1].replace('k:', '') } } 
+                        drm: { clearKeys: clearKeysObj } 
                     });
                 } else {
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
 
-                // 5. Cargar canal: directo si no es Flow (sin tocar el proxy)
+                // 5. Cargar canal: directo con fallback de rescate por proxy si CORS falla
                 try {
                     await window.player.unload();
+                    await window.player.detach();
+                    await window.player.attach(videoElement);
                 } catch(_) {}
 
-                await window.player.load(playbackUrl);
+                try {
+                    await window.player.load(playbackUrl);
+                } catch(loadErr) {
+                    if (!playbackUrl.startsWith('/proxy') && !playbackUrl.startsWith('http://localhost:8000/proxy')) {
+                        console.warn("Carga directa falló (posible bloqueo CORS en navegador), reintentando vía proxy de rescate:", loadErr);
+                        playbackUrl = '/proxy/' + url;
+                        try {
+                            await window.player.unload();
+                        } catch(_) {}
+                        await window.player.load(playbackUrl);
+                    } else {
+                        throw loadErr;
+                    }
+                }
 
                 try {
                     videoElement.muted = false;
                     await videoElement.play();
                 } catch(pe) {
+                    console.warn("Autoplay con audio bloqueado, iniciando muted:", pe);
                     videoElement.muted = true;
                     await videoElement.play();
                 }
