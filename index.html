@@ -115,9 +115,14 @@
             margin-bottom: 4px; 
             cursor: pointer; 
             border-radius: 6px; 
-            transition: background 0.2s;
+            transition: background 0.2s, border-color 0.2s;
+            border-left: 3px solid transparent;
         }
         .channel-item:hover { background: #333; }
+        .channel-item.active {
+            background: #252d3a;
+            border-left: 3px solid #0078d4;
+        }
         
         .channel-icon {
             width: 36px;
@@ -126,23 +131,61 @@
             margin-right: 12px;
             border-radius: 4px;
             background: transparent;
+            flex-shrink: 0;
         }
         
+        .channel-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+            justify-content: center;
+        }
+
         .channel-name {
             font-size: 0.95rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            flex: 1;
+        }
+
+        .channel-chips {
+            display: flex;
+            gap: 5px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .source-chip {
+            font-size: 0.68rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: #2b2b2b;
+            color: #aaa;
+            border: 1px solid #444;
+            transition: all 0.2s;
+            cursor: pointer;
+            user-select: none;
+        }
+        .source-chip:hover {
+            background: #444;
+            color: #fff;
+            border-color: #666;
+        }
+        .source-chip.active {
+            background: #0078d4;
+            color: #fff;
+            border-color: #0098ff;
+            font-weight: bold;
         }
 
         /* Contenedor del reproductor */
         #player-container { 
             flex: 1; 
-            height: 100vh;
+            height: 100vh; 
             background: #000; 
             position: relative; 
-            overflow: hidden;
+            overflow: hidden; 
         }
 
         /* Ajuste de Shaka UI para no solapar el menú lateral */
@@ -159,6 +202,67 @@
             height: 100% !important; 
             object-fit: contain !important; 
         }
+
+        /* Overlay flotante para selección de fuentes en el reproductor */
+        #sources-overlay {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            z-index: 2147483640;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+        .sources-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(18, 18, 18, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 6px 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+        }
+        .sources-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-right: 4px;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .sources-buttons-list {
+            display: flex;
+            gap: 6px;
+        }
+        .source-btn {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+        .source-btn:hover {
+            background: rgba(255, 255, 255, 0.28);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+        .source-btn.active {
+            background: #0078d4;
+            color: #fff;
+            border-color: #0098ff;
+            box-shadow: 0 0 10px rgba(0, 120, 212, 0.6);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -170,16 +274,154 @@
     <!-- Contenedor necesario para Shaka UI -->
     <div id="player-container" data-shaka-player-container style="position: relative; width: 100%; height: 100%;">
         <video id="video" autoplay muted data-shaka-player style="width: 100%; height: 100%; object-fit: contain;"></video>
+        <!-- Overlay flotante para selección de fuentes -->
+        <div id="sources-overlay" style="display: none;">
+            <div class="sources-badge">
+                <span class="sources-label">📡 Fuentes:</span>
+                <div id="sources-buttons" class="sources-buttons-list"></div>
+            </div>
+        </div>
     </div>
 
     <script>
         let player = null, ui = null, categoriesData = [];
+        let allChannels = [];
+        let currentChannel = null;
+        let currentSourceIndex = 0;
+        let currentChannelSources = [];
+        let hasUserInteracted = false;
+        let preferredMuted = false;
+
+        document.addEventListener('click', () => {
+            hasUserInteracted = true;
+        }, { once: false });
+
+        // Extraer fuentes disponibles del canal
+        function getChannelSources(ch) {
+            if (!ch) return [];
+            const sources = [];
+            const add = (rawUrl, name) => {
+                if (!rawUrl || typeof rawUrl !== 'string') return;
+                const u = rawUrl.trim();
+                if (u && !sources.some(s => s.url === u)) {
+                    sources.push({ url: u, name });
+                }
+            };
+            add(ch.original_url || ch.url, 'Fuente 1');
+            add(ch.url1, 'Fuente 2');
+            add(ch.url2, 'Fuente 3');
+            add(ch.url3, 'Fuente 4');
+            return sources;
+        }
+
+        // Actualiza el menú flotante de fuentes en el reproductor
+        function updateSourcesUI() {
+            const overlay = document.getElementById('sources-overlay');
+            const container = document.getElementById('sources-buttons');
+            if (!overlay || !container) return;
+
+            if (!currentChannelSources || currentChannelSources.length <= 1) {
+                overlay.style.display = 'none';
+                container.innerHTML = '';
+                return;
+            }
+
+            overlay.style.display = 'flex';
+            container.innerHTML = currentChannelSources.map((s, idx) => {
+                const isActive = idx === currentSourceIndex;
+                return `<button class="source-btn ${isActive ? 'active' : ''}" onclick="switchSource(${idx})">${s.name}</button>`;
+            }).join('');
+        }
+
+        // Resalta el canal y la fuente activa en el menú lateral
+        function updateChannelListActive() {
+            document.querySelectorAll('.channel-item').forEach(el => {
+                const idx = parseInt(el.getAttribute('data-channel-idx'), 10);
+                const ch = allChannels[idx];
+                const isActive = currentChannel && ch && currentChannel.name === ch.name;
+                el.classList.toggle('active', !!isActive);
+                if (isActive) {
+                    el.querySelectorAll('.source-chip').forEach((chip, sIdx) => {
+                        chip.classList.toggle('active', sIdx === currentSourceIndex);
+                    });
+                } else {
+                    el.querySelectorAll('.source-chip').forEach(chip => chip.classList.remove('active'));
+                }
+            });
+        }
+
+        // Selección de canal
+        async function selectChannel(ch, sourceIndex = 0, isUserClick = true) {
+            if (isUserClick) {
+                hasUserInteracted = true;
+                const videoElement = document.getElementById('video');
+                if (videoElement) {
+                    videoElement.muted = preferredMuted;
+                }
+            }
+            currentChannel = ch;
+            currentChannelSources = getChannelSources(ch);
+            if (sourceIndex >= currentChannelSources.length) sourceIndex = 0;
+            currentSourceIndex = sourceIndex;
+
+            updateSourcesUI();
+            updateChannelListActive();
+
+            const selected = currentChannelSources[currentSourceIndex];
+            if (!selected) return;
+
+            const u = selected.url;
+            const isM3u8 = u.includes('.m3u8');
+            const isFlow = u.includes('flow.com.ar') || u.includes('cvattv.com.ar') || 
+                           u.includes('/tok_') || u.startsWith('tok_') || 
+                           u.startsWith('live/') || u.startsWith('/live/') || 
+                           ((ch.flow === 'yes' || ch.flow === true) && !u.includes('http'));
+            const streamType = isM3u8 ? 'HLS' : (ch.type || 'CLEARKEY');
+            const drmUri = isM3u8 ? '' : (ch.drm_license_uri || '');
+            const flowParam = isFlow ? 'yes' : 'no';
+
+            await play(u, streamType, drmUri, flowParam);
+        }
+
+        // Cambio de fuente
+        async function switchSource(index) {
+            if (!currentChannel) return;
+            hasUserInteracted = true;
+            const videoElement = document.getElementById('video');
+            if (videoElement) {
+                videoElement.muted = preferredMuted;
+            }
+            await selectChannel(currentChannel, index, true);
+        }
+
+        function onSelectChannel(idx) {
+            const ch = allChannels[idx];
+            if (ch) selectChannel(ch, 0, true);
+        }
+
+        function onSelectChannelSource(idx, sourceIdx) {
+            const ch = allChannels[idx];
+            if (ch) selectChannel(ch, sourceIdx, true);
+        }
 
         async function init() {
             try {
                 const res = await fetch('/canales.json');
                 const data = await res.json();
                 categoriesData = data.categories || []; 
+
+                allChannels = [];
+                const assignIdx = (ch) => {
+                    ch._idx = allChannels.length;
+                    allChannels.push(ch);
+                };
+                categoriesData.forEach(cat => {
+                    (cat.samples || []).forEach(assignIdx);
+                    (cat.subcategories || cat.subCategories || []).forEach(sub => {
+                        (sub.samples || []).forEach(assignIdx);
+                    });
+                });
+
                 render(categoriesData, false); 
 
                 // ==========================================
@@ -220,12 +462,8 @@
                 }
 
                 if (canalEncontrado) {
-                    const url = encodeURIComponent(canalEncontrado.original_url || canalEncontrado.url);
-                    const type = canalEncontrado.type || '';
-                    const drm = canalEncontrado.drm_license_uri || '';
-                    const isFlowVal = (canalEncontrado.flow === 'yes' || canalEncontrado.flow === true) ? 'yes' : 'no';
                     console.log(`Auto-iniciando el canal: ${canalEncontrado.name}`);
-                    play(url, type, drm, isFlowVal);
+                    selectChannel(canalEncontrado, 0, false);
                 }
 
             } catch (error) {
@@ -269,13 +507,24 @@
             if (imgUrl && !imgUrl.startsWith('S<')) {
                 imgTag = `<img src="${imgUrl}" class="channel-icon" onerror="this.style.display='none'" loading="lazy">`;
             }
-            const playUrl = encodeURIComponent(ch.original_url || ch.url);
-            const drmStr = encodeURIComponent(ch.drm_license_uri || '');
-            const isFlowVal = (ch.flow === 'yes' || ch.flow === true) ? 'yes' : 'no';
+            const sources = getChannelSources(ch);
+            let chipsHtml = '';
+            if (sources.length > 1) {
+                chipsHtml = `
+                <div class="channel-chips">
+                    ${sources.map((s, sIdx) => `
+                        <span class="source-chip ${(currentChannel && currentChannel.name === ch.name && currentSourceIndex === sIdx) ? 'active' : ''}" onclick="event.stopPropagation(); onSelectChannelSource(${ch._idx}, ${sIdx})">F${sIdx + 1}</span>
+                    `).join('')}
+                </div>`;
+            }
+            const isActiveChannel = currentChannel && currentChannel.name === ch.name;
             return `
-            <div class="channel-item" onclick="play('${playUrl}', '${ch.type || ''}', decodeURIComponent('${drmStr}'), '${isFlowVal}')">
+            <div class="channel-item ${isActiveChannel ? 'active' : ''}" data-channel-idx="${ch._idx}" onclick="onSelectChannel(${ch._idx})">
                 ${imgTag}
-                <span class="channel-name">${ch.name}</span>
+                <div class="channel-info">
+                    <span class="channel-name">${ch.name}</span>
+                    ${chipsHtml}
+                </div>
             </div>
             `;
         }
@@ -329,6 +578,7 @@
             const q = document.getElementById('search-input').value.toLowerCase().trim();
             if (!q) {
                 render(categoriesData, false);
+                updateChannelListActive();
                 return;
             }
 
@@ -358,6 +608,7 @@
             });
 
             render(filteredCategories, true);
+            updateChannelListActive();
         }
 
         function ensureHexVal(val) {
@@ -416,8 +667,22 @@
                         controlPanelElements: [
                             'play_pause', 'time_and_duration', 'spacer', 'mute', 
                             'volume', 'fullscreen', 'overflow_menu'
-                        ]
+                        ],
+                        overflowMenuButtons: ['quality', 'language', 'captions']
                     });
+
+                    videoElement.addEventListener('volumechange', () => {
+                        if (hasUserInteracted) {
+                            preferredMuted = videoElement.muted;
+                        }
+                    });
+
+                    // Integrar el overlay de fuentes dentro del contenedor de controles para fade in/out natural
+                    const controlsContainer = videoContainer.querySelector('.shaka-controls-container');
+                    const sourcesOverlay = document.getElementById('sources-overlay');
+                    if (controlsContainer && sourcesOverlay && !controlsContainer.contains(sourcesOverlay)) {
+                        controlsContainer.appendChild(sourcesOverlay);
+                    }
                 }
 
                 // 2. Configurar reintentos e idioma
@@ -470,10 +735,8 @@
 
                     playbackUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
                 } else if (url.includes('emitiendoenvivo.com') || url.includes('cloudfront.net') || url.includes('{') || url.includes('%7B') || url.includes('%7b')) {
-                    // Servidores externos con CORS restrictivo, macros o sincronización EXT-X-PROGRAM-DATE-TIME (ej. CloudFront)
                     playbackUrl = '/proxy/' + url;
                 } else {
-                    // Servidores externos: Directo a la URL original
                     playbackUrl = url;
                 }
 
@@ -512,18 +775,16 @@
                     window.player.configure({ drm: { clearKeys: {} } });
                 }
 
-                // 5. Cargar canal: directo con fallback de rescate por proxy si CORS falla
+                // 5. Cargar canal: descarga previa sin detach para no resetear el elemento ni el audio
                 try {
                     await window.player.unload();
-                    await window.player.detach();
-                    await window.player.attach(videoElement);
                 } catch(_) {}
 
                 try {
                     await window.player.load(playbackUrl);
                 } catch(loadErr) {
                     if (!playbackUrl.startsWith('/proxy') && !playbackUrl.startsWith('http://localhost:8000/proxy')) {
-                        console.warn("Carga directa falló (posible bloqueo CORS en navegador), reintentando vía proxy de rescate:", loadErr);
+                        console.warn("Carga directa falló, reintentando vía proxy de rescate:", loadErr);
                         playbackUrl = '/proxy/' + url;
                         try {
                             await window.player.unload();
@@ -534,21 +795,33 @@
                     }
                 }
 
-                try {
-                    videoElement.muted = false;
-                    await videoElement.play();
-                } catch(pe) {
-                    console.warn("Autoplay con audio bloqueado, iniciando muted:", pe);
+                // 6. Audio: si el usuario ya interactuó, se mantiene desmuteado (o el estado de volumen deseado)
+                if (hasUserInteracted) {
+                    videoElement.muted = preferredMuted;
+                } else {
                     videoElement.muted = true;
-                    await videoElement.play();
                 }
 
-                // Guardián contra cuelgues (stall watchdog): si la reproducción directa se estanca en buffering a los 3.5s, rescate automático vía proxy
+                try {
+                    await videoElement.play();
+                } catch(pe) {
+                    if (pe.name === 'NotAllowedError') {
+                        console.warn("Autoplay con audio bloqueado por navegador, iniciando muted:", pe);
+                        videoElement.muted = true;
+                        try { await videoElement.play(); } catch(_) {}
+                    } else if (pe.name === 'AbortError') {
+                        // Play interrumpido por nueva carga; no silenciar
+                    } else {
+                        console.warn("videoElement.play aviso:", pe);
+                    }
+                }
+
+                // Guardián contra cuelgues (stall watchdog)
                 if (!playbackUrl.startsWith('/proxy') && !playbackUrl.startsWith('http://localhost:8000/proxy')) {
                     const currentLoadUrl = playbackUrl;
                     setTimeout(async () => {
                         if (playbackUrl === currentLoadUrl && videoElement.readyState < 3 && !videoElement.paused) {
-                            console.warn("Canal directo no avanza (posible desincronización HLS o bloqueo CORS tardío), rescatando por proxy...");
+                            console.warn("Canal directo no avanza, rescatando por proxy...");
                             playbackUrl = '/proxy/' + url;
                             try {
                                 await window.player.unload();
