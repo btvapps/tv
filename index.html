@@ -441,7 +441,9 @@
                                url.startsWith('live/');
 
                 let playbackUrl = url;
-                if (isFlow) {
+                if (url.startsWith('http://localhost') || url.startsWith('/pluto/') || url.startsWith('/proxy/')) {
+                    playbackUrl = url;
+                } else if (isFlow) {
                     let liveIndex = url.indexOf('/live/');
                     if (liveIndex !== -1) {
                         url = url.substring(liveIndex);
@@ -467,8 +469,8 @@
                     }
 
                     playbackUrl = url.startsWith('/') ? ('/proxy' + url) : ('/proxy/' + url);
-                } else if (url.includes('emitiendoenvivo.com')) {
-                    // Servidores externos sin CORS: pasan por el proxy para inyectar cabeceras CORS
+                } else if (url.includes('emitiendoenvivo.com') || url.includes('cloudfront.net') || url.includes('{') || url.includes('%7B') || url.includes('%7b')) {
+                    // Servidores externos con CORS restrictivo, macros o sincronización EXT-X-PROGRAM-DATE-TIME (ej. CloudFront)
                     playbackUrl = '/proxy/' + url;
                 } else {
                     // Servidores externos: Directo a la URL original
@@ -539,6 +541,24 @@
                     console.warn("Autoplay con audio bloqueado, iniciando muted:", pe);
                     videoElement.muted = true;
                     await videoElement.play();
+                }
+
+                // Guardián contra cuelgues (stall watchdog): si la reproducción directa se estanca en buffering a los 3.5s, rescate automático vía proxy
+                if (!playbackUrl.startsWith('/proxy') && !playbackUrl.startsWith('http://localhost:8000/proxy')) {
+                    const currentLoadUrl = playbackUrl;
+                    setTimeout(async () => {
+                        if (playbackUrl === currentLoadUrl && videoElement.readyState < 3 && !videoElement.paused) {
+                            console.warn("Canal directo no avanza (posible desincronización HLS o bloqueo CORS tardío), rescatando por proxy...");
+                            playbackUrl = '/proxy/' + url;
+                            try {
+                                await window.player.unload();
+                                await window.player.load(playbackUrl);
+                                await videoElement.play();
+                            } catch (e) {
+                                console.error("Error en failover a proxy:", e);
+                            }
+                        }
+                    }, 3500);
                 }
             } catch (e) {
                 console.error("Error al reproducir:", e);
