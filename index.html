@@ -275,10 +275,10 @@
     <div id="player-container" data-shaka-player-container style="position: relative; width: 100%; height: 100%;">
         <video id="video" autoplay muted data-shaka-player style="width: 100%; height: 100%; object-fit: contain;"></video>
         <!-- Overlay flotante para selección de fuentes -->
-        <div id="sources-overlay" style="display: none;">
-            <div class="sources-badge">
+        <div id="sources-overlay" style="display: none;" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" onclick="event.stopPropagation()">
+            <div class="sources-badge" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" onclick="event.stopPropagation()">
                 <span class="sources-label">📡 Fuentes:</span>
-                <div id="sources-buttons" class="sources-buttons-list"></div>
+                <div id="sources-buttons" class="sources-buttons-list" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" onclick="event.stopPropagation()"></div>
             </div>
         </div>
     </div>
@@ -314,6 +314,8 @@
             return sources;
         }
 
+        let hideSourcesTimer = null;
+
         // Actualiza el menú flotante de fuentes en el reproductor
         function updateSourcesUI() {
             const overlay = document.getElementById('sources-overlay');
@@ -327,10 +329,18 @@
             }
 
             overlay.style.display = 'flex';
+            overlay.style.opacity = '1';
+            overlay.style.pointerEvents = 'auto';
             container.innerHTML = currentChannelSources.map((s, idx) => {
                 const isActive = idx === currentSourceIndex;
-                return `<button class="source-btn ${isActive ? 'active' : ''}" onclick="switchSource(${idx})">${s.name}</button>`;
+                return `<button type="button" class="source-btn ${isActive ? 'active' : ''}" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" onclick="event.stopPropagation(); event.preventDefault(); switchSource(${idx})">${s.name}</button>`;
             }).join('');
+
+            clearTimeout(hideSourcesTimer);
+            hideSourcesTimer = setTimeout(() => {
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+            }, 4000);
         }
 
         // Resalta el canal y la fuente activa en el menú lateral
@@ -392,6 +402,9 @@
                 videoElement.muted = preferredMuted;
             }
             await selectChannel(currentChannel, index, true);
+            if (videoElement && videoElement.paused) {
+                try { await videoElement.play(); } catch(_) {}
+            }
         }
 
         function onSelectChannel(idx) {
@@ -513,7 +526,7 @@
                 chipsHtml = `
                 <div class="channel-chips">
                     ${sources.map((s, sIdx) => `
-                        <span class="source-chip ${(currentChannel && currentChannel.name === ch.name && currentSourceIndex === sIdx) ? 'active' : ''}" onclick="event.stopPropagation(); onSelectChannelSource(${ch._idx}, ${sIdx})">F${sIdx + 1}</span>
+                        <span class="source-chip ${(currentChannel && currentChannel.name === ch.name && currentSourceIndex === sIdx) ? 'active' : ''}" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" onclick="event.stopPropagation(); onSelectChannelSource(${ch._idx}, ${sIdx})">F${sIdx + 1}</span>
                     `).join('')}
                 </div>`;
             }
@@ -677,11 +690,33 @@
                         }
                     });
 
-                    // Integrar el overlay de fuentes dentro del contenedor de controles para fade in/out natural
-                    const controlsContainer = videoContainer.querySelector('.shaka-controls-container');
+                    // Configuración de fade in / out para el overlay de fuentes según actividad del mouse
+                    const playerCont = document.getElementById('player-container');
                     const sourcesOverlay = document.getElementById('sources-overlay');
-                    if (controlsContainer && sourcesOverlay && !controlsContainer.contains(sourcesOverlay)) {
-                        controlsContainer.appendChild(sourcesOverlay);
+                    if (playerCont && sourcesOverlay) {
+                        playerCont.addEventListener('mousemove', () => {
+                            if (currentChannelSources && currentChannelSources.length > 1) {
+                                sourcesOverlay.style.opacity = '1';
+                                sourcesOverlay.style.pointerEvents = 'auto';
+                                clearTimeout(hideSourcesTimer);
+                                hideSourcesTimer = setTimeout(() => {
+                                    sourcesOverlay.style.opacity = '0';
+                                    sourcesOverlay.style.pointerEvents = 'none';
+                                }, 4000);
+                            }
+                        });
+                        sourcesOverlay.addEventListener('mouseenter', () => {
+                            clearTimeout(hideSourcesTimer);
+                            sourcesOverlay.style.opacity = '1';
+                            sourcesOverlay.style.pointerEvents = 'auto';
+                        });
+                        sourcesOverlay.addEventListener('mouseleave', () => {
+                            clearTimeout(hideSourcesTimer);
+                            hideSourcesTimer = setTimeout(() => {
+                                sourcesOverlay.style.opacity = '0';
+                                sourcesOverlay.style.pointerEvents = 'none';
+                            }, 2000);
+                        });
                     }
                 }
 
