@@ -8901,7 +8901,7 @@
               "name": "LN +",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2058",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2058",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge43016.telecentro.net.ar:80/bpk-token/1ab@2dpdpixg2n2bn0vldo5y34g4qg5y1yd02vw13oda/bpk-tv/LNMAS_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -8919,7 +8919,7 @@
               "name": "TELEMAX",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=171",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=171",
               "drm_license_uri": "kid:mDxdj9UwS-eO23fiT-_59g,k:XTpnps11X6kcxhWEf5Ugdw",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@m3gpichz12bj2zkpvn0yan4qegkxzdsymrx2e3ca/TELEMAX/TELEMAX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -8937,7 +8937,7 @@
               "name": "TN",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=137",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=137",
               "drm_license_uri": "kid:cJ0P1IBB9OaHK_aCylea4A,k:aTtCHgyiSi82yH7IwpJskg",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@3b540y3k21ldhiut3ex1z43vr1oyxxgo3zhnwhaa/bpk-tv/TN_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -8955,7 +8955,7 @@
               "name": "AMERICA 24",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=151",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=151",
               "drm_license_uri": "kid:du7g7vrP8rlO8gqG497ZQw,k:-jqB8W48s63fcWyDlmJmVA",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@n51evk41ptukze1rado0exjkvm05gjvsntkxzvda/bpk-tv/AMERICA24_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -8973,7 +8973,7 @@
               "name": "LATINATV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2062",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2062",
               "drm_license_uri": "kid:zwAhAAsHVpfL1M5sPr4Hkw,k:qMI9n1I6-R53cjdspHgEtw",
               "original_url": "http://edge6210.telecentro.net.ar:80/bpk-token/2ad@msrtnlgcgownj33el5oy4dh1wutm2m1smy3abuda/LATINATV/LATINATV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -8991,7 +8991,7 @@
               "name": "C5N",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=152",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=152",
               "drm_license_uri": "kid:htaML43ZqrAUnE_LByZ9iw,k:w675KrrUvr7JvCMjfBWQrw",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@lkhgigda3yaz2zr5rnywoomqm4q0rbszlk5g1ada/C5N/C5N.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9009,7 +9009,7 @@
               "name": "CANAL 9",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=138",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=138",
               "drm_license_uri": "kid:0GvmYKYS8V0qFkjNTlz6uw,k:h-_x8P_LWnueIrp5lEOBWQ",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@3a1pijerm5bfr4vbv3p11w5qsyhy4dkc3qaq0paa/bpk-tv/CANAL9_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9027,7 +9027,7 @@
               "name": "TV PUBLICA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=54",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=54",
               "drm_license_uri": "kid:DD2tfq3fxl-SliS-seLCyQ,k:FdRZF4G--jRWi-UObOD2pQ",
               "original_url": "http://edge4284.telecentro.net.ar:80/bpk-token/2ad@1piefliobrumb1cya1oxfqikwa5dcjzc1fuxjuba/bpk-tv/TVPUBLICA_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9045,7 +9045,7 @@
               "name": "TIERRAMIA TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2013",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2013",
               "drm_license_uri": "kid:cnA_VahqpR01XdbridriDQ,k:g-IQj5MZvHFgdglZ7Bt-pg",
               "original_url": "http://edge1012.telecentro.net.ar:80/bpk-token/1ab@m4ym3ccsdtvlykkqehkygrz0fethglxqmmotpeca/TIERRAMIA/TIERRAMIA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9063,7 +9063,7 @@
               "name": "TELECENTRO PREVIEW SD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2056",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2056",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge4284.telecentro.net.ar:80/bpk-token/2ad@1cxsveoa2kwsyguxldjw5ofljexyvmfr1ilbz1da/TELECENTROPREVIEW/TELECENTROPREVIEW.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9081,7 +9081,7 @@
               "name": "MUSIC TOP",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1147",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1147",
               "drm_license_uri": "kid:sxHdY3CMzXA_kJd5nlgz6Q,k:mS4nOy4Rb6bwuGJoLgCQ5Q",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@zhsvaj5fiwcendgfyz5svelbsw4rmfi0zppkspda/MUSICTOP/MUSICTOP.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9099,7 +9099,7 @@
               "name": "TELEFE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=53",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=53",
               "drm_license_uri": "kid:g5M4SjffgyNAko5CU_8Xiw,k:nrfDEhyx8S0yDJUpr5fOFQ",
               "original_url": "http://edge83032.telecentro.net.ar:80/bpk-token/1ac@enyle550bpr25udax1uiaqxi4xjd4cz5efqswzda/bpk-tv/TELEFE_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9117,7 +9117,7 @@
               "name": "CANAL 26",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=24",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=24",
               "drm_license_uri": "kid:gf03YwPMvVUsOSAF9Q60Xw,k:DA_zxlohcFCAPdL1DwqmVg",
               "original_url": "http://edge12023.telecentro.net.ar:80/bpk-token/1ab@wikbahxwjfa2mpbjszymlucao4fskayzwkd1sbda/CANAL26/CANAL26.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9135,7 +9135,7 @@
               "name": "CANAL 13",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=154",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=154",
               "drm_license_uri": "kid:Eh1BZ56lFWtyOP2sILIjSg,k:zBwpWyxAwGmhVF5d2PMiVg",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@cieiaz3vrabexxb4wzxfkiqas1acbciockd1mgaa/bpk-tv/CANAL13_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9153,7 +9153,7 @@
               "name": "AMERICA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=26",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=26",
               "drm_license_uri": "kid:yWDwLANvHjHOFE3qOeAsvQ,k:xWj7OsfaJ5gqwGzAl5Lk0A",
               "original_url": "http://edge4186.telecentro.net.ar:80/bpk-token/1ac@tgqf4lonawypzlgeqwogxal2x2wbmr5stgg1mnca/bpk-tv/AMERICA_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9171,7 +9171,7 @@
               "name": "NET TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2015",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2015",
               "drm_license_uri": "kid:AmcveTXOIRw5xyrfCenCFg,k:gVGiiBVmSgnMwcM1239Fpg",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@cacla0iqimbitpinxjgf0ewaujaqycqgcmqrs2aa/NETTV/NETTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9189,7 +9189,7 @@
               "name": "ARGENTINA 12",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2057",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2057",
               "drm_license_uri": "kid:KcK0mrxe4ZuAm1wZoAQ9Pw,k:tVxFyfynL61MncVTb_Qj_g",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@3kf2rrhfvqhgo034mrt0pkyddpwkbpm23gup3oca/IP/IP.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9207,7 +9207,7 @@
               "name": "CRONICA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=23",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=23",
               "drm_license_uri": "kid:cgjwPaLpNUp8YioVNU7t_A,k:WMwc4OVa9coVGquVAeNy_g",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@skb32vvafutxgb3m2xrfpc0zllukihpnsc2cotba/bpk-tv/CRONICA_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9225,7 +9225,7 @@
               "name": "EL DESTAPE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2147",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2147",
               "drm_license_uri": "kid:9OUJ6YjFlbLr4BpTrp-fiA,k:Ln4F2QU_l2OO221ejXkf1g",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@czoy430q1b1x13e14wfei3q31vkwdwpxczwyn1ca/ELDESTAPE/ELDESTAPE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9243,7 +9243,7 @@
               "name": "CANAL E",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2213",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2213",
               "drm_license_uri": "kid:nfr-5-x-b0Uruba_Tusctg,k:j1o-AmqWzEFt2-VhCAcKBQ",
               "original_url": "http://edge6162.telecentro.net.ar:80/bpk-token/1ac@sainmvtoavrv4oiiu5re1q0ykpfakdl3sg1t4tda/CANALE/CANALE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9261,7 +9261,7 @@
               "name": "DNEWS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2080",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2080",
               "drm_license_uri": "kid:gZ6g77RGSOq-OxxpKd6NWA,k:NOmzVkEKROxjC6ij-SHtRg",
               "original_url": "http://edge12023.telecentro.net.ar:80/bpk-token/1ab@faubpxx4qg23owigc4qk0id4ohbany13fc313rda/DNEWS/DNEWS.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9279,7 +9279,7 @@
               "name": "CARAS TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2279",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2279",
               "drm_license_uri": "kid:C6gYQ4SM6HkG3xH6Ud1p1Q,k:UjXXa4SkSbbEIph71Tbvgg",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@hckp1be1i3nhaijjfulp4u4wdytq01oahcspihaa/CARASTV/CARASTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9297,7 +9297,7 @@
               "name": "SENADO HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=38",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=38",
               "drm_license_uri": "kid:dcdMQz27_qtUj7TEcPVuQg,k:o_BXLR75FCMkd1IYiQbfFg",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@vilwmufgnzsrwd2zzprllwmzile0sfdnve0falaa/1998/1998.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9315,7 +9315,7 @@
               "name": "DIPUTADOS TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=139",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=139",
               "drm_license_uri": "kid:erTm4Uryr3v5bk0eCg9xfA,k:dGuunXOKg8rkUskPY14zpA",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@ip4mujr1ztrgfzptut5re2zitc1thdnkidp5ywaa/HCDN/HCDN.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9333,7 +9333,7 @@
               "name": "CANAL DE LA CIUDAD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=36",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=36",
               "drm_license_uri": "kid:0SRbSmCd4LK4BBtnhuMr8w,k:JcI3xHN6vb4X2wIPQnIE0w",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@qzqeun3cdsqwfveuqt3bjbji1sngebnlqbixysaa/CANALCIUDAD/CANALCIUDAD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9351,7 +9351,7 @@
               "name": "ENCUENTRO",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=155",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=155",
               "drm_license_uri": "kid:DJTcn4EeeuDCIEHJL2XKog,k:SluZWd1ZxMh1lo32z6r0yA",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@bwjmvfljgrvw2ftyetzcwtykl4qnclnzbqcwhdda/ENCUENTRO/ENCUENTRO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9369,7 +9369,7 @@
               "name": "CANAL 21",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=37",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=37",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge7064.telecentro.net.ar:80/bpk-token/1ac@kdfuojwyuq0fz3i4y4pu2ki3se0ibvlskt1j2pca/CANAL21/CANAL21.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9387,7 +9387,7 @@
               "name": "DSPORTS HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2626",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2626",
               "drm_license_uri": "kid:3BPBfKRE6jECxKhQ7uz8Tg,k:6tULYXqgVqp6dDej6JXUZg",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@1fhhrjpf22egnplpbr5wrooctgozzjm01jv3dpda/bpk-tv/DSPORTS1HD_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9405,7 +9405,7 @@
               "name": "DSPORTS 2 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2627",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2627",
               "drm_license_uri": "kid:LiYwT_jTf_BNh1L94u350Q,k:3ZMxUm_rh2J_Rs2GOzL91w",
               "original_url": "http://edge7262.telecentro.net.ar:80/bpk-token/2ad@zplr5swunf4l0nojkgcsfwc5ff51k2xuz5yctnda/bpk-tv/DSPORTS2HD_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9423,7 +9423,7 @@
               "name": "QUAD 2",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=150",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=150",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@x0tqbq4apcgakzevkjdophbda3u4emaux40otwca/QUAD2/QUAD2.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9441,7 +9441,7 @@
               "name": "QUAD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=165",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=165",
               "drm_license_uri": "kid:Yb-jbwJeAm8tT_PC92fMAg,k:KhS2OiWy3IdaEh6-LD2kWQ",
               "original_url": "http://edge4126.telecentro.net.ar:80/bpk-token/1ac@q1oy5gme1b51qau1ogibn3q5ni3wd4xbqhdgnaaa/QUAD/QUAD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9459,7 +9459,7 @@
               "name": "TV PUBLICA HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=20",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=20",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@omqnmxlabwr34i0eu5q2ca1yopddmd13oacx4rda/bpk-tv/TVPUBLICA_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9482,7 +9482,7 @@
               "name": "DEPORTV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=173",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=173",
               "drm_license_uri": "kid:ZTUB50h2UCdN0WQwRmDOpQ,k:8ig-lXOBFhkpSdD3czQB9w",
               "original_url": "http://edge2024.telecentro.net.ar:80/bpk-token/1ac@qroyssfp0blkgva14asbz3qffdmudwumq5afauba/DEPORTV/DEPORTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9500,7 +9500,7 @@
               "name": "FOX SPORTS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=28",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=28",
               "drm_license_uri": "kid:h21qt1rd7fjAJMYHXN1eEw,k:eOqMVeH70iDtxu6HkHlJZA",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@ndhjgwci2ezykxzpwka02osmmf1yjsrvnba0kjda/bpk-tv/FOXSPORTS_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9518,7 +9518,7 @@
               "name": "FOX SPORTS 2",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=29",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=29",
               "drm_license_uri": "kid:eJDDdDH2c7_UnG6IoVJb2Q,k:OSTInP3JXhRh9rLWhWj7Eg",
               "original_url": "http://edge6210.telecentro.net.ar:80/bpk-token/2ad@qy01qpillpd4b1eb5rmblvxb5qew4g2dqswi2qba/bpk-tv/FOXSPORTS2HD_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9536,7 +9536,7 @@
               "name": "FOX SPORTS 3",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=116",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=116",
               "drm_license_uri": "kid:7YAxN_3B5c21QvDV_f3p3w,k:W_w0YPMywUULN6V9q5u7FQ",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@qohog3n53yzuxm55v0vbho2m0tu1rtjpq42ru1ba/bpk-tv/FOXSPORTS3_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9554,7 +9554,7 @@
               "name": "ESPN 2",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=64",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=64",
               "drm_license_uri": "kid:Pu6mPlaP35AZSzQExZM8cg,k:35aV5QaeGvTfZ_SNkTt4ZQ",
               "original_url": "http://edge83032.telecentro.net.ar:80/bpk-token/1ac@pf0l5dg3ip3pimibhwk4qux4hmlr405qpnssnfca/bpk-tv/ESPN2_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9572,7 +9572,7 @@
               "name": "ESPN",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=140",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=140",
               "drm_license_uri": "kid:JMx5JsWk_7Bipx9YF4FMiA,k:S8_Sa8oA97lspwMDoIYB5g",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@nj1sli0mnlobj25rlmp0iwfxqul0w2csnbgnzoca/bpk-tv/ESPN_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9590,7 +9590,7 @@
               "name": "TYC SPORTS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=174",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=174",
               "drm_license_uri": "kid:QngJ_HKSYX_pXOrau0oqYw,k:bwXirOwcdSflqRppGaZ_UQ",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@1qxf5svo4w2lwrshagsx1pl4flg2nzxm1am0nuba/bpk-tv/TYCSPORTS_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9608,7 +9608,7 @@
               "name": "DISCOVERY TURBO",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=117",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=117",
               "drm_license_uri": "kid:bfi603IczuRRv4oeFVdPQw,k:J9fLJeKfi96LAidWe_7bhw",
               "original_url": "http://edge4086.telecentro.net.ar:80/bpk-token/1ac@tmqwubc3b0sgy4muztlgdanjdeedufnqtstighca/DISCOVERYTURBO/DISCOVERYTURBO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9626,7 +9626,7 @@
               "name": "ESPN 3",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=98",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=98",
               "drm_license_uri": "kid:6jARlyB2pAR3Nl0lAdHCpQ,k:z9D658Np07xO9Jckq4hGwA",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@45ow5imx1z4dr1e1jgp3f3m5rq5xt3hc4rlmnoaa/bpk-tv/ESPN3_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9644,7 +9644,7 @@
               "name": "DSPORTS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2628",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2628",
               "drm_license_uri": "kid:3BPBfKRE6jECxKhQ7uz8Tg,k:6tULYXqgVqp6dDej6JXUZg",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@42jpgha4h3z2ahviv0i3dt4moihp0tzb4q1vubaa/bpk-tv/DSPORTS1HD_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9662,7 +9662,7 @@
               "name": "DSPORTS 2",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2629",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2629",
               "drm_license_uri": "kid:LiYwT_jTf_BNh1L94u350Q,k:3ZMxUm_rh2J_Rs2GOzL91w",
               "original_url": "http://edge4086.telecentro.net.ar:80/bpk-token/1ac@swmqlixpsbobnrb0km5exzaxqoufd2c0sipozoda/bpk-tv/DSPORTS2HD_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9680,7 +9680,7 @@
               "name": "ESPN PREMIUM",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1192",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1192",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge1012.telecentro.net.ar:80/bpk-token/1ab@4uz2bj41gthezirqmzp2ttzdsuhngpis4gpdtpca/bpk-tv/FOXSPORTPREMIUM_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9698,7 +9698,7 @@
               "name": "TNT SPORTS PREMIUM",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1193",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1193",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@25pzpqfu5f5bwcvlootzf5s5ad45l4dm2t4kdpaa/bpk-tv/TNTSPORT_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9716,7 +9716,7 @@
               "name": "ESPN HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1132",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1132",
               "drm_license_uri": "kid:JMx5JsWk_7Bipx9YF4FMiA,k:S8_Sa8oA97lspwMDoIYB5g",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@sko3em0nzvtqjv4l2lnep20jyuvslhbtskh3xkca/bpk-tv/ESPN_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9734,7 +9734,7 @@
               "name": "ESPN 2 HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=7",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=7",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge83032.telecentro.net.ar:80/bpk-token/1ac@35ctspitlmk4r3tn1qm1ffgf5y5xyu2d3xkkajaa/bpk-tv/ESPN2_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9752,7 +9752,7 @@
               "name": "ESPN 3 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=39",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=39",
               "drm_license_uri": "kid:6jARlyB2pAR3Nl0lAdHCpQ,k:z9D658Np07xO9Jckq4hGwA",
               "original_url": "http://edge6240.telecentro.net.ar:80/bpk-token/2ad@c1wcm5ch1kq3lurxt5eemnfy4nywva1xcnyraada/bpk-tv/ESPN3_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9770,7 +9770,7 @@
               "name": "ESPN 4",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=166",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=166",
               "drm_license_uri": "kid:Vq5MFGmcmpAJSVKcBOEoUg,k:EQRV3ippQxNj1SZIWTcalQ",
               "original_url": "http://edge7064.telecentro.net.ar:80/bpk-token/1ac@3yfqfyt3xawa53a4klx0llalq5hobmb43i1nx4da/ESPNmas/ESPNmas.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9788,7 +9788,7 @@
               "name": "FOX SPORTS HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=44",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=44",
               "drm_license_uri": "kid:h21qt1rd7fjAJMYHXN1eEw,k:eOqMVeH70iDtxu6HkHlJZA",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@3xdfmonvouqzfwenqp21vhky2c53ibtl3vewaraa/bpk-tv/FOXSPORTS_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9806,7 +9806,7 @@
               "name": "FOX SPORTS 2 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1",
               "drm_license_uri": "kid:eJDDdDH2c7_UnG6IoVJb2Q,k:OSTInP3JXhRh9rLWhWj7Eg",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@lcja1bdeebmh2ypycu1w4sawdwsicyoylaotx4ca/bpk-tv/FOXSPORTS2HD_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9824,7 +9824,7 @@
               "name": "FOX SPORTS 3 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=132",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=132",
               "drm_license_uri": "kid:7YAxN_3B5c21QvDV_f3p3w,k:W_w0YPMywUULN6V9q5u7FQ",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@snt5r3s4n4hw1kifnrfebg5d1fm12pmxs3iad1ca/bpk-tv/FOXSPORTS3_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9842,7 +9842,7 @@
               "name": "TYC SPORTS HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=4",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=4",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge2046.telecentro.net.ar:80/bpk-token/1ac@vdqgv05da0ukpa5ubdwk3ankvh3aujv4vpl1h2da/bpk-tv/TYCSPORTS_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9860,7 +9860,7 @@
               "name": "ESPN PREMIUM HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1189",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1189",
               "drm_license_uri": "kid:qCXTknfDI0QSnTOzA3LzSA,k:Usd5TRLSqJPCcIdYWYxutA",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@xhl3qjpumvdgnqmj2r5ovw0btw3zkhm0xfmo2wca/bpk-tv/FOXSPORTPREMIUM_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -9878,7 +9878,7 @@
               "name": "DEPORTV HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=22",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=22",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge2024.telecentro.net.ar:80/bpk-token/1ac@m5woon4r10zvzmrxv4nyen320e1xvtltmryt2lca/DEPORTV/DEPORTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9901,7 +9901,7 @@
               "name": "PAKA PAKA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=157",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=157",
               "drm_license_uri": "kid:jnDkzYzJTPzz6rFYHbljeg,k:7Wv0u4nTosu3eyT-dz1XWg",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@qxwv1dha0wop2ebhiu0avnlxhw2vn34yqhnkjfda/PAKAPAKA/PAKAPAKA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9919,7 +9919,7 @@
               "name": "DISNEY JUNIOR",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=65",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=65",
               "drm_license_uri": "kid:PN3uQss-3yR6nlbgv2FleQ,k:maQ2G9Eaw5m4cV2ojynDKg",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@01vvvqhgxwwc41wgidtunlllbh4onnf2034phwda/DISNEYJUNIOR/DISNEYJUNIOR.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9937,7 +9937,7 @@
               "name": "CARTOON NETWORK",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=158",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=158",
               "drm_license_uri": "kid:L6m2l1gUZ3yTNXQ-xF37dA,k:OxbMHz6clTHRh0sBMUaTtA",
               "original_url": "http://edge12023.telecentro.net.ar:80/bpk-token/1ab@r1bit20fhans1hx2gafcndqgzf2oa0exrzisb0ca/CARTOONNETWORK/CARTOONNETWORK.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9955,7 +9955,7 @@
               "name": "DISNEY CHANNEL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=175",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=175",
               "drm_license_uri": "kid:3jOQoqJKjSc6XvKp8YgHYg,k:k4aQcS1k62JBQtCiw4XWRA",
               "original_url": "http://edge4086.telecentro.net.ar:80/bpk-token/1ac@zccqapmaiac2rsl30zmt5eab4qwqaeydz2bosjaa/DISNEYCHANNELHD/DISNEYCHANNELHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9973,7 +9973,7 @@
               "name": "NICK",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=176",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=176",
               "drm_license_uri": "kid:UGhO1P07ybBkymLfhopEeg,k:B8X2YTsq0DTY4wfxiUvErw",
               "original_url": "http://edge4086.telecentro.net.ar:80/bpk-token/1ac@1aaovpqdbyv4rtk2ftmx1a2k5agaql3d14dqhjaa/NICK2/NICK2.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -9991,7 +9991,7 @@
               "name": "CARTOONITO",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=99",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=99",
               "drm_license_uri": "kid:CyA0nUgbWpNVBOtKRbl7pg,k:tgLUFv6rSWfDrbxFqqDdfA",
               "original_url": "http://edge6162.telecentro.net.ar:80/bpk-token/1ac@5kb5zxu1f2h5cs5mnva5pc4tpbwkyp4f5msblraa/BOOMERANG/BOOMERANG.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10009,7 +10009,7 @@
               "name": "DREAMWORKS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2113",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2113",
               "drm_license_uri": "kid:j3SrhSf2upkd04RFxb7ukg,k:sCZVFR6PBsVZ_tmZIMgOQQ",
               "original_url": "http://edge1158.telecentro.net.ar:80/bpk-token/1ab@qxix54hdc3415ogijguavro5353f03x5qb3xmyda/DREAMWORKS/DREAMWORKS.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10027,7 +10027,7 @@
               "name": "DISCOVERY KIDS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=118",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=118",
               "drm_license_uri": "kid:f8YYUo1yvn9U9eDBg4eA8Q,k:TO5OjI_FJaZdK2eEXuumJg",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@ekxfyy5g3wad5jyhqfxioolqrhq0nbg4eggwuhca/DISCOVERYKIDS/DISCOVERYKIDS.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10045,7 +10045,7 @@
               "name": "CLAN TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2069",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2069",
               "drm_license_uri": "kid:nLfXPrizDAbatnMp4JoXZw,k:3eV2050Gabr4PypPIZFWow",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@ldlxr3xfm3gw5m2jjrvw2wod150y0nm5lnond1da/CLANTV/CLANTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10063,7 +10063,7 @@
               "name": "NICK JR",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1133",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1133",
               "drm_license_uri": "kid:5nRZzo-dPgbQR4EC4TpQ5g,k:zHmXdMdwyiYndvCoKrt4mw",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@xnp55wep3351ci1lngapb445njn115xfx3uanqaa/NICKJR/NICKJR.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10081,7 +10081,7 @@
               "name": "BABY TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=67",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=67",
               "drm_license_uri": "kid:9J4ots7M36xEaBoVhOZnEA,k:U323E6xXQHdUURwlkOlIuQ",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@pp3ar35wvdew5o0scrv4e0bc1p1lhim5pjw0d1da/BABYTV/BABYTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10099,7 +10099,7 @@
               "name": "TOONCAST",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=100",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=100",
               "drm_license_uri": "kid:oOV1s6J5RV0SivRgHXchRA,k:zMhy2J08HsO6enp3pjRHGw",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@sbyoty0aa1ncljnqfahezq3grvmaw1ewsp3ub4ca/TOONCAST/TOONCAST.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10122,7 +10122,7 @@
               "name": "TELESUR",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=101",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=101",
               "drm_license_uri": "kid:MIQKq7C2rlWEDGVQyg1XZQ,k:r0cgSogM8vbsa0ABuakE4A",
               "original_url": "http://edge7064.telecentro.net.ar:80/bpk-token/1ac@h4kk44ouljz1lnczxgeogvu23nrxssxxhouxmyca/TELESUR/TELESUR.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10140,7 +10140,7 @@
               "name": "EXTRA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2180",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2180",
               "drm_license_uri": "kid:jqUSGp41UsoiG1rQT3-WMQ,k:CkwsduhvEecfM2WxtU_K-Q",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@duf1fci0wmxiq1xoplkhslwleaanzorad2yexeaa/EXTRA/EXTRA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10158,7 +10158,7 @@
               "name": "TVE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=142",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=142",
               "drm_license_uri": "kid:g379sxuRSnh49DtJEWn3fQ,k:F0Y_GJ_g48-0taE6lxyGoQ",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@yv2etpccstm4jrhsaqmqrzjg5upfhz2tynex5qda/TVE/TVE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10176,7 +10176,7 @@
               "name": "CNN ESPAÑOL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=102",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=102",
               "drm_license_uri": "kid:JEswx5y09QLlKSDKkJ1SUQ,k:tMRqUG8m3e2rqnaKti0jHw",
               "original_url": "http://edge7064.telecentro.net.ar:80/bpk-token/1ac@mxgwjxxu0yg3opg5j3qyunmtox1vrn03mhyl1rda/CNNESPANIOL/CNNESPANIOL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10194,7 +10194,7 @@
               "name": "ABC",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2065",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2065",
               "drm_license_uri": "kid:YCV3rDIJLfTvaJ1a3emXwg,k:dmTHTMxfOyKOIgL43QPq7Q",
               "original_url": "http://edge4284.telecentro.net.ar:80/bpk-token/2ad@wxakj1e1cifnd0f2h3gnvbuswj2fqk0gw32zfeba/ABC/ABC.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10212,7 +10212,7 @@
               "name": "TELEMUNDO",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2004",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2004",
               "drm_license_uri": "kid:Sn-IUlRKhERJSfKJ4Bv8lg,k:bv3NIHlDi9rW0wY0c009fQ",
               "original_url": "http://edge13023.telecentro.net.ar:80/bpk-token/1ab@bkdkshnpnij4ety3xqydoguepcq0qs2jbuctabba/TELEMUNDO/TELEMUNDO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10230,7 +10230,7 @@
               "name": "CGTN",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2066",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2066",
               "drm_license_uri": "kid:It4MCjmF5COZs_ZiG12qRQ,k:GKs0gwrcnYqnL9XRf7Yv6Q",
               "original_url": "http://edge2046.telecentro.net.ar:80/bpk-token/1ac@qiksqh0jjjc4ysjz1rialuebpmesse2rqerpcbca/CGTNESP/CGTNESP.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10248,7 +10248,7 @@
               "name": "FRANCE24",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2378",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2378",
               "drm_license_uri": "kid:yW7Z-lH_RO1wlUN15fTDDw,k:rHkEokMVl-i0PHPInmQ6KQ",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@fc3ljvdoupfvo32ch3rk40xskpri5kk3fmyr1tda/FRANCE24/FRANCE24.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10266,7 +10266,7 @@
               "name": "RAI",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=141",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=141",
               "drm_license_uri": "kid:mNb31uc4qxeaxs3iGhrBMA,k:-Qhb-9IT8FLEzFNrrNuoAg",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@kmyyk1ljbdln5xlq42wucqrvwxadgw04kmayz3da/RAI/RAI.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10284,7 +10284,7 @@
               "name": "CNN",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=103",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=103",
               "drm_license_uri": "kid:uLChm1qL_udVHjI7dFR8mg,k:_6OPJp71sCKyPRuby8UMZw",
               "original_url": "http://edge2046.telecentro.net.ar:80/bpk-token/1ac@qeqwr1m1a0gotzsujrgbtandxjebun2gqilld3aa/CNN/CNN.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10302,7 +10302,7 @@
               "name": "BBC",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=107",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=107",
               "drm_license_uri": "kid:aDoOusEdf26n26bgh_qXhg,k:EKjHAtb10Zi9nfkT3QKWmQ",
               "original_url": "http://edge6240.telecentro.net.ar:80/bpk-token/2ad@ixz3jgrsgxhzewlamnyrut1tm00nopsjibxofzaa/BBC/BBC.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10320,7 +10320,7 @@
               "name": "DW",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=108",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=108",
               "drm_license_uri": "kid:5bnAbS0QrmYmAsdDer9lng,k:jrLCh03PI-4S6gZq2lnnzA",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@2osmb4a4jsfyt0xvejezhezc2bwtelqh2o1msyaa/DW/DW.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10338,7 +10338,7 @@
               "name": "TV5",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=82",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=82",
               "drm_license_uri": "kid:HN4isKclIYN59XwUXAjfFw,k:2xFxtOy5NChSltwroN_w-g",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@jrv0na0mwkxbijiwpplsylv1a2kmvodqjbof5gca/TV5/TV5.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10361,7 +10361,7 @@
               "name": "CINEAR",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=159",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=159",
               "drm_license_uri": "kid:Txtnt7oMOWIAZyaaCzAaBA,k:BMknyS8aL4vIcCurApNzbg",
               "original_url": "http://edge4284.telecentro.net.ar:80/bpk-token/2ad@csfrmhw1wes3ikjo05ie4lczomrmje1rcyzcayda/CINEAR/CINEAR.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10379,7 +10379,7 @@
               "name": "USA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=68",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=68",
               "drm_license_uri": "kid:irA13zZ6-P9k86-IhqHtIQ,k:7qpUg90ohD8dmXt2J--lvA",
               "original_url": "http://edge13023.telecentro.net.ar:80/bpk-token/1ab@e4x2fgm35sxyqbpxmlijgpzlmir5fprbeawfxaaa/USA/USA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10397,7 +10397,7 @@
               "name": "FX",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=55",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=55",
               "drm_license_uri": "kid:mGceBToAGa-Ld-9ZkoDCqg,k:Cp_RRuJExwa6tEAilHj5_Q",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@vagz1mfkyeptvoqpoe3l1msxzsfqj4glvi1gjkba/FX/FX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10415,7 +10415,7 @@
               "name": "STAR CHANNEL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=143",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=143",
               "drm_license_uri": "kid:rLmCYJ8YqCaSCjHeahN58Q,k:uC0zDbpKLgAFe4bbvpVZ3w",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@cxilywglcnb10peixfaeurwqnv0f0cwvcxqllqca/FOX/FOX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10433,7 +10433,7 @@
               "name": "UNIVERSAL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=144",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=144",
               "drm_license_uri": "kid:8rEVMPPgFZFCMkt6yDkumQ,k:gFMxmRhpyXamRXkqZBQWcw",
               "original_url": "http://edge13023.telecentro.net.ar:80/bpk-token/1ab@3s1krvxzolfwoojrhrr05xvclhx2wkm33m0tdtda/UNIVERSAL/UNIVERSAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10451,7 +10451,7 @@
               "name": "SPACE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=30",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=30",
               "drm_license_uri": "kid:91FEPLo7FQBwlo1JHTLv1A,k:gw-IGFdABjbawLUEr_nGCQ",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@odoqikusybcjrdr10no322arui1qdescoltp0maa/SPACEHD/SPACEHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10469,7 +10469,7 @@
               "name": "CINECANAL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=56",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=56",
               "drm_license_uri": "kid:L_yxzrcIkRJuDOnNB3r17w,k:6MehQerNHAL1b26qMkYp8g",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@jgevuov5qus0f5toyd2twikj3ktbjfvljkvgyraa/CINECANAL/CINECANAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10487,7 +10487,7 @@
               "name": "TNT",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=177",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=177",
               "drm_license_uri": "kid:WtbgvkElCd-VRl2JHdkDXA,k:Deh6_UWNrZVqvQ0B2Qee-A",
               "original_url": "http://edge53045.telecentro.net.ar:80/bpk-token/1ac@oelwquqemzcsskczzbb3swmbjjdzsfefo2apcsaa/TNTHD/TNTHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10505,7 +10505,7 @@
               "name": "SONYMOVIES",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2114",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2114",
               "drm_license_uri": "kid:WqnGlOX30xIG7uXBHws31w,k:0tjQuTe_trwq-_DtEezXJQ",
               "original_url": "http://edge2024.telecentro.net.ar:80/bpk-token/1ac@rrzavonngdu0vqiqcd2dztbk3kmmgivlr5x3hiba/SONYMOVIES/SONYMOVIES.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10523,7 +10523,7 @@
               "name": "TCM",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=145",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=145",
               "drm_license_uri": "kid:7KM2YnIKfd79pPvn4tC9AA,k:5BGc7kplTO9KK5lAzliR3g",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@jy44rs5j11hkog2tnbssk33dfxcwxpu2jumeduda/TCM/TCM.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10541,7 +10541,7 @@
               "name": "WARNER",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=178",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=178",
               "drm_license_uri": "kid:FwGqvGCNvbOYPMIRt1vIuQ,k:JQ3ijZqOeK39gqBvZontJw",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@z520dzo3tlpelb5spyhsfzvhsv4hx4iwzxbfr5ca/WARNER/WARNER.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10559,7 +10559,7 @@
               "name": "SONY",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=160",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=160",
               "drm_license_uri": "kid:VhJvqHRocoTeVYY2zBQ6Lg,k:UyblDVJlASyV7azIWMHF5g",
               "original_url": "http://edge7262.telecentro.net.ar:80/bpk-token/2ad@0fmzjqezqfhbsprkondvrystazpbloce0v5kfpba/SONY/SONY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10577,7 +10577,7 @@
               "name": "CINEMAX",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=80",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=80",
               "drm_license_uri": "kid:nQpSZ07rEA8NRucyeM6gBQ,k:-eroH67uxTm8M-Du4qgtfA",
               "original_url": "http://edge43016.telecentro.net.ar:80/bpk-token/1ab@vohhwtur32yocdeprsclhoomhjv1zr3evy45evaa/CINEMAX/CINEMAX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10595,7 +10595,7 @@
               "name": "STUDIO UNIVERSAL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=180",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=180",
               "drm_license_uri": "kid:fSnNlcUQ44ojmTbRhQ5G4g,k:edvF5resoHzIWjYb_dUh7Q",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@vcjltjwdenngz3cihqpk5swgtmvi00msvovz5wda/STUDIOUNIVERSAL/STUDIOUNIVERSAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10613,7 +10613,7 @@
               "name": "TNT SERIES",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=110",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=110",
               "drm_license_uri": "kid:bZEx-JgyjOlZIqQaHQ1_wg,k:U_xgAk31cTDbGk41I4dvrQ",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@jzbc10kihimlldp2degsidewvvkoqywwjr23j2ca/TNTSERIES/TNTSERIES.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10631,7 +10631,7 @@
               "name": "AMC",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=111",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=111",
               "drm_license_uri": "kid:gprZm4c7ByE1Tz5yT6-g-Q,k:SX6rMqCgCL54jioPspgYiQ",
               "original_url": "http://edge83032.telecentro.net.ar:80/bpk-token/1ac@0qi0h5njcj52xf1yp0uv1rup4dges4zp0yadvzba/AMC/AMC.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10649,7 +10649,7 @@
               "name": "AXN",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=83",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=83",
               "drm_license_uri": "kid:YJVdVRCfwdetK-X1tJvlkA,k:hqo67q1Sg9x2y5vzkUlgiA",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@2mzhcbhvf5ie2pcary1ydspec4hl4riy2eeyqhda/AXN/AXN.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10667,7 +10667,7 @@
               "name": "DISCOVERY ID",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=179",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=179",
               "drm_license_uri": "kid:6X5xQ6a0LWozmEdqOWKXqw,k:WRpFm4E3q8XjstW6_oD6Ew",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@pks1izgajodf13wf53h4oexrs3ts2gkwpgojegda/IDHD/IDHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10685,7 +10685,7 @@
               "name": "ADULTSWIM",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=84",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=84",
               "drm_license_uri": "kid:82LFC6Z7IsGLkMdcB5h5_g,k:nNOIyg1pbYOtgeFQSe9UuA",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@zihjq4o53eb0l1hpwbeslosa33h0jcuxzq502bda/ADULTSWIM/ADULTSWIM.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10703,7 +10703,7 @@
               "name": "KANAL D DRAMA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2079",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2079",
               "drm_license_uri": "kid:UZ8qwebOtjRrnmcwahiDVw,k:x2_4ZKH2BjveK9dHJYN39g",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@k2juiy11hrcbphkyynxuctirqxdpcfc4kyak04da/KANALDDRAMA/KANALDDRAMA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10721,7 +10721,7 @@
               "name": "A&E",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=161",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=161",
               "drm_license_uri": "kid:zUFSIuFuuVxlo049iBYJfw,k:6e7HoCB2hVXQjLYQ6W8z5g",
               "original_url": "http://edge7064.telecentro.net.ar:80/bpk-token/1ac@wk1tsbd1npkg2rgb1q1mpwhfdgv04umyw0foahda/AyE/AyE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10739,7 +10739,7 @@
               "name": "COMEDY CENTRAL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=182",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=182",
               "drm_license_uri": "kid:Aan3IbXp4UfvVZNB3uwRSw,k:IvJcGwZCgOgGsf0CXec1Tw",
               "original_url": "http://edge3118.telecentro.net.ar:80/bpk-token/1ab@53dkskf5pijkvkn3xa45bhuevso5qsuk5hokbmba/COMEDYCENTRAL/COMEDYCENTRAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10757,7 +10757,7 @@
               "name": "TNT NOVELAS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=31",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=31",
               "drm_license_uri": "kid:y76ru9eyR9rwVQTT37mnAw,k:Bh1u2FnJXiNJAXIobqvysg",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@vx2x0g4cs5k1ygyczeikvzpvn23f5vwrvhhiiaca/TBSVERYFUNNY/TBSVERYFUNNY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10775,7 +10775,7 @@
               "name": "VOLVER",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1138",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1138",
               "drm_license_uri": "kid:HSQ3jpQPi8ldXqQsyWKyQA,k:vDaJwhHKn-gGPR6DYE6GeQ",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@e0mgwvg3tzyw0n40rsbiozmmlvqgtrnvecuv0kda/VOLVER/VOLVER.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10793,7 +10793,7 @@
               "name": "LIFETIME",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=70",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=70",
               "drm_license_uri": "kid:FcW9_SXt9KCCm93tvOaR9Q,k:zzHZWlJS9LPZV3k6My8gVA",
               "original_url": "http://edge6038.telecentro.net.ar:80/bpk-token/1ab@kbv1sdxcuolo20dg5q0uykxfh4ki3w2yk3neafda/LIFETIME/LIFETIME.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10811,7 +10811,7 @@
               "name": "EUROPA EUROPA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=181",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=181",
               "drm_license_uri": "kid:7wPDkpGlYgoC9p8isDkdcg,k:deOWj_736bwPhHJv67gJSw",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@umm1jjlyrnhf3zvkp35idywtsged1ok0ua3ifwca/EUROPAEUROPA/EUROPAEUROPA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10834,7 +10834,7 @@
               "name": "NAT GEO",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=147",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=147",
               "drm_license_uri": "kid:UKzdGB9L4Y4SKfkBuIqJpw,k:neB0vkL3w0caOFmo7HhwAQ",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@vmbjjgjseefze5amgnyldcssmkeliksjvmij0aba/NATGEO/NATGEO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10852,7 +10852,7 @@
               "name": "DISCOVERY",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=57",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=57",
               "drm_license_uri": "kid:5Jvr31NIM81s-MLgTXfzGg,k:Hr-QFJot6MV2r36or2t0sA",
               "original_url": "http://edge1012.telecentro.net.ar:80/bpk-token/1ab@lz43sm5c1xlsnz0d2a3wi31fz4kwpxe1llicakda/DISCOVERY/DISCOVERY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10870,7 +10870,7 @@
               "name": "HISTORY",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=162",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=162",
               "drm_license_uri": "kid:TXd66ONu2RRn6xaX1M5LOQ,k:CzgrGwDXxQ4rV7_qLiO22A",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@qsauqlngcqcofa52yr4b5bibxcueaf2kq42g2uaa/HISTORY/HISTORY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10888,7 +10888,7 @@
               "name": "HISTORY 2",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=93",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=93",
               "drm_license_uri": "kid:YS5Yn7UCDmQqMCJBOY5NdA,k:Wv0EHwn7G_9PSRulqA-nDw",
               "original_url": "http://edge4126.telecentro.net.ar:80/bpk-token/1ac@hgj4e3hteztu5bfy31vows2j0xqjshj5h0eaw1da/HISTORY2/HISTORY2.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10906,7 +10906,7 @@
               "name": "HOME & HEALTH",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1145",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1145",
               "drm_license_uri": "kid:UTT0ZPgJKarSPASITVOkwg,k:lP7skYGPMAyYVYVbT7sTdg",
               "original_url": "http://edge6132.telecentro.net.ar:80/bpk-token/1ab@fpgtfh5fzmw22lrpl1ykemglo4ytzmzzfputwbda/HOMEANDHEALTH/HOMEANDHEALTH.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10924,7 +10924,7 @@
               "name": "ANIMAL PLANET",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=126",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=126",
               "drm_license_uri": "kid:hPid8Yr_IQat3Z49lqbCPA,k:8l1GF1wdrWMWt5MV-W3iLg",
               "original_url": "http://edge4186.telecentro.net.ar:80/bpk-token/1ac@hsv510y5w4pltlpgnegp4l5xvztm35wghsdbj2aa/ANIMALPLANETHD/ANIMALPLANETHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10942,7 +10942,7 @@
               "name": "CIUDAD MAGAZINE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1139",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1139",
               "drm_license_uri": "kid:UWnOGKbucEFJe2AkcyS-8A,k:62Mf_kg9Leb1nmY8uSugcQ",
               "original_url": "http://edge6162.telecentro.net.ar:80/bpk-token/1ac@vjd40luwnylprzc33uoljg2vxqm0qx4cvpqainaa/MAGAZINE/MAGAZINE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10960,7 +10960,7 @@
               "name": "BRAVO TV HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2514",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2514",
               "drm_license_uri": "kid:-rCqmq8Ymmox2kB7_LAgFQ,k:igR-6bpdQ909vmEcEYwtXA",
               "original_url": "http://edge4086.telecentro.net.ar:80/bpk-token/1ac@1nkbyy3fjfadxbqjsfxxbucqrdotkago1tj5k4ba/BRAVOTV/BRAVOTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10978,7 +10978,7 @@
               "name": "GOURMET",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=92",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=92",
               "drm_license_uri": "kid:cQeZZdihYcdiAisFB5V0_g,k:_OelKlqH-4LNqFSjTMMxsQ",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@u5igr3tedzewpezybrvifrmc1x3hsjm5uzd2d1da/GOURMET/GOURMET.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -10996,7 +10996,7 @@
               "name": "AMC SERIES SD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2548",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2548",
               "drm_license_uri": "kid:AjigIu8lZ8SvjEOuzBc9gA,k:gy1dVMaomIzcioZGxHaXsg",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@5rgp50il023ltw4pfgg5zn44vjouz1xg5j42tfba/AMCSERIES/AMCSERIES.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11014,7 +11014,7 @@
               "name": "METRO",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1140",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1140",
               "drm_license_uri": "kid:fWs8Z1dZjXfBcl2gINQTAQ,k:2ay0R0DThdjPvB44h_nomw",
               "original_url": "http://edge83032.telecentro.net.ar:80/bpk-token/1ac@u4hhl05n52mjpiipbmwihpowuxv5zzs4uwp4z2da/METRO/METRO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11032,7 +11032,7 @@
               "name": "ARGENTINISIMA",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=153",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=153",
               "drm_license_uri": "kid:a8gdKpWGXAqkWoQjmB6YCQ,k:s4Y-ppkUtQi0qV5huiZOhg",
               "original_url": "http://edge53045.telecentro.net.ar:80/bpk-token/1ac@kaxwcsno20kiwrgxzisv0onfelcyvvqmky2pquba/ARGENTINISIMA/ARGENTINISIMA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11050,7 +11050,7 @@
               "name": "TLC",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1187",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1187",
               "drm_license_uri": "kid:fD84uawfQzKeo04NLGW1vg,k:0niupknRpr0cNhC3ODkAUA",
               "original_url": "http://edge1052.telecentro.net.ar:80/bpk-token/1ab@hgw1gfv0yo1ueivh50zpwmxnkkrr3wjjhwneudba/TLC/TLC.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11068,7 +11068,7 @@
               "name": "CONSTRUIR TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=34",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=34",
               "drm_license_uri": "kid:dHpj3LequnDkQZ5Z4cc8BA,k:MoMzIt_ZVmLQki6WhxF8Xw",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@52j1l0dhhnpjpeiipmw4dtwxuphp04s450cbz2da/CONSTRUIRTV/CONSTRUIRTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11086,7 +11086,7 @@
               "name": "RURAL",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=32",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=32",
               "drm_license_uri": "kid:d7FXyae_rL_S294RYwFX8w,k:DjjEBa_-HSlGUR8lH1waiQ",
               "original_url": "http://edge6038.telecentro.net.ar:80/bpk-token/1ab@zvjq5bk2gb4hyjmykwlsrta5deonc2pqzjrpnhca/RURAL/RURAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11104,7 +11104,7 @@
               "name": "FOOD NETWORK",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2068",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2068",
               "drm_license_uri": "kid:u1r-zsI7MgIKu13J3OYRkQ,k:XzXtl_MJOYFWypsjCSWoAg",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@ebi5q1o5a3dolrzi3rgiyq4bxfja0h2wepnfc3ca/FOODNETWORK/FOODNETWORK.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11122,7 +11122,7 @@
               "name": "DISCOVERY SCIENCE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=130",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=130",
               "drm_license_uri": "kid:DQaLeoIEZAV5a6GtqnLKVA,k:R7K-zhzT8yGUrTNBPzjbXA",
               "original_url": "http://edge4126.telecentro.net.ar:80/bpk-token/1ac@5obg0wzkfyi1wao2req5hcmuntwlqrwn5smyiqba/SCIENCEDISCOVERY/SCIENCEDISCOVERY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11140,7 +11140,7 @@
               "name": "STAR TVE",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2070",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2070",
               "drm_license_uri": "kid:p49ZILER_GBeZpfAsxp9kw,k:pXmlWssBlbpGrVEzx517kQ",
               "original_url": "http://edge4284.telecentro.net.ar:80/bpk-token/2ad@vqizxz1ecf5g5ariosxk1rsptxeek4n4v0uk1gca/STARTVE/STARTVE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11158,7 +11158,7 @@
               "name": "FILM AND ARTS",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=114",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=114",
               "drm_license_uri": "kid:mE18mjUPTHCXsnixf_g8VA,k:eQPqfiIEUl0O2Jk_QNqBdg",
               "original_url": "http://edge6210.telecentro.net.ar:80/bpk-token/2ad@cxcmte2jkqnsaws3eajfufygjayva1ebc3o551ba/FILMANDARTS/FILMANDARTS.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11176,7 +11176,7 @@
               "name": "HOME & GARDEN TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=129",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=129",
               "drm_license_uri": "kid:VFB9q0TtKhdPSfUo1chA1A,k:RkdosfL9WF9PhSdohbRcuw",
               "original_url": "http://edge2046.telecentro.net.ar:80/bpk-token/1ac@p5zniinwhxbbv0gaun55et1qqs1podckptcq0oba/CIVILIZATIONDISCOV/CIVILIZATIONDISCOV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11199,7 +11199,7 @@
               "name": "E!",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=163",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=163",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge2046.telecentro.net.ar:80/bpk-token/1ac@1pbw1o3ffyo1vmo2je2xfcmx3s4lq3wl1d0ljiba/ENTERTAINMENT/ENTERTAINMENT.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11217,7 +11217,7 @@
               "name": "MTV",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=184",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=184",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge6162.telecentro.net.ar:80/bpk-token/1ac@c0bmabvchqbeeie2uz1fodyackroadiic2ssshba/MTVHD/MTVHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11235,7 +11235,7 @@
               "name": "QUIERO MUSICA",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1141",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1141",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@hpr3vmdqfwxsntnemd3oec1lz4ylmpf1hdaoztca/QUIEROMUSICA/QUIEROMUSICA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11253,7 +11253,7 @@
               "name": "CANAL DE LA MUSICA",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2017",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2017",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@1gk1gagqin1aic0j5klwxuwnamwr0wbq1abbugca/CANALDELAMUSICA/CANALDELAMUSICA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11271,7 +11271,7 @@
               "name": "HTV",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=79",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=79",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@h12s3bsctlwhyzuslxlomzf1duzgxmpqhz1br4da/HTV/HTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11294,7 +11294,7 @@
               "name": "MUSIC TOP HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1148",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1148",
               "drm_license_uri": "kid:sxHdY3CMzXA_kJd5nlgz6Q,k:mS4nOy4Rb6bwuGJoLgCQ5Q",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@b3wcnx1f1ku3o3sxd5qcanf0oxixvi13bvl35rda/MUSICTOP/MUSICTOP.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11312,7 +11312,7 @@
               "name": "TELEFE HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=50",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=50",
               "drm_license_uri": "kid:g5M4SjffgyNAko5CU_8Xiw,k:nrfDEhyx8S0yDJUpr5fOFQ",
               "original_url": "http://edge83032.telecentro.net.ar:80/bpk-token/1ac@myphcojk53iyvlalri2zk5oe2sd41rqlmqh4qiba/bpk-tv/TELEFE_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -11330,7 +11330,7 @@
               "name": "CANAL 26 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=49",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=49",
               "drm_license_uri": "kid:gf03YwPMvVUsOSAF9Q60Xw,k:DA_zxlohcFCAPdL1DwqmVg",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@2zmqbv3btbguw0q0kzrzjzadk1pgdmin2rrpttba/CANAL26/CANAL26.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11348,7 +11348,7 @@
               "name": "CANAL 13 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=51",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=51",
               "drm_license_uri": "kid:Eh1BZ56lFWtyOP2sILIjSg,k:zBwpWyxAwGmhVF5d2PMiVg",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@ljxvbabu3wgauxihij1xioldakk0nnailp2ptgba/bpk-tv/CANAL13_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -11366,7 +11366,7 @@
               "name": "TELEMAX HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1137",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1137",
               "drm_license_uri": "kid:mDxdj9UwS-eO23fiT-_59g,k:XTpnps11X6kcxhWEf5Ugdw",
               "original_url": "http://edge3118.telecentro.net.ar:80/bpk-token/1ab@qdomtrsdyrng0w31eqda32ygdn3qd1muqzdmaxca/TELEMAX/TELEMAX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11384,7 +11384,7 @@
               "name": "AMERICA HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=52",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=52",
               "drm_license_uri": "kid:yWDwLANvHjHOFE3qOeAsvQ,k:xWj7OsfaJ5gqwGzAl5Lk0A",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@inqcuokmbkq0zs0utdmqaafi3eiduavtinichica/bpk-tv/AMERICA_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -11402,7 +11402,7 @@
               "name": "TIERRAMIA TV HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2014",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2014",
               "drm_license_uri": "kid:cnA_VahqpR01XdbridriDQ,k:g-IQj5MZvHFgdglZ7Bt-pg",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@d24fkqg31xib0qsdqmdgc3lua3axprcudqcxgpda/TIERRAMIA/TIERRAMIA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11420,7 +11420,7 @@
               "name": "LATINA  TV",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2246",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2246",
               "drm_license_uri": "kid:zwAhAAsHVpfL1M5sPr4Hkw,k:qMI9n1I6-R53cjdspHgEtw",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@gh35l23vu5prx4pcnmvnu05xy1zj55cpgf0mhdaa/LATINATV/LATINATV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11438,7 +11438,7 @@
               "name": "CANAL 9 HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=21",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=21",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge6276.telecentro.net.ar:80/bpk-token/2ad@tl3ijhppvdf32jjsg3ygn0rso44khk0ztpc1fyca/bpk-tv/CANAL9_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -11456,7 +11456,7 @@
               "name": "NET TV HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2054",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2054",
               "drm_license_uri": "kid:AmcveTXOIRw5xyrfCenCFg,k:gVGiiBVmSgnMwcM1239Fpg",
               "original_url": "http://edge6276.telecentro.net.ar:80/bpk-token/2ad@svozcq220flaspwl4idfr3sfarovlwaesrrkopba/NETTV/NETTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11474,7 +11474,7 @@
               "name": "TNT SPORTS PREMIUM HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1191",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1191",
               "drm_license_uri": "kid:pQZn9Kd5BsBUz6HXEdNvTQ,k:S6QT6-_tj-45k_zEGyATog",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@fltstphfnko4nukvlq2kmgfh5oy0u221fhcb5qca/bpk-tv/TNTSPORT_ULL/default/index.mpd?bkm-query",
               "headers": {
@@ -11492,7 +11492,7 @@
               "name": "NICK HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=15",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=15",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge6240.telecentro.net.ar:80/bpk-token/2ad@ygh24o0q2q11jlm52gmqxoy332wzbxxtyqjpsrda/NICK2/NICK2.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11510,7 +11510,7 @@
               "name": "CARTOON NETWORK HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1130",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1130",
               "drm_license_uri": "kid:L6m2l1gUZ3yTNXQ-xF37dA,k:OxbMHz6clTHRh0sBMUaTtA",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@uj0solwsjl0nzk1r14oijuf3wemswu1suntm2nca/CARTOONNETWORK/CARTOONNETWORK.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11528,7 +11528,7 @@
               "name": "CARTOONITO HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2007",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2007",
               "drm_license_uri": "kid:CyA0nUgbWpNVBOtKRbl7pg,k:tgLUFv6rSWfDrbxFqqDdfA",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@vh2twlwxqp0ojg3c1sokvyhnxm5b5u3svhetfnca/BOOMERANG/BOOMERANG.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11546,7 +11546,7 @@
               "name": "DISCOVERY KIDS HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=8",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=8",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@s2zg551xh12552bqbwuedtn45xgpwz55s2bgmzda/DISCOVERYKIDS/DISCOVERYKIDS.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11564,7 +11564,7 @@
               "name": "DISNEY CHANNEL HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=3",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=3",
               "drm_license_uri": "kid:3jOQoqJKjSc6XvKp8YgHYg,k:k4aQcS1k62JBQtCiw4XWRA",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@hievmz2krusfdl1oy5hpkikzsbbcjflghazk45aa/DISNEYCHANNELHD/DISNEYCHANNELHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11582,7 +11582,7 @@
               "name": "DISNEY JR HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2020",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2020",
               "drm_license_uri": "kid:PN3uQss-3yR6nlbgv2FleQ,k:maQ2G9Eaw5m4cV2ojynDKg",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@evqyz5kudch5lkuuoveiqbrt5fjfeo4xe1vclzca/DISNEYJUNIOR/DISNEYJUNIOR.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11600,7 +11600,7 @@
               "name": "BITME HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2053",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2053",
               "drm_license_uri": "kid:JBGC9ayFF94_fXeA61crvQ,k:yme3NUyMInj1de31FAtXiQ",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@p35p2erq55rteubdvhz5a55yj0l55dhjpt0vocba/BITME/BITME.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11618,7 +11618,7 @@
               "name": "STAR CHANNEL HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=45",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=45",
               "drm_license_uri": "kid:rLmCYJ8YqCaSCjHeahN58Q,k:uC0zDbpKLgAFe4bbvpVZ3w",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@nvpina324bvbexf1gp11q5q0akk3dkdinvgi4gba/FOX/FOX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11636,7 +11636,7 @@
               "name": "UNIVERSAL HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=46",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=46",
               "drm_license_uri": "kid:8rEVMPPgFZFCMkt6yDkumQ,k:gFMxmRhpyXamRXkqZBQWcw",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@hul2bf5corhu2nyymzzosxydk4a3cpizhqcctdda/UNIVERSAL/UNIVERSAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11654,7 +11654,7 @@
               "name": "SPACE HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=47",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=47",
               "drm_license_uri": "kid:91FEPLo7FQBwlo1JHTLv1A,k:gw-IGFdABjbawLUEr_nGCQ",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@lcxylcvp2cpje1qwom0x4orxe0tyf4silc4yyeba/SPACEHD/SPACEHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11672,7 +11672,7 @@
               "name": "CINECANAL HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=40",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=40",
               "drm_license_uri": "kid:L_yxzrcIkRJuDOnNB3r17w,k:6MehQerNHAL1b26qMkYp8g",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@cfmfsosyqvi0z0alqameqyke3ujblrutcbf1aica/CINECANAL/CINECANAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11690,7 +11690,7 @@
               "name": "TNT HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=41",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=41",
               "drm_license_uri": "kid:WtbgvkElCd-VRl2JHdkDXA,k:Deh6_UWNrZVqvQ0B2Qee-A",
               "original_url": "http://edge13023.telecentro.net.ar:80/bpk-token/1ab@mz2qyrkntdchkyot0vdyizbrdnlgheoumh3jkxca/TNTHD/TNTHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11708,7 +11708,7 @@
               "name": "SONY HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=58",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=58",
               "drm_license_uri": "kid:VhJvqHRocoTeVYY2zBQ6Lg,k:UyblDVJlASyV7azIWMHF5g",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@xmkzl2ncjfprxieiomvpdusxy1etk4cpxmdzy0ba/SONY/SONY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11726,7 +11726,7 @@
               "name": "AMC HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=48",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=48",
               "drm_license_uri": "kid:gprZm4c7ByE1Tz5yT6-g-Q,k:SX6rMqCgCL54jioPspgYiQ",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@mj3jd5dwvhn2pjwdgyuyi0tg4hlkp0y5mfb1paca/AMC/AMC.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11744,7 +11744,7 @@
               "name": "AXN HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=59",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=59",
               "drm_license_uri": "kid:YJVdVRCfwdetK-X1tJvlkA,k:hqo67q1Sg9x2y5vzkUlgiA",
               "original_url": "http://edge6276.telecentro.net.ar:80/bpk-token/2ad@v4ex1u4mt2ot0qnpjebkhjoxjnxhz3gvv01exlda/AXN/AXN.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11762,7 +11762,7 @@
               "name": "WARNER HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=60",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=60",
               "drm_license_uri": "kid:FwGqvGCNvbOYPMIRt1vIuQ,k:JQ3ijZqOeK39gqBvZontJw",
               "original_url": "http://edge4086.telecentro.net.ar:80/bpk-token/1ac@v3pyvii15bxcbi20odplb5qlrqn5dofcvdmghoaa/WARNER/WARNER.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11780,7 +11780,7 @@
               "name": "A&E HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=61",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=61",
               "drm_license_uri": "kid:zUFSIuFuuVxlo049iBYJfw,k:6e7HoCB2hVXQjLYQ6W8z5g",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@jjbl12omfmntluxnhefsicwwzvkky0gxjb2uj0ca/AyE/AyE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11798,7 +11798,7 @@
               "name": "CINEMAX HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=62",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=62",
               "drm_license_uri": "kid:nQpSZ07rEA8NRucyeM6gBQ,k:-eroH67uxTm8M-Du4qgtfA",
               "original_url": "http://edge13023.telecentro.net.ar:80/bpk-token/1ab@if03scaqixlkqgaa2akrqu1ffikroxuai11eaeaa/CINEMAX/CINEMAX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11816,7 +11816,7 @@
               "name": "FX HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=9",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=9",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@fa1e2cwmmtqly5sqqhkk0wjyfmaygbxqfes0oeca/FX/FX.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11834,7 +11834,7 @@
               "name": "DISCOVERY ID HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=17",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=17",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@eods2mpmnistnjv21h3iggezzgr1qeh1eagiokda/IDHD/IDHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11852,7 +11852,7 @@
               "name": "STUDIO UNIVERSAL HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1134",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1134",
               "drm_license_uri": "kid:fSnNlcUQ44ojmTbRhQ5G4g,k:edvF5resoHzIWjYb_dUh7Q",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@yixrjeoj3ggri5wgknjqlodtieg0nmcryeldf1da/STUDIOUNIVERSAL/STUDIOUNIVERSAL.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11870,7 +11870,7 @@
               "name": "TNT SERIES HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1136",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1136",
               "drm_license_uri": "kid:bZEx-JgyjOlZIqQaHQ1_wg,k:U_xgAk31cTDbGk41I4dvrQ",
               "original_url": "http://edge7064.telecentro.net.ar:80/bpk-token/1ac@cd3unkxfutwjnlttip4e20j1ugyihnt0ctdj5mda/TNTSERIES/TNTSERIES.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11888,7 +11888,7 @@
               "name": "TNT NOVELAS HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1135",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1135",
               "drm_license_uri": "kid:y76ru9eyR9rwVQTT37mnAw,k:Bh1u2FnJXiNJAXIobqvysg",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@uf1cxcjcml2kucqqdc0jrwfof0nzwyviung3feba/TBSVERYFUNNY/TBSVERYFUNNY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11906,7 +11906,7 @@
               "name": "USA HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2010",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2010",
               "drm_license_uri": "kid:irA13zZ6-P9k86-IhqHtIQ,k:7qpUg90ohD8dmXt2J--lvA",
               "original_url": "http://edge6162.telecentro.net.ar:80/bpk-token/1ac@ddgrps3wye4jw3eokosh2mc5edzqj2tmdfvp3uba/USA/USA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11924,7 +11924,7 @@
               "name": "CINEAR HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2011",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2011",
               "drm_license_uri": "kid:Txtnt7oMOWIAZyaaCzAaBA,k:BMknyS8aL4vIcCurApNzbg",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@ldncd4tbujmypeu1diuw20eg2p0ityq5lfgyryda/CINEAR/CINEAR.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11942,7 +11942,7 @@
               "name": "HBO HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=133",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=133",
               "drm_license_uri": "kid:k32jWGCZgLJA055wOOpnpw,k:Y5TcW97fBgjb7nMJoAtkjA",
               "original_url": "http://edge7232.telecentro.net.ar:80/bpk-token/2ad@gt5zcz0n4hle1z2c4yhm25tfsvy2pwiwg5okogda/HBO/HBO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11960,7 +11960,7 @@
               "name": "HBO SIGNATURE HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=12",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=12",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@nclvh04wmv4ilzviikg04wkpunryk3rwnctvu2ca/HBOSIGNATURE/HBOSIGNATURE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11978,7 +11978,7 @@
               "name": "HBO FAMILY HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=10",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=10",
               "drm_license_uri": "kid:FnnTkvJgTYl-311ud1JZzw,k:d6XR7F-itrfNRhZayDn34Q",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@b14m0euh1tjtawisuejdm3zujqywhtgbbxmwicaa/HBOFAMILYEHD/HBOFAMILYEHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -11996,7 +11996,7 @@
               "name": "HBO 2 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2477",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2477",
               "drm_license_uri": "kid:Fc3A2qYBrRr4Za-Bmp1R1Q,k:LjnaUwkm6Vqhuz58PZ2o7A",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@333snwhwxlwzoo1tlpq0b1f1mhppxmt3350bbjca/HBO2/HBO2.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12014,7 +12014,7 @@
               "name": "HBO PLUS HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2510",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2510",
               "drm_license_uri": "kid:WF2IAMlEw7Gj1E-h5OKGTg,k:yyCADaBWzh1zQSm0Bo9_GA",
               "original_url": "http://edge72043.telecentro.net.ar:80/bpk-token/1ac@qhqtlnwxaoovz1ffl2navahx022b22ktqlcjzlca/HBOPLUSE/HBOPLUSE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12032,7 +12032,7 @@
               "name": "HBO POP HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2513",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2513",
               "drm_license_uri": "kid:Ugrqkdj1NrtWS6ke63LRqw,k:tl1VxEbUe0lsVtct88y2HQ",
               "original_url": "http://edge4126.telecentro.net.ar:80/bpk-token/1ac@fvampxv4cq33gep3e4qlqby4odifa11nfjns3rba/MAXUP/MAXUP.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12050,7 +12050,7 @@
               "name": "HBO XTREME HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2512",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2512",
               "drm_license_uri": "kid:ZDnU5R7UVbnqTz9Q3crEaA,k:VfRwfajqrcCww6H9j6WovQ",
               "original_url": "http://edge5078.telecentro.net.ar:80/bpk-token/1ab@kvciscamkajkadp2wakvqfqefikvasuak35xaeaa/MAXPRIMEE/MAXPRIMEE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12068,7 +12068,7 @@
               "name": "HBO MUNDI HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2511",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2511",
               "drm_license_uri": "kid:WudTYT6Zffoz7xCEJ0ieJQ,k:qqtSbdq9NPuyUehmO6BYtg",
               "original_url": "http://edge4126.telecentro.net.ar:80/bpk-token/1ac@xignq0zlzubkxuboubwplm0avtesjduoxultc2ba/MAXE/MAXE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12086,7 +12086,7 @@
               "name": "TELECENTRO PREVIEW",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2055",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2055",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge52035.telecentro.net.ar:80/bpk-token/1ac@bebfsfreeuiwujxnqqzdsckel0ajirmjbck5adba/TELECENTROPREVIEW/TELECENTROPREVIEW.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12104,7 +12104,7 @@
               "name": "NAT GEO HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=5",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=5",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge3092.telecentro.net.ar:80/bpk-token/1ab@1yk5bk2el3hirfjinjoxlv4duyhw0pqc1yd5smaa/NATGEO/NATGEO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12122,7 +12122,7 @@
               "name": "DISCOVERY HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=6",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=6",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge2024.telecentro.net.ar:80/bpk-token/1ac@1etc5mwlmk2tzlxudgnwtgf4z2gzuyht1k35nkca/DISCOVERY/DISCOVERY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12140,7 +12140,7 @@
               "name": "HISTORY HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=63",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=63",
               "drm_license_uri": "kid:TXd66ONu2RRn6xaX1M5LOQ,k:CzgrGwDXxQ4rV7_qLiO22A",
               "original_url": "http://edge4198.telecentro.net.ar:80/bpk-token/2ad@qslp0leho3jpr22ivuob5x4uxau20t4cq4x3wuba/HISTORY/HISTORY.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12158,7 +12158,7 @@
               "name": "HISTORY 2 HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2052",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2052",
               "drm_license_uri": "kid:YS5Yn7UCDmQqMCJBOY5NdA,k:Wv0EHwn7G_9PSRulqA-nDw",
               "original_url": "http://edge2024.telecentro.net.ar:80/bpk-token/1ac@udlwpj45mz4fjsuyj4pi3wm5se3ys3lsunfl3pca/HISTORY2/HISTORY2.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12176,7 +12176,7 @@
               "name": "ADULTSWIM HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=43",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=43",
               "drm_license_uri": "kid:82LFC6Z7IsGLkMdcB5h5_g,k:nNOIyg1pbYOtgeFQSe9UuA",
               "original_url": "http://edge3118.telecentro.net.ar:80/bpk-token/1ab@0sqcd3rtckmuh4bvdyvv5bfg01xeuyip0i3cq1ba/ADULTSWIM/ADULTSWIM.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12194,7 +12194,7 @@
               "name": "QUIERO MUSICA HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1142",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1142",
               "drm_license_uri": "kid:zuOwHmcI4spYdw4aLJmDQw,k:hD_ks39g4tNcBiP2yjDz_g",
               "original_url": "http://edge2173.telecentro.net.ar:80/bpk-token/1ab@5oco3vftjyvxw3p2fxr5he20l1vtqlpn5o0ootba/QUIEROMUSICA/QUIEROMUSICA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12212,7 +12212,7 @@
               "name": "DISCOVERY THEATER HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=167",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=167",
               "drm_license_uri": "kid:NEFFNrC_xCoEEE29ITvF5Q,k:aNi7sA4biIYwuI1pYSQkaA",
               "original_url": "http://edge12023.telecentro.net.ar:80/bpk-token/1ab@i210vo4wplx0zowqpdmqcxvl3mc5wovti4sahica/DISCOVERYTHEATER/DISCOVERYTHEATER.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12230,7 +12230,7 @@
               "name": "GOURMET HD",
               "telep": "yes",
               "type": "WIDEVINE",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=19",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=19",
               "drm_license_uri": "https://web-bev.telecentro.net.ar/telecentro/askLicenseWV",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@bnto1ggfn0n1ii4ufeicag3wnei1u1wrbpu3xzda/GOURMET/GOURMET.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12248,7 +12248,7 @@
               "name": "ANIMAL PLANET HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1131",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1131",
               "drm_license_uri": "kid:hPid8Yr_IQat3Z49lqbCPA,k:8l1GF1wdrWMWt5MV-W3iLg",
               "original_url": "http://edge43016.telecentro.net.ar:80/bpk-token/1ab@sdfshqxyui4aosz5lkte3kepax2ir2b2sv2kvwda/ANIMALPLANETHD/ANIMALPLANETHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12266,7 +12266,7 @@
               "name": "HOME & HEALTH HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1144",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=1144",
               "drm_license_uri": "kid:UTT0ZPgJKarSPASITVOkwg,k:lP7skYGPMAyYVYVbT7sTdg",
               "original_url": "http://edge6132.telecentro.net.ar:80/bpk-token/1ab@ozqa0opidci1nhevse22ibbu3gkgeqw1ozcajida/HOMEANDHEALTH/HOMEANDHEALTH.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12284,7 +12284,7 @@
               "name": "TELEMUNDO HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2012",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2012",
               "drm_license_uri": "kid:Sn-IUlRKhERJSfKJ4Bv8lg,k:bv3NIHlDi9rW0wY0c009fQ",
               "original_url": "http://edge6210.telecentro.net.ar:80/bpk-token/2ad@nlkax35ljb2wp5nycsv0muao151scyn5nbgt1cca/TELEMUNDO/TELEMUNDO.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12302,7 +12302,7 @@
               "name": "LIFETIME HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2008",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2008",
               "drm_license_uri": "kid:FcW9_SXt9KCCm93tvOaR9Q,k:zzHZWlJS9LPZV3k6My8gVA",
               "original_url": "http://edge4254.telecentro.net.ar:80/bpk-token/2ad@siyxvjrlb5wgvkmbjt5flqpltcfc4nnksqaezwaa/LIFETIME/LIFETIME.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12320,7 +12320,7 @@
               "name": "AMC SERIES HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2549",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2549",
               "drm_license_uri": "kid:AjigIu8lZ8SvjEOuzBc9gA,k:gy1dVMaomIzcioZGxHaXsg",
               "original_url": "http://edge7262.telecentro.net.ar:80/bpk-token/2ad@dy3blqdkxhmbo1udcmtgk1dwaxbopyc2dioshpca/AMCSERIES/AMCSERIES.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12338,7 +12338,7 @@
               "name": "RAI HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2005",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2005",
               "drm_license_uri": "kid:mNb31uc4qxeaxs3iGhrBMA,k:-Qhb-9IT8FLEzFNrrNuoAg",
               "original_url": "http://edge4186.telecentro.net.ar:80/bpk-token/1ac@q1wdyf1e1oax2nfgtvzannhqlg4w3aozq1a3kdda/RAI/RAI.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12356,7 +12356,7 @@
               "name": "EUROPA EUROPA HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2019",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2019",
               "drm_license_uri": "kid:7wPDkpGlYgoC9p8isDkdcg,k:deOWj_736bwPhHJv67gJSw",
               "original_url": "http://edge3104.telecentro.net.ar:80/bpk-token/1ac@sqvqgpyzwc02r1qx00mf1lbn4qfmfuzdsu2oujaa/EUROPAEUROPA/EUROPAEUROPA.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12374,7 +12374,7 @@
               "name": "FILM AND ARTS HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2050",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2050",
               "drm_license_uri": "kid:mE18mjUPTHCXsnixf_g8VA,k:eQPqfiIEUl0O2Jk_QNqBdg",
               "original_url": "http://edge6210.telecentro.net.ar:80/bpk-token/2ad@y5p5ps4v535j0uxknocqf545ev4515tuyvdmdnda/FILMANDARTS/FILMANDARTS.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12392,7 +12392,7 @@
               "name": "DISCOVERY WORLD HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=168",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=168",
               "drm_license_uri": "kid:j1N3v2Vf-Ay0lAb9TlJBTQ,k:GdyIuY6NIwPPen0FugEV_g",
               "original_url": "http://edge7262.telecentro.net.ar:80/bpk-token/2ad@jvue2whdssq1o2cxqhqsqjjynhlffbx3jfhxqjca/DISCOVERYWORLD/DISCOVERYWORLD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12410,7 +12410,7 @@
               "name": "CLAN TV HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2063",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2063",
               "drm_license_uri": "kid:nLfXPrizDAbatnMp4JoXZw,k:3eV2050Gabr4PypPIZFWow",
               "original_url": "http://edge4228.telecentro.net.ar:80/bpk-token/2ad@jts3mxo0kwt30lbe25as2f1zof0umh1vjrvoaida/CLANTV/CLANTV.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12428,7 +12428,7 @@
               "name": "STAR TVE HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2061",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2061",
               "drm_license_uri": "kid:p49ZILER_GBeZpfAsxp9kw,k:pXmlWssBlbpGrVEzx517kQ",
               "original_url": "http://edge82012.telecentro.net.ar:80/bpk-token/1ab@nzcbhrpple2e4aemc0t0ifcocplwiyj2nxh1vxda/STARTVE/STARTVE.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12446,7 +12446,7 @@
               "name": "MTV HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=136",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=136",
               "drm_license_uri": "kid:6J7tkc7aV62_ev9hG3niTA,k:44_bJPQCQpZnBqG8P9ARxg",
               "original_url": "http://edge7262.telecentro.net.ar:80/bpk-token/2ad@pg4nl3uqyxnvdtice2f5w21w0rsrp1khpwn4hcba/MTVHD/MTVHD.isml/manifest.mpd?bkm-query",
               "headers": {
@@ -12464,7 +12464,7 @@
               "name": "FOOD NETWORK HD",
               "telep": "yes",
               "type": "CLEARKEY",
-              "icono": "https://web-bev.telecentro.net.ar/proxy/imgData?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2067",
+              "icono": "https://web-bev.telecentro.net.ar/proxy/imgdata?type=channel_wtv-mobile-logo-type-color&languageId=spa&objectId=2067",
               "drm_license_uri": "kid:u1r-zsI7MgIKu13J3OYRkQ,k:XzXtl_MJOYFWypsjCSWoAg",
               "original_url": "http://edge12023.telecentro.net.ar:80/bpk-token/1ab@pldmkpsrnqj3zr42u2m4mgyu4u10at0tpjkwyjca/FOODNETWORK/FOODNETWORK.isml/manifest.mpd?bkm-query",
               "headers": {
