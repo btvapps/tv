@@ -1,6 +1,6 @@
 {
-  "isenabled": "v1.3-KAI",
-   "no_updt": ["v1.2-KAI", "v1.2.1-KAI"],
+  "isenabled": "v1.3.1-KAI",
+   "no_updt": ["v1.3-KAI","v1.2-KAI", "v1.2.1-KAI"],
   "canal_inicial": "ESPN PREMIUM",
   "clave": "6692",
   "version_web": "v1.3-KAI"
