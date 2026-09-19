@@ -602,6 +602,43 @@
             margin-left: 8px;
         }
 
+        /* Indicador elegante de transmisión EN VIVO */
+        .live-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.15);
+            border: 1px solid rgba(255, 71, 87, 0.35);
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            margin-right: 4px;
+            user-select: none;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #ff4757;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #ff4757;
+            animation: livePulse 1.5s infinite;
+        }
+
+        @keyframes livePulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Ocultar timestamps gigantescos rotos de streams en vivo */
+        .shaka-current-time {
+            display: none !important;
+        }
+
         /* Toast / Banner amigable para Desmutear (Autoplay) */
         #unmute-banner {
             position: absolute;
@@ -721,6 +758,7 @@
         <!-- Overlay flotante para selección de fuentes, calidad y aspect ratio -->
         <div id="sources-overlay" style="display: none;" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" onclick="event.stopPropagation()">
             <div class="sources-badge">
+                <span class="live-tag"><span class="live-dot"></span> EN VIVO</span>
                 <span class="sources-label">📡 Fuentes:</span>
                 <div id="sources-buttons" class="sources-buttons-list"></div>
 
@@ -1459,7 +1497,7 @@
                     window.ui = new shaka.ui.Overlay(window.player, videoContainer, videoElement);
                     window.ui.configure({
                         controlPanelElements: [
-                            'play_pause', 'time_and_duration', 'spacer', 'mute', 
+                            'play_pause', 'spacer', 'mute', 
                             'volume', 'fullscreen', 'overflow_menu'
                         ],
                         overflowMenuButtons: ['quality', 'language', 'captions']
